@@ -19,9 +19,9 @@ class Course(models.Model):
     boolean=fields.Boolean(string="Boolean")
     char=fields.Char(string="char")
     boolean1=fields.Boolean(string="Promediar?")
-    pr1=fields.Float(string="Califiación Unidad 1")
-    pr2=fields.Float(string="Califiación Unidad 2")
-    pr3=fields.Float(string="Califiación Unidad 3")
+    pr1=fields.Float(string="Unidad 1")
+    pr2=fields.Float(string="Unidad 2")
+    pr3=fields.Float(string="Unidad 3")
     pr=fields.Float(defalut='promediar')
 
     name2 = fields.Char(required=True,default='Click on generate name!')

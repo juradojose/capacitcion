@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-        <!--Model-->
+        
         <record model="ir.ui.view" id="course_form_view">
             <field name="name">course.form</field>
             <field name="model">openacademy.course</field>
@@ -51,7 +51,7 @@
             </field>
         </record>
 
-        <!--Alumnos-->
+        
        <record id="course_tree_alumns" model="ir.ui.view">
            <field name="name">model.name.view.tree</field>
            <field name="model">openacademy.course2</field>
@@ -125,7 +125,7 @@
             </field>
         </record>
 
-        <!-- top level menu: no parent -->
+        <!-- MENU PRINCIPAL -->
         <menuitem id="main_openacademy_menu" name="Open Academy"/>
         <!-- A first level in the left side menu is needed
              before using action= attribute -->

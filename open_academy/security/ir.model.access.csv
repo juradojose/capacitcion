@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_open_academy_maestros,open_academy.maestros,model_openacademy_course2,group_maestros,1,0,0,0
+access_open_academy_alumnos,open_academy.alumnos,model_openacademy_course2,group_alumnos,1,0,0,0
+access_open_academy_admin,open_academy.admin,model_openacademy_course2,group_admin,1,1,1,1
+access_open_academy_padres,open_academy.padres,model_openacademy_course,group_alumnos,1,0,0,0

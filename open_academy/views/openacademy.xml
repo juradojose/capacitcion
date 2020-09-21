@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <!--Model-->
+        <record model="ir.ui.view" id="course_form_view">
+            <field name="name">course.form</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <form string="Course Form">
+                    <header>
+	                    <button string="Genera un nombre" type="object" name="generate_record_name" class="oe_highlight"/>
+		                <button string="Genera una contraseña" type="object" name="generate_record_password"/>
+		                <button string="Borrar datos" type="object" name="clear_record_data"/>
+	                </header>
+                    <group string="Nombre y password">
+		                <field name="name2"/>
+		                <field name="password"/>
+	                </group>
+                    <sheet>
+                        <group string= "Datos personales">
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="fecha"/>
+                            <field name="decimal"/>
+                            <field name="entero"/>
+                        </group>
+                        <group string= "Datos de la empresa">
+                            <field name="bina"/>
+                            <field name="seleccion"/>
+                            <field name="boolean"/>
+                            <field name="char"/>
+                        </group>
+                        <group string= "Promedios con api">
+                            <field name="boolean1"/>
+                            <field name="pr1"/>
+                            <field name="pr2"/>
+                            <field name="pr3"/>
+                            <button string="Promediar" type="object" name="generate_promedio"/>
+                            <field name="pr"/>
+                        </group>  
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="course_list_action">
+            <field name="name">Courses</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Crea el primer curso
+                </p>
+            </field>
+        </record>
+
+        <!--Alumnos-->
+       <record id="course_tree_alumns" model="ir.ui.view">
+           <field name="name">model.name.view.tree</field>
+           <field name="model">openacademy.course2</field>
+           <field name="arch" type="xml">
+               <tree>
+                   <field name="name3"/>
+               </tree>
+           </field>
+       </record>
+        <record model="ir.ui.view" id="course_form_alumns">
+            <field name="name">course.form2</field>
+            <field name="model">openacademy.course2</field>
+            <field name="arch" type="html">
+                <form string= "Course Form2">
+                    <header>
+	                    <button string="Set to concept" type="object" name="concept_progressbar" attrs="{'invisible': [('barra', '=', 'concept')]}"/>
+	        <!--The oe_highlight class gives the button a red color when it is saved.
+	        It is usually used to indicate the expected behaviour. -->
+	                    <button string="Set to started" type="object" name="started_progressbar" class="oe_highlight" attrs="{'invisible': [('barra','!=','concept')]}"/>
+	                    <button string="In progress" type="object" name="progress_progressbar" attrs="{'invisible': [('barra','=','progress')]}"/>
+	                    <button string="Done" type="object" name="done_progressbar" attrs="{'invisible': [('barra','=','finished')]}"/>
+	        <!--This will create the statusbar, thanks to the widget. -->
+	                    <field name="barra" widget="statusbar"/>
+	                </header>
+                    <group string= "Datos personales">
+                        <field name="foto"/>
+                        <field name="name3"/>
+                        <field name="description3"/>
+                        <field name="fecha3"/>
+                        <field name="many"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="course_list_alumns">
+            <field name="name">Alumnos</field>
+            <field name="res_model">openacademy.course2</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Crear el primer curso
+                </p>
+            </field>
+        </record>
+
+        <!--Carreras-->
+        <record model="ir.ui.view" id="course_form_carrera">
+            <field name="name">course.form3</field>
+            <field name="model">openacademy.course3</field>
+            <field name="arch" type="html">
+                <form string= "Course Form3">
+                    <group string= "Cual es tu carrera">
+                        <field name="seleccion2"/>
+                        <field name="semestre"/>
+                        <field name="grupo"/>
+                        <field name="one">
+                            <tree>
+                                <field name="name3"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="course_list_carrera">
+            <field name="name">Carrera</field>
+            <field name="res_model">openacademy.course3</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Buscar carrera
+                </p>
+            </field>
+        </record>
+
+        <!-- top level menu: no parent -->
+        <menuitem id="main_openacademy_menu" name="Open Academy"/>
+        <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <menuitem id="openacademy_menu" name="Open Academy"
+                  parent="main_openacademy_menu"/>
+        <!-- the following menuitem should appear *after*
+             its parent openacademy_menu and *after* its
+             action course_list_action -->
+        <menuitem id="courses_menu" name="Courses" parent="openacademy_menu"
+                  action="course_list_action"/>
+        <!-- Full id location:
+             action="openacademy.course_list_action"
+             It is not required when it is the same module -->
+        <menuitem id="courses_menu2" name="Alumnos" parent="openacademy_menu"
+                  action="course_list_alumns"/>
+
+        <menuitem id="courses_menu3" name="Carrera" parent="openacademy_menu"
+                  action="course_list_carrera"/>
+</odoo>
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",-->

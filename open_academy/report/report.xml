@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+ <odoo>
+    <report
+        id="parner_inherit_report"
+        model="res.partner"
+        string="Invoices"
+        report_type="qweb-pdf"
+        menu="False"
+        name="open_academy.parner_inherit_report_ind"
+        file="open_academy.parner_inherit_report_ind"
+    />
+</odoo>

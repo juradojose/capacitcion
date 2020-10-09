@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_bank_account_beneficiary_parametrizacion" model="ir.ui.view">
+        <field name="name">view.eventos.form.parametrizacion</field>
+        <field name="model">model.cont.eventos</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                       <field name="padre" readonly="1"/>
+                        <field name="anio" readonly="1"/>
+                        <field name="codigo" readonly="1"/>
+                        <field name="name" readonly="1"/>
+                    </group>
+                    <group string="Configuración de Vista">
+                    <field name="encabezado_view"/>
+                    <field name="details_view" string="Vista Detalles"/>                    
+					<field name="layout_beneficarios"/>
+					<field name="informe"/>
+					<field name="fecha_vencimiento"/>
+					<separator string="Reportes" colspan="2"/>
+					<field name="solicitud_pago" colspan="2"/>
+					<field name="recibo" colspan="2"/>
+					<field name="carta_aceptacion" string="Reporte Carta de Aceptación" colspan="2"/>
+					<field name="contrarecibo" colspan="2" invisible="1"/>
+					<field name="reporte_devoluciones" colspan="2"/>
+					<separator string="Funcionalidad" colspan="2"/>
+					<field name="precomprometido" colspan="2"/>
+					<field name="comprobacion_gastos" colspan="2" string="Comprobación de Gastos"/>
+					<field name="anios_anteriores" colspan="2" string="Filtro años anteriores"/>
+                    </group>
+                </group>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_parametrizacion">
+        <field name="name">Eventos Generales</field>
+        <field name="res_model">model.cont.eventos</field>
+        <field name="domain"></field>
+        <field name="view_ids" eval="[(5,0,0),
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('finanzas.view_eventos_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_bank_account_beneficiary_parametrizacion')})]"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem action="" id="menu_parametrizacion" name="Parámetros" parent="menu_settings" groups="group_director_expense,group_user_readonly,group_manager,group_user_sp_readonly,group_sp_manager"/>
+    <menuitem name="Eventos Generales" id="parametrizacion_menu"
+      parent ="menu_parametrizacion" action="action_parametrizacion" sequence="106"/>
+</odoo>

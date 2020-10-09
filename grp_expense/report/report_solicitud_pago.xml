@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<data>
+<template id="report_solicitud_pago">
+    <t t-foreach="docs" t-as="o">
+        <div class="header">
+            <div class="row" t-if="o.company_id.solicitud_report_header">
+                <div>
+                    <img style="max-width: 100%;" t-att-src="'data:image/png;base64,%s' % o.company_id.solicitud_report_header"/>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="oe_structure"/>
+            <div t-if="o.state in ['draft','to_authorize','first_authorization']" class = "watermark" style = "top:200px; position: absolute; opacity: 0.25; font-size: 7em; width: 100%; text-align: center; z-index: 1000;">
+                <strong><span>Sin Validez</span></strong></div>
+            <div class="row mt32 mb32">
+                <div style="border: 1px solid #a793c6;"/>
+                <br/><br/>
+                <table style="width:100%; font-size: 10px; display: inline-block; position:relative;" class="table table-condensed" ALIGN="center">
+                    <tr style="border: 1px solid gray;">
+                        <td style="border: none">
+                            <strong>DEPENDENCIA</strong><br/>
+                        </td>
+                        <td style="border: none">
+                            <span t-field="o.depedence_id"/><br/>
+                        </td>
+                        <td style="border: none">
+                            <strong>JUSTIFICACIÓN</strong><br/>
+                        </td>
+                        <td style="border: none">
+                            <span t-field="o.justification_id"/><br/>
+                        </td>
+                        <td style="border: none">
+                            <strong>FOLIO</strong><br/>
+                        </td>
+                        <td style="border: none">
+                            <strong><span style="font-size:14px;" t-field="o.name"/></strong>
+                        </td>
+                    </tr>
+                    
+                    <tr style="border: 1px solid gray;">
+                        <td style="border: none">
+                            <strong>DEPARTAMENTO (UEG)</strong><br/>
+                        </td>
+                        <td style="border: none">
+                            <span t-field="o.depedence_ueg_id"/><br/>
+                        </td>
+                        <td style="border: none">
+                            <strong>EVENTO GENERAL</strong><br/>
+                        </td>
+                        <td style="border: none">
+                            <span t-field="o.event_general"/><br/>
+                        </td>
+                        <td style="border: none">
+                            <strong>FECHA EMISIÓN</strong><br/>
+                        </td>
+                        <td style="border: none">
+                            <span t-field="o.date"/><br/>
+                        </td>
+                    </tr>
+                    <tr style="border: 1px solid gray;">
+                        <td style="border: none">
+                            <strong>NO. REFERENCIA</strong><br/>
+                        </td>
+                        <td style="border: none">
+                            <span t-if="o.encabezado_view=='type1'" t-field="o.po_id.pedidocompra"/>
+                            <span t-if="o.encabezado_view=='type4'" t-field="o.compromiso.number"/>
+                            <span t-if="o.encabezado_view=='type6'" t-field="o.nota_credito.numero"/>
+                            <span t-if="o.encabezado_view=='type3'" t-field="o.solicitud.name"/>
+                        </td>
+                        <td style="border: none">
+                            
+                        </td>
+                        <td style="border: none">
+                            
+                        </td>
+                        <td style="border: none">
+                            
+                        </td>
+                        <td style="border: none">
+                            
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <table style="width:100%; font-size: 10px; display: inline-block; position:relative;" class="table table-condensed" ALIGN="center">
+                    <thead>
+                        <tr style="background-color: #b6bcc0; border: 1px solid gray; font-size: 12px;">
+                            <td class="col-xs-8" style="padding:2px;padding-right: 9px;text-align:center;">
+                                <strong>BENEFICIARIO (Deposito/Cheque)</strong>
+                            </td>
+                            <td style="padding:2px;padding-right: 9px;text-align:center; border: 1px solid gray;">
+                                <strong>CUENTA BANCARIA DE CARGO: FUENTE DE FINANCIAMIENTO</strong>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid gray;">
+                                <table style="width:100%; font-size: 10px; display: inline-block; position:relative;" class="table table-condensed" ALIGN="center">
+                                    <tr>
+                                        <td><strong>Beneficiario</strong></td>
+                                        <td><span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.partner_id.code"/><span></span><span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.partner_id"/>
+                                        <span t-if="o.encabezado_view in ['type1','type6']" t-field="o.partner_alternate_id"/></td>                         
+                                        <td><strong>Forma de Pago</strong></td>
+                                        <td><span t-esc="o.beneficiary_ids[0].account_payment_id.name if o.beneficiary_ids else ''"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Beneficiario Alterno</strong></td>
+                                        <td><span t-field="o.partner_alternate_id"/></td>
+                                        <td><strong>Banco</strong></td>
+                                        <td><span t-esc="o.beneficiary_ids[0].partner_bank.bank_id.name if o.beneficiary_ids else ''"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>RFC</strong></td>
+                                        <td><span t-esc="o.partner_alternate_id.vat"/></td>
+                                        <td><strong>Cuenta Bancaria</strong></td>
+                                        <td><span t-esc="o.beneficiary_ids[0].bank_account if o.beneficiary_ids else ''"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong t-if="o.encabezado_view=='type4'">No. Compromiso</strong></td>
+                                        <td><span t-if="o.encabezado_view=='type4'" t-esc="o.compromiso.number"/></td>
+                                        <td><strong>CLABE</strong></td>
+                                        <td><span t-esc="o.beneficiary_ids[0].clabe if o.beneficiary_ids else ''"/></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="border: 1px solid gray;">
+                                <table style="width:100%; font-size: 10px; display: inline-block; position:relative;" class="table table-condensed" ALIGN="center">
+                                    <tr>
+                                        <td><strong>Origen de los Recursos</strong></td>
+                                        <td><span t-field="o.source_finantial_id"/><br/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Cuenta Bancaria Cargo</strong></td>
+                                        <td><span t-esc="''"/></td>
+                                    </tr>
+                                    
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="width:100%; font-size: 10px; display: inline-block; position:relative; border: 1px solid gray;" class="table table-condensed" ALIGN="center">
+                    <thead>
+                        <tr style="background-color: #b6bcc0;border: 1px solid gray; text-align:center;">
+                            <th style="text-align:center; border: 1px solid gray;">NC</th>
+                            <th style="text-align:center; border: 1px solid gray;">APLICACIÓN</th>
+                            <th style="text-align:center; border: 1px solid gray;">No Doc</th>
+                            <th style="text-align:center; border: 1px solid gray;">DESCRIPCIÓN</th>
+                            <th style="text-align:center; border: 1px solid gray;">DEBE/MONTO</th>
+                            <th style="text-align:center; border: 1px solid gray;">HABER</th>
+                        </tr>
+                    </thead>
+                    <tbody class="invoice_tbody">
+                        <t t-set="row_count" t-value="1"/>
+                         <t t-set="debe" t-value="0"/>
+                         <t t-set="haber" t-value="0"/>
+                        <t t-set="details" t-value="o.detail_ids or o.detail_ids_AF or o.detail_ids_PD or o.detail_ids_FF or o.detail_ids_SP or o.detail_ids_di"/>
+                        <t t-set="asientos" t-value="o.move_ids"/>
+                        <tr t-foreach="details" t-as="l">
+                            <td style="text-align: center; "><span t-esc="row_count"/></td>
+                            <td style="text-align: left; "><span t-field="l.estructura_contable_ids"/></td>
+                            <td style="text-align: left; ">
+                                <span t-if="l.comprobacion_factura.reference" t-esc="l.comprobacion_factura.reference"/>
+                                <span t-if="l.number_doc" t-esc="l.number_doc"/>
+                            </td>
+                            <td style="text-align: left; "><span t-esc="l.name"/></td>
+                            <td style="text-align: right; ">
+                                <span t-if="l.total_af" t-esc="l.total_af" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                <span t-if="l.total" t-esc="l.total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            </td>
+                            <td style="text-align: right; "><span t-esc="''"/></td>
+                            <t t-set="row_count" t-value="row_count + 1"/>
+                        </tr>
+                        <tr t-foreach="asientos" t-as="a" t-if="a.journal_id.name=='Devengado'">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>                           
+                        </tr>
+                        <tr t-foreach="asientos" t-as="a" t-if="a.journal_id.name=='Devengado'">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>                           
+                        </tr>
+                        <tr t-foreach="asientos" t-as="a" t-if="a.journal_id.name=='Devengado'">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>                           
+                        </tr>
+                        <tr t-foreach="asientos" t-as="a" t-if="a.journal_id.name=='Devengado'">
+                            <td></td>
+                            <td ALIGN="center"><strong><span>Póliza</span><span> </span><span t-field="a.name"/></strong></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>                           
+                        </tr>
+                        
+                        <t t-foreach="asientos" t-as="a" t-if="a.journal_id.name=='Devengado'">
+                            <t t-if="a.journal_id.name=='Devengado'" t-set="lines" t-value="a.line_ids"/>
+                        <tr t-if="a.journal_id.name=='Devengado'" t-foreach="lines" t-as="d">
+                            <td t-if="a.journal_id.name=='Devengado'" style="text-align: center; "><span /></td>
+                            <td t-if="a.journal_id.name=='Devengado'" style="text-align: left; "><span t-field="d.account_id.code"/></td>
+                            <td t-if="a.journal_id.name=='Devengado'" style="text-align: left; "><span /></td>
+                            <td t-if="a.journal_id.name=='Devengado'" style="text-align: left; "><span t-esc="d.name"/></td>
+                            <td t-if="a.journal_id.name=='Devengado'" style="text-align: right; "><span t-esc="d.debit" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/></td>
+                            <td t-if="a.journal_id.name=='Devengado'" style="text-align: right; "><span t-esc="d.credit" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/></td>
+                            <t t-set="debe" t-value="debe + d.debit"/>
+                            <t t-set="haber" t-value="debe + d.credit"/>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td ALIGN="center"><strong>SUMAS IGUALES</strong></td>
+                            <td style="text-align: right;border-top: 1px solid black;"><span t-esc="debe" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/></td>
+                            <td style="text-align: right;border-top: 1px solid black;"><span t-esc="haber" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/></td>                           
+                        </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="row">
+                <div class="col-xs-4 pull-right">
+                    <table class="table table-condensed">
+                        <tr class="border-black">
+                            <td><strong>SALDO</strong></td>
+                            <td class="text-right" t-if="o.type_affectation_id">
+                                <span t-if="o.type_affectation_id.code!='3' and o.comprobacion_gastos==True">
+                                    <span t-if="o.detail_ids" t-esc="sum(o.detail_ids.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                    <span t-if="o.detail_ids_AF" t-esc="sum(o.detail_ids_AF.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                    <span t-if="o.detail_ids_PD" t-esc="sum(o.detail_ids_PD.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                    <span t-if="o.detail_ids_FF" t-esc="sum(o.detail_ids_FF.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                    <span t-if="o.detail_ids_di" t-esc="sum(o.detail_ids_di.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                </span>
+                                <span t-if="o.type_affectation_id.code!='3' and o.comprobacion_gastos==False">
+                                    <span t-if="o.saldo&lt;0" ALIGN="right">
+                                        <t t-set="total" t-value="o.saldo*-1"/>                    
+                                    </span>
+                                    <span t-if="o.saldo>=0" ALIGN="right">
+                                         <t t-set="total" t-value="o.saldo"/>
+                                    </span>
+                                    <span t-esc="total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                </span>
+                                <span t-if="o.type_affectation_id.code=='3'">$0.00</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <strong>Concepto de solicitud</strong>
+                </div>
+                <div class="col-xs-12" style="padding-block-end: 2em">
+                    <div style=" border: 1px solid black;">
+                        <span t-field="o.application_concept"/>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div>
+                        <p>  </p>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <table class="table table-condensed" style="display: inline-block; position:relative; border: 1px solid black;" ALIGN="left">
+                    <thead style=" border: 1px solid black;">
+                        <tr style="background-color: #b6bcc0;border: 1px solid gray; text-align:center;">
+                            <th colspan="3" style=" border: 1px solid black;"><strong>SOLICITANTE</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody style=" border: 1px solid black;">
+                        <tr style=" border: 1px solid black;">
+                            <td style=" border: 1px solid black;">
+                                <strong>NOMBRE: </strong><span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.partner_id.name"/><span t-if="o.encabezado_view in ['type1','type6']" t-field="o.partner_alternate_id"/><br/>
+                                <strong t-if="o.encabezado_view not in ['type1','type6']">CARGO: </strong><span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.puesto_partner.name"/>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-6">
+                    <table class="table table-condensed" style="display: inline-block; position:relative; border: 1px solid black;" ALIGN="right">
+                    <thead style=" border: 1px solid black;">
+                        <tr style="background-color: #b6bcc0;border: 1px solid gray; text-align:center;">
+                            <th colspan="3" style=" border: 1px solid black;"><strong>CONTROL INTERNO DE LA DIRECCIÓN DE EGRESOS</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody style=" border: 1px solid black;">
+                        <tr ALIGN="center" style=" border: 1px solid black;">
+                            <td style=" border: 1px solid black;"><strong>REVISO</strong><br/><br/></td>
+                            <td style=" border: 1px solid black;"><strong>VALIDO</strong><br/><br/></td>
+                            <td style=" border: 1px solid black;"><strong>AUTORIZO</strong><br/><br/></td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+            <ul class="list-inline" ALIGN="center">
+                <li>Página:</li>
+                <li><span class="page"/></li>
+                <li>/</li>
+              <li><span class="topage"/></li>
+            </ul>
+        </div>
+    </t>
+</template>
+<template id="report_recibo">
+
+ <t t-foreach="docs" t-as="o">
+
+
+     <div class="header">
+            <div class="row" t-if="o.company_id.recibo_report_header">
+                <div>
+                    <img style="max-width: 100%;" t-att-src="'data:image/png;base64,%s' % o.company_id.recibo_report_header"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+         <div class="col-xs-12">
+          <div class="col-xs-9">
+
+         </div>
+          <div class="col-xs-3">
+           <strong><span ALIGN="left" style="font-size:20px;">Folio:<span t-field="o.name"/></span></strong><br/>
+         </div>
+
+         </div>
+         <br></br>
+             <div class="col-xs-12" style="top: 17px;font-size:20px;">
+                              <div style="padding: 7px;" >
+                                  <strong>Dependencia:</strong>
+                                  <span t-field="o.depedence_id"/>
+                              </div>
+                              <div style="padding: 7px" >
+                                  <strong>Bueno por:</strong>
+                                  <span t-if="o.detail_ids" t-esc="sum(o.detail_ids.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                  <span t-if="o.detail_ids_AF" t-esc="sum(o.detail_ids_AF.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                  <span t-if="o.detail_ids_PD" t-esc="sum(o.detail_ids_PD.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                  <span t-if="o.detail_ids_FF" t-esc="sum(o.detail_ids_FF.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                  <span t-if="o.detail_ids_di" t-esc="sum(o.detail_ids_di.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                              </div>
+                              <div style="padding: 7px" >
+                                  <strong>No Solicitud de Pago:</strong>
+                                  <span t-field="o.name"/>
+                              </div>
+                </div>
+             <div class="col-xs-12" style="top: 80px;font-size:20px;text-align: justify;">
+                    <spa>Recibí de la Tesorería Municipal de </spa><span t-esc="res_company.city"/><spa> </spa><span> la Cantidad de </span>
+                     <span t-if="o.detail_ids" t-esc="sum(o.detail_ids.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    <span t-if="o.detail_ids_AF" t-esc="sum(o.detail_ids_AF.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    <span t-if="o.detail_ids_PD" t-esc="sum(o.detail_ids_PD.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    <span t-if="o.detail_ids_FF" t-esc="sum(o.detail_ids_FF.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    <span t-if="o.detail_ids_di" t-esc="sum(o.detail_ids_di.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                     <span>(<span t-if="o.detail_ids" t-esc="o.total_letra"/>
+                     <span t-if="o.detail_ids_FF" t-esc="o.total_letra"/>
+                     <span t-if="o.detail_ids_di" t-esc="o.total_letra"/>
+                     <span t-if="o.detail_ids_PD" t-esc="o.total_letra"/>
+                     <span t-if="o.detail_ids_AF" t-esc="o.total_letra"/> )</span>
+                     <span>por concepto de </span> <span t-field="o.application_concept"/>
+             </div>
+
+            <div class="col-xs-12" style="top: 250px;font-size:20px;">
+                    <strong><spa>Recibí </spa></strong><br></br>
+                    <span t-esc="res_company.city"/><spa>,</spa><span t-esc="res_company.state_id.name"/><span>, </span><t t-esc="date_today" />
+             </div>
+            <div class="col-xs-12" style="top: 350px;font-size:20px;">
+                   <span>  C.<span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.partner_id.name"/></span><br t-if="o.encabezado_view not in ['type1','type6']"></br>
+                   <span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.puesto_partner.name"/>
+                   <span t-if="o.encabezado_view in ['type1','type6']" t-field="o.partner_alternate_id"/>
+            </div>
+        </div>
+
+    <div class="footer">
+            <ul class="list-inline"  ALIGN="right">
+               <span class="page"/>
+            </ul>
+        </div>
+
+ </t>
+
+</template>
+
+<template id="report_contrarecibo">
+
+ <t t-foreach="docs" t-as="o">
+
+
+     <div class="header">
+            <div class="row" t-if="o.company_id.contrarecibo_report_header">
+                <div>
+                    <img style="max-width: 100%;" t-att-src="'data:image/png;base64,%s' % o.company_id.contrarecibo_report_header"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+         <div class="col-xs-12">
+            <div class="col-xs-9">  
+           </div>
+            <div class="col-xs-3" ALIGN="left">
+             <strong><span ALIGN="left" style="font-size:16px;">Folio: <span> </span><span t-field="o.name"/></span></strong><br/>
+             <span>Fecha Emisión:</span><span> </span><span t-field="o.date"/><br></br><br></br>
+           </div>
+         </div>
+         <br></br>
+             <div class="col-xs-12" style="background-color: #DFE6EE;border: 1px solid black; text-align:center;padding:0px;">                 
+                <strong><span colspan="3" style="text-align:center;">GENERALES</span></strong>                              
+             </div>         
+             <div class="col-xs-12" style="border: 1px solid black;padding:0px;"> <br></br>
+                <div class="col-xs-6">                    
+                    <div style="padding: 2px">
+                        <strong>Dependencia:</strong>
+                        <span t-field="o.depedence_id" />                       
+                    </div>
+                    <div style="padding: 2px" >
+                        <strong>Departamento:</strong>
+                        <span t-field="o.depedence_ueg_id"/>
+                    </div>
+                    <div style="padding: 2px">
+                        <strong>Beneficiario</strong>
+                        <span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.partner_id.name"/>
+                        <span t-if="o.encabezado_view in ['type1','type6']" t-field="o.partner_alternate_id"/>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div style="padding: 2px">
+                        <strong>Beneficario Alterno:</strong>
+                        <span t-field="o.partner_alternate_id.name"/>
+                    </div>
+                    <div style="padding: 2px">
+                        <strong>Forma de Pago:</strong>
+                        <span t-esc="o.beneficiary_ids[0].account_payment_id.name if o.beneficiary_ids else ''"/>
+                    </div>
+                    <div style="padding: 2px">
+                        <strong>Bueno por:</strong>
+                        <span t-if="o.detail_ids" t-esc="sum(o.detail_ids.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_AF" t-esc="sum(o.detail_ids_AF.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_PD" t-esc="sum(o.detail_ids_PD.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_FF" t-esc="sum(o.detail_ids_FF.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_di" t-esc="sum(o.detail_ids_di.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    </div>                
+                </div>
+             </div>                 
+             <div style="padding:0px;">
+                <table class="table table-condensed mt48" style="font-size: 15px;padding:32px;border: 1px solid gray;">
+                               
+                    <thead>
+                        <tr style="background-color: #DFE6EE;border: 1px solid black; text-align:center;">
+                            <th colspan="3" style="text-align:center;">DESCRIPCIÓN DE DOCUMENTOS Y /O CONCEPTOS DE PAGO</th>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center;">FACTURA/DOCUMENTO</th>
+                            <th style="text-align:center;">CONCEPTO</th>
+                            <th style="text-align:center;">IMPORTE</th>
+                        </tr>
+                    </thead>
+                    <tbody class="invoice_tbody">                   
+                        <t t-set="details" t-value="o.detail_ids or o.detail_ids_AF or o.detail_ids_PD or o.detail_ids_FF or o.detail_ids_SP or o.detail_ids_di"/>
+                        <tr>
+                            <td class="text-left"><br></br><span t-foreach="details" t-as="l"><span t-if="l.number_doc" t-field="l.number_doc"/><span t-if="l.comprobacion_factura.reference" t-field="l.comprobacion_factura.reference"/><span>  </span><br></br></span></td>
+                            <td class="text-left"><span t-esc="o.application_concept"/></td>
+                            <td class="text-right">                        
+                            <span ALIGN="right" t-foreach="details" t-as="x"><span t-if="x.total_af" t-esc="x.total_af" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/><br></br>
+                            <span ALIGN="right" t-if="x.total" t-esc="x.total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-condensed mt48" >
+                <colgroup>
+                     <col width='25%' />
+                     <col width='30%' />
+                     <col width='20%' />
+                     <col width='20%' />
+                  </colgroup>
+                 <tbody>
+                  <tr>               
+                     <td></td>
+                     <td></td>
+                     <td><span style="text-align:center; font-weight: bold;">TOTAL A PAGAR: </span></td>
+                     <td t-if="o.saldo>=0" ALIGN="right">
+                        <span t-if="o.detail_ids" t-esc="sum(o.detail_ids.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_AF" t-esc="sum(o.detail_ids_AF.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_PD" t-esc="sum(o.detail_ids_PD.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_FF" t-esc="sum(o.detail_ids_FF.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_di" t-esc="sum(o.detail_ids_di.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                     </td>
+                     <td t-if="o.saldo&lt;0" ALIGN="right">
+                        <t t-set="total" t-value="o.saldo*-1"/>
+                        <span t-esc="total"/>                        
+                    </td>
+                  </tr>
+                 </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="col-xs-12" style="font-size: 15px;padding: 0px;">
+                <br></br>                   
+                <div class="col-xs-6" style=" border: 1px solid black;">
+                        <strong ALIGN="center">ELABORÓ</strong><br></br><br></br><br></br><br></br><br></br>
+                       <span>Nombre: </span><br></br>
+                       <span>Fecha: </span><br></br><br></br>
+                       
+                </div>
+                <div class="col-xs-6" style=" border: 1px solid black;">
+                    <strong>DATOS DE RECIBIDO BENEFICIARIO</strong><br></br><br></br><br></br><br></br><br></br>
+                    <span>Nombre: </span><br></br>
+                    <span>Fecha: </span><br></br><br></br>
+                </div>
+
+             </div>
+            
+            <div class="col-xs-12" style="font-size: 15px;padding:12px;"><br></br>
+                <strong><span>ESPECIFICACIONES:</span></strong><br></br>
+                <span>1.-La Tesorería Municipal no es responsable del mal uso que se dé a este Contrarecibo.</span><br></br>
+                <span>2.-Cualquier tachadura o enmendadura invalidará el Contrarecibo.</span><br></br>
+                <span>3.-Se requiere Presentar Identificación Oficial del Beneficiario para proceder al pago.</span><br></br>
+            </div>
+            <ul class="list-inline" ALIGN="center">              
+                <li><span class="page"/></li>
+                <li>/</li>
+              <li><span class="topage"/></li>                  
+             </ul>
+             <span class="text-right">Fecha Impresión <span></span><t t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')" /></span>
+        </div>
+
+ </t>
+
+</template>
+
+
+<template id="report_carta_aceptacion">
+
+ <t t-foreach="docs" t-as="o">
+
+
+     <div class="header">
+            <div class="row" t-if="o.company_id.carta_report_header">
+                <div>
+                    <img style="max-width: 100%;" t-att-src="'data:image/png;base64,%s' % o.company_id.carta_report_header"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+         <div class="col-xs-12" style="font-size:20px;" ALIGN="right">
+                    <span t-esc="res_company.city"/><spa>, </spa><span t-esc="res_company.state_id.name"/><span>, </span><t t-esc="date_today" />              
+           </div>
+         <br></br><br></br><br></br><br></br><br></br>
+         <div class="col-xs-12" style="font-size:20px;">
+                   <strong><span t-field="res_company.tesorera_municipal"/><br></br>
+                   <span>Tesorera Municipal</span><br></br>
+                   <span>Presente.</span></strong>
+                   <br></br><br></br>
+          </div>
+             <div class="col-xs-12" style="font-size:20px;text-align: justify;">
+                    <spa>En relación a la cantidad solicitada por
+                     <span t-if="o.detail_ids" t-esc="sum(o.detail_ids.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    <span t-if="o.detail_ids_AF" t-esc="sum(o.detail_ids_AF.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    <span t-if="o.detail_ids_PD" t-esc="sum(o.detail_ids_PD.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    <span t-if="o.detail_ids_FF" t-esc="sum(o.detail_ids_FF.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    <span t-if="o.detail_ids_di" t-esc="sum(o.detail_ids_di.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                     <span>(<span t-if="o.detail_ids" t-esc="o.total_letra"/>
+                     <span t-if="o.detail_ids_FF" t-esc="o.total_letra"/>
+                     <span t-if="o.detail_ids_di" t-esc="o.total_letra"/>
+                     <span t-if="o.detail_ids_PD" t-esc="o.total_letra"/>
+                     <span t-if="o.detail_ids_AF" t-esc="o.total_letra"/> )</span> 
+                     <span>por concepto </span> <span t-field="o.application_concept"/>.<br/><br/>
+
+                     Manifiesto a Usted que en apego al artículo 48 fracción I, de la Ley de Responsabilidades Políticas y Administrativas del Estado de Jalisco, así como al contenido que dicta el artículo 4 del Código de Ética y Conducta de los Servidores Públicos del Municipio de Guadalajara; autorizo al Municipio para que en caso de no comprobar y/o reintegrar la cantidad que se me ha entregado en el plazo que establece el Manual de Control y Manejo de Fondos Revolventes y Gastos por Comprobar, se considere el importe recibido como adelanto de mi nómina y de mi salario o finiquito se descuente.
+
+                     <br/><br/>Así mismo, con independencia de lo anteriormente descrito, estoy conforme en que el Municipio realice las acciones judiciales, civiles, mercantiles o penales correspondientes, a efecto de que en caso de incumplimiento de mi parte, obtenga la recuperación del monto recibido.
+
+                     </spa>
+                    <br></br><br></br><br></br><br></br><br></br>
+             </div>
+
+            <div class="col-xs-12" style="font-size:20px;" ALIGN="center">
+                   <strong>Solicitante</strong><br></br><br></br><br></br><br></br>
+                   <span>  C.<span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.partner_id.name"/></span><br t-if="o.encabezado_view not in ['type1','type6']"></br>
+                   <span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.puesto_partner.name"/>
+                   <span t-if="o.encabezado_view in ['type1','type6']" t-field="o.partner_alternate_id"/>
+             </div>
+        </div>
+
+    <div class="footer">
+
+        </div>
+
+ </t>
+
+</template>
+
+<template id="report_observaciones">
+    
+ <t t-foreach="docs" t-as="o">
+     <div class="header">
+            <div class="row" t-if="o.company_id.devoluciones_report_header">
+                <div>
+                    <img style="max-width: 100%;" t-att-src="'data:image/png;base64,%s' % o.company_id.devoluciones_report_header"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" style="widht:100%;">
+         <br></br>
+         <div class="col-xs-12">
+            <div class="col-xs-9">  
+           </div>
+            <div class="col-xs-3" ALIGN="left">
+             <strong><span ALIGN="left" style="font-size:16px;">Folio: <span> </span><span t-field="o.name"/></span></strong><br/>
+             <span>Fecha Emisión:</span><span> </span><span t-field="o.date"/><br></br><br></br>
+           </div>
+         </div>
+             <div class="col-xs-12" style="background-color: #DFE6EE;border: 1px solid black; text-align:center;padding:0px;">                 
+                <strong><span colspan="3" style="text-align:center;">GENERALES</span></strong>                              
+             </div>         
+             <div class="col-xs-12" style="border: 1px solid black;padding:0px;">                  
+                <div style="padding: 7px;" >
+                    <strong>Dependencia:</strong>
+                     <span t-field="o.depedence_id.name"></span>
+                </div>
+                <div style="padding: 7px" >
+                    <strong>Departamento (UEG):</strong>
+                    <span t-field="o.depedence_ueg_id.name"/>
+                </div>
+                <div style="padding: 7px" >
+                    <strong>Beneficiario:</strong>
+                    <span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.partner_id.name"/>
+                    <span t-if="o.encabezado_view in ['type1','type6']" t-field="o.partner_alternate_id"/>
+                </div>  
+              </div>             
+             <div class="col-xs-12" style="padding: 0px;" >
+             <table class="table table-condensed mt48" style=" border: 1px solid black;padding: 0px;" >
+              <t t-set="count_detalle" t-value="1"/>
+                 <colgroup>
+                 <col width='10%' />
+                 <col width='25%' />
+                 <col width='25%' />
+                 <col width='20%' />
+                 <col width='20%' />
+              </colgroup>
+                <thead style="background-color: #DFE6EE;border: 1px solid black; text-align:center;padding:0px;">
+                    <tr style=" border: 1px solid black;">                       
+                        <th style=" border: 1px solid black;" class="text-center"><strong>NO. SOLICITUD</strong></th>
+                        <th style=" border: 1px solid black;" class="text-center"><strong>TIPO DEVOLUCIÓN</strong></th>
+                        <th style=" border: 1px solid black;" class="text-center"><strong>OBSERVACIONES</strong></th>
+                         <th style=" border: 1px solid black;" class="text-center">IMPORTE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="o.binnacle_ids" t-as="bitacora">
+                        <td t-if="bitacora.state_to=='rejected'">
+                           <span t-field="o.name"/>
+                        </td>
+                         <td t-if="bitacora.state_to=='rejected'">
+                           <span t-field="bitacora.return_id.name"/>
+                        </td>                        
+                        <td t-if="bitacora.state_to=='rejected'">
+                             <span t-field="bitacora.observations"/>
+                        </td>
+                        <td t-if="bitacora.state_to=='rejected'" class="text-right">
+                            <span t-if="o.detail_ids" t-esc="sum(o.detail_ids.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-if="o.detail_ids_AF" t-esc="sum(o.detail_ids_AF.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-if="o.detail_ids_PD" t-esc="sum(o.detail_ids_PD.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-if="o.detail_ids_FF" t-esc="sum(o.detail_ids_FF.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-if="o.detail_ids_di" t-esc="sum(o.detail_ids_di.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+             <table class="table table-condensed mt48" >
+            <colgroup>
+                 <col width='25%' />
+                 <col width='30%' />
+                 <col width='20%' />
+                 <col width='20%' />
+              </colgroup>
+             <tbody>
+              <tr>               
+                 <td></td>
+                 <td></td>
+                 <td><span style="text-align:center; font-weight: bold;">Total Devolución: </span></td>
+                 <td  t-foreach="o.binnacle_ids" t-as="bitacora" ALIGN="right">
+                    <t t-if="bitacora.state_to=='rejected'">            
+                        <span t-if="o.detail_ids" t-esc="sum(o.detail_ids.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_AF" t-esc="sum(o.detail_ids_AF.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_PD" t-esc="sum(o.detail_ids_PD.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_FF" t-esc="sum(o.detail_ids_FF.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <span t-if="o.detail_ids_di" t-esc="sum(o.detail_ids_di.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                    </t>
+                 </td>
+              </tr>
+             </tbody>
+            </table>
+             </div>            
+        </div>
+
+    <div class="footer">
+            <div class="col-xs-12" style="font-size: 15px;padding: 0px;">
+                <br></br>                   
+                <div class="col-xs-6" style=" border: 1px solid black;">
+                        <strong ALIGN="center">ELABORÓ</strong><br></br><br></br><br></br>
+                       <span>Nombre: </span><br></br>
+                       <span>Fecha: </span><br></br><br></br>
+                       
+                </div>
+                <div class="col-xs-6" style=" border: 1px solid black;">
+                    <strong>RECIBIÓ</strong><br></br><br></br><br></br>
+                    <span>Nombre: </span><br></br>
+                    <span>Fecha: </span><br></br><br></br>
+                </div>
+
+             </div>
+            <ul class="list-inline" ALIGN="center">               
+                <li><span class="page"/></li>
+                <li>/</li>
+              <li><span class="topage"/></li>                  
+             </ul>
+             <span class="text-right">Fecha Impresión <span></span><t t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')" /></span>
+        </div>
+
+ </t>
+
+</template>
+<template id="report_rf_cg_pd_ff">
+    <t t-foreach="docs" t-as="o">
+        <div class="header">
+            <div class="row" t-if="o.company_id.relacion_fact_report_header">
+                <div>
+                    <img style="max-width: 100%;" t-att-src="'data:image/png;base64,%s' % o.company_id.relacion_fact_report_header"/>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="oe_structure"/>
+            <div class="row mt32 mb32">
+                <div class="col-xs-12">
+                    <strong>No. Solicitud de Pago</strong>
+                    <span t-field="o.name"/><br/>
+                </div>
+                <div class="col-xs-12">
+                    <strong>Fecha Emisión</strong>
+                    <span t-field="o.date"/><br/>
+                </div>
+            </div>
+            <table class="table table-condensed" style="font-size: 10px;border:black 1px solid;">
+                <colgroup>
+                 <col width='5%' />
+                 <col width='5%' />
+                 <col width='5%' />
+                 <col width='20%' />
+                 <col width='20%' />
+                 <col width='15%' />
+                 <col width='15%' />
+                 <col width='5%' />
+                 <col width='5%' />
+                 <col width='5%' />
+                </colgroup>
+                <thead ALIGN="center">
+                    <tr style="background-color: #b6bcc0;border: 1px solid gray;" ALIGN="center">
+                        <th ALIGN="center">#</th>
+                        <th ALIGN="center">FECHA</th>
+                        <th ALIGN="center">No. Doc</th>
+                        <th ALIGN="center" >RAZÓN SOCIAL</th>
+                        <th ALIGN="center">JUSTIFICACIÓN DEL GASTO</th>
+                        <th ALIGN="center">CLAVE PRESUPUESTAL</th>
+                        <th ALIGN="center">PARTIDA-RUBRO</th>
+                        <th ALIGN="center">IMPORTE</th>
+                        <th ALIGN="center">IVA/RETENCIONES</th>
+                        <th ALIGN="center">TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody class="invoice_tbody">
+                    <t t-set="row_count" t-value="1"/>
+                    <tr t-foreach="o.detail_ids_FF" t-as="l">
+                        <td style="text-align: center;"><span t-esc="row_count"/></td>
+                        <td style="text-align: left;"><span t-esc="l.date"/></td>
+                        <td class="text-align: left;"><span t-if="l.number_doc" t-esc="l.number_doc"/><span t-if="l.comprobacion_factura.reference" t-esc="l.comprobacion_factura.reference"/></td>
+                        <td class="text-align: left;"><span t-esc="l.razon_social"/></td>
+                        <td style="text-align: left;"><span t-esc="l.justificacion_gasto"/></td>
+                        <td style="text-align: left;"><span t-esc="l.estructura_contable_ids.code"/></td>
+                        <td style="text-align: left;"><span t-esc="l.partidas_id.codigo"/><span t-esc="l.partidas_id.nombre"/></td>
+                        <td style="text-align: right;"><span t-esc="l.subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                        <td style="text-align: right;"><span t-esc="l.impuestos" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                        <td style="text-align: right;"><span t-esc="l.total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                        <t t-set="row_count" t-value="row_count + 1"/>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-xs-4 pull-right">
+                    <table class="table table-condensed" style="font-size: 12px;">
+                        <tr class="border-black">
+                            <td><strong>Total Importes</strong></td>
+                            <td class="text-right">
+                                <span t-esc="sum(o.detail_ids_FF.mapped('subtotal'))" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                        <tr class="border-black">
+                            <td><strong>Reintegro</strong></td>
+                            <td class="text-right">
+                                <span t-field="o.reintegro" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                        <tr class="border-black">
+                            <td><strong>Impuestos/Retenciones</strong></td>
+                            <td class="text-right">
+                                <span t-esc="sum(o.detail_ids_FF.mapped('impuestos'))" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                        <tr class="border-black">
+                            <td><strong>TOTAL</strong></td>
+                            <td class="text-right">
+                                <span t-esc="sum(o.detail_ids_FF.mapped('total'))" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt32 mb32">
+                <div class="col-xs-6">
+                    <strong>RESPONSABLE</strong><br/>
+                    <span>Nombre </span><span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.partner_id.name_related"/>
+                                        <span t-if="o.encabezado_view in ['type1','type6']" t-field="o.partner_alternate_id"/><br t-if="o.encabezado_view not in ['type1','type6']"></br>
+                    <span t-if="o.encabezado_view not in ['type1','type6']">Cargo </span><span t-if="o.encabezado_view not in ['type1','type6']" t-field="o.puesto_partner.name"/>
+                </div>
+                <div class="col-xs-6" ALIGN="rigth">
+                    <br/><br/><br/>
+                    <span>Fecha Impresión <span></span><t t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')" /></span>
+                </div>
+            </div>
+             <div class="row mt32 mb32" ALIGN="center">
+                 <div class="col-xs-3">
+                    <br></br>
+                    <span>__________________________</span><br></br>
+                    <span>        FIRMA         </span>
+                 </div>
+                 <div class="col-xs-9">
+                 </div>
+            </div>
+        </div>
+        <div class="footer">
+            <ul class="list-inline"  ALIGN="center">
+                <li>Página:</li>
+                <li><span class="page"/></li>
+                <li>/</li>
+              <li><span class="topage"/></li>
+            </ul>
+        </div>
+    </t>
+</template>
+</data>
+
+</odoo>

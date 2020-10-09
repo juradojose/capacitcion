@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- VIEWS -->
+        <!-- View tree for returns concept-->
+        <record id="view_returns_concept_tree" model="ir.ui.view">
+            <field name="name">grp_expense_returns_concept_tree</field>
+            <field name="model">grp.expense.returns.concept</field>
+            <field name="arch" type="xml">
+                <tree string="Refund type">
+                    <field name="id" string="ID"/>
+                    <field name="name"/>
+                    <field name="create_date" string="Registered date"/>
+                </tree>
+            </field>
+        </record>
+        <!-- View form to returns concept -->
+        <record id="view_returns_concept_form" model="ir.ui.view">
+            <field name="name">grp_expense_returns_concept_form</field>
+            <field name="model">grp.expense.returns.concept</field>
+            <field name="arch" type="xml">
+                <form string="Refund type">
+                    <sheet>
+                        <group>
+                            <field name="id" readonly="1" string="ID"/>
+                            <field name="name" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_returns_concept_search" model="ir.ui.view">
+            <field name="name">grp_expense_returns_concept_search</field>
+            <field name="model">grp.expense.returns.concept</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="create_date"/>
+                </search>
+            </field>
+        </record>
+        <!-- ACTION -->
+        <record id="action_view_returns_concept" model="ir.actions.act_window">
+            <field name="name">Refund type</field>
+            <field name="res_model">grp.expense.returns.concept</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_returns_concept_tree"/>
+            <field name="search_view_id" ref="view_returns_concept_search"/>
+        </record>
+        <!-- MENUITEMS -->
+        <menuitem action="action_view_returns_concept" id="menu_returns_concept" name="Refund type" parent="menu_settings" groups="group_director_expense,group_user_readonly,group_manager,group_user_sp_readonly,group_sp_manager,grp_expense.group_sp_department_manager"/>
+    </data>
+</odoo>

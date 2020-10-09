@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="beneficiary_type_z01" model="grp.expense.beneficiary.type.catalog">
+        <field name="key">Z01</field>
+        <field name="name">OTROS (OXXO, FARMACIA GUADALAJARA)</field>
+    </record>
+    <record id="beneficiary_type_P01" model="grp.expense.beneficiary.type.catalog">
+        <field name="key">P01</field>
+        <field name="name">Proveedores</field>
+    </record>
+</odoo>
+

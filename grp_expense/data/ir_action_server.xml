@@ -1,0 +1,84 @@
+<odoo>
+     <record id="action_generate_pagos_masivos" model="ir.actions.server">
+        <field name="name">Pagos Masivos</field>
+        <field name="model_id" ref="model_expense_payment"/>
+        <field name="state">code</field>
+        <field name="sequence" eval="10"/>
+        <field name="code">
+solicitudes_obj = env['expense.payment']
+solicitud = solicitudes_obj.browse(context.get('active_ids'))
+action = solicitudes_obj.generate_pagos_masivos(solicitud)
+        </field>
+    </record>
+
+     <record id="ir_generate_forecast_pagos_masivos" model="ir.values">
+        <field name="key2" eval="'client_action_multi'"/>
+        <field name="model" eval="'expense.payment'"/>
+        <field name="name">Pagos Masivos</field>
+        <field name="value" eval="'ir.actions.server,%d'%action_generate_pagos_masivos"/>
+        <field name="sequence" eval="10"/>
+    </record>
+
+    <record id="action_recepcion_pagos_masivos" model="ir.actions.server">
+        <field name="name">Recepción de Solicitudes</field>
+        <field name="model_id" ref="model_expense_payment"/>
+        <field name="state">code</field>
+        <field name="sequence" eval="10"/>
+        <field name="code">
+solicitudes_obj = env['expense.payment']
+solicitud = solicitudes_obj.browse(context.get('active_ids'))
+action = solicitudes_obj.recepcion_pagos_masivos(solicitud)
+        </field>
+    </record>
+
+     <record id="ir_generate_forecast_recepcion_pagos_masivos" model="ir.values">
+        <field name="key2" eval="'client_action_multi'"/>
+        <field name="model" eval="'expense.payment'"/>
+        <field name="name">Recepción de Solicitudes</field>
+        <field name="value" eval="'ir.actions.server,%d'%action_recepcion_pagos_masivos"/>
+        <field name="sequence" eval="10"/>
+    </record>
+
+    <record id="action_reporte_solicitudes" model="ir.actions.server">
+        <field name="name">Reporte de Solicitudes</field>
+        <field name="model_id" ref="model_expense_payment"/>
+        <field name="state">code</field>
+        <field name="sequence" eval="10"/>
+        <field name="code">
+solicitudes_obj = env['expense.payment']
+solicitud = solicitudes_obj.browse(context.get('active_ids'))
+action = solicitudes_obj.reporte_solicitudes(solicitud)
+        </field>
+    </record>
+
+    <record id="ir_generate_forecast_reporte_soliciudes" model="ir.values">
+        <field name="key2" eval="'client_action_multi'"/>
+        <field name="model" eval="'expense.payment'"/>
+        <field name="name">Reporte de Solicitudes</field>
+        <field name="value" eval="'ir.actions.server,%d'%action_reporte_solicitudes"/>
+        <field name="sequence" eval="10"/>
+    </record>
+
+    <record id="action_protect_check" model="ir.actions.server">
+        <field name="name">Protect Checks</field>
+        <field name="model_id" ref="model_expense_impresion_cheques"/>
+        <field name="state">code</field>
+        <field name="sequence" eval="10"/>
+        <field name="code">
+file = records.action_print_protect_check()
+action = {
+    "type": "ir.actions.act_url",
+     "url": "web/content/?model=ir.attachment&amp;id=" + str(file['attachment_id']) + "&amp;filename_field=name&amp;field=datas&amp;download=true&amp;name=" + file['file_name'],
+     "target": "new",
+}
+        </field>
+    </record>
+    <record id="ir_generate_action_protect_checks" model="ir.values">
+        <field name="key2" eval="'client_action_multi'"/>
+        <field name="model" eval="'expense.impresion.cheques'"/>
+        <field name="name">Protect Checks</field>
+        <field name="value" eval="'ir.actions.server,%d'%action_protect_check"/>
+        <field name="sequence" eval="10"/>
+    </record>
+
+</odoo>

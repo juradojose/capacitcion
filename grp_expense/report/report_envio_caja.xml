@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<data>
+<template id="report_sol_envio_caja">
+    <t t-foreach="docs" t-as="o">
+        <div class="header">
+            <div class="row" t-if="o.company_id.solicitud_envio_caja_header">
+                <div>
+                    <img style="max-width: 100%;" t-att-src="'data:image/png;base64,%s' % o.company_id.solicitud_envio_caja_header"/>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="oe_structure"/>
+            <div class="row mt32 mb32">
+                <div style="border: 1px solid #a793c6;"/>
+                <br></br>
+                <div class="col-xs-12" ALIGN="right">
+                    <span>FECHA: <span></span><t t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')" /></span>
+            </div>
+            </div>
+            <table class="table table-condensed" style="font-size: 12px;border:black 1px solid;">
+                <colgroup>
+                 <col width='10%' />
+                 <col width='20%' />
+                 <col width='50%' />
+                 <col width='20%' />
+                </colgroup>
+                <thead>
+                    <tr style="background-color: #b6bcc0;border: 1px solid gray; text-align:center;">
+                        <th style="text-align: center; border: 1px solid black;">NC</th>
+                        <th style="text-align: center; border: 1px solid black;">No. de Solicitud</th>
+                        <th style="text-align: center; border: 1px solid black;">Beneficiario Alterno</th>
+                        <th style="text-align: center; border: 1px solid black;">Total</th>
+                    </tr>
+                </thead>
+                <tbody class="invoice_tbody">
+                    <t t-set="row_count" t-value="1"/>
+                    <tr t-foreach="o.solicitud_pago_ids" t-as="l">
+                        <td style="text-align: center; border: 1px solid black;"><span t-esc="row_count"/></td>
+                        <td style="text-align: center; border: 1px solid black;"><span t-esc="l.name"/></td>
+                        <td style="text-align: center; border: 1px solid black;"><span t-esc="l.partner_alternate_id.name"/></td>
+                        <td style="text-align: center; border: 1px solid black;">
+                        <span t-if="l.detail_ids" t-esc="sum(l.detail_ids.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: l.currency_id}"/>
+                        <span t-if="l.detail_ids_AF" t-esc="sum(l.detail_ids_AF.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: l.currency_id}"/>
+                        <span t-if="l.detail_ids_PD" t-esc="sum(l.detail_ids_PD.mapped('total_af'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: l.currency_id}"/>
+                        <span t-if="l.detail_ids_FF" t-esc="sum(l.detail_ids_FF.mapped('total'))" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: l.currency_id}"/>
+                        </td>
+                        <t t-set="row_count" t-value="row_count + 1"/>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="background-color: #b6bcc0;border: 1px solid gray; text-align:center;">
+                        <td style="text-align: right; border: 1px solid black;" colspan="3"><span><strong>Total</strong></span></td>
+                        <td style="text-align: center; border: 1px solid black;">
+                            <span><strong t-esc="sum(sum(line.detail_ids_FF.mapped('total')) or sum(line.detail_ids_PD.mapped('total_af')) or sum(line.detail_ids_AF.mapped('total_af')) or sum(line.detail_ids.mapped('total'))  for line in o.solicitud_pago_ids)" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"></strong></span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="footer">
+        <div class="col-xs-12">
+                <div class="col-xs-6" ALIGN="center">
+                    <strong>ELABORÓ</strong><br></br><br></br><br></br><br></br>        
+                </div>
+                <div class="col-xs-6" ALIGN="center">
+                    <strong>RECIBIÓ</strong><br></br><br></br><br></br><br></br>
+                </div>
+            </div>
+             <div class="col-xs-12">
+                 <div class="col-xs-6" ALIGN="center">
+                    <br></br>
+                    <span>__________________________</span><br></br><br></br>
+                    <span>        FIRMA         </span><br></br>
+                    <span style="font-size: 12px;">C. </span><span t-field="o.partner_id.name_related"/><br></br>
+                    <span style="font-size: 12px;"></span><span t-field="o.puesto_partner.name"/> 
+                 </div>
+                 <div class="col-xs-6" ALIGN="center">
+                    <br></br>
+                    <span>__________________________</span><br></br><br></br>
+                    <span>        FIRMA         </span><br></br>
+                 </div>
+            </div>
+            <ul class="list-inline"  ALIGN="center">
+                <li>Página:</li>
+                <li><span class="page"/></li>
+                <li>/</li>
+              <li><span class="topage"/></li>
+            </ul>
+            <div class="col-xs-12" ALIGN="right">
+                    <span>Fecha Impresión <span></span><t t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')" /></span>
+            </div>
+        </div>
+    </t>
+</template>
+</data>
+</odoo>

@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+    <record id="view_report_solicitud" model="ir.ui.view">
+        <field name="name">expense.rep.solicitud</field>
+        <field name="model">expense.reportes.solicitud</field>
+        <field name="arch" type="xml">
+
+        <form string="Reporte Solicitud">
+            <group string="Solicitudes de pago">
+                    <field name="solicitud_pago_ids" nolabel="1" delete="0" edit="0" create="0">
+                        <tree>
+                            <field name="name"/>
+                            <field name="partner_alternate_id"/>
+                            <field name="total"/>
+                        </tree>
+                    </field>
+            </group>
+
+            <footer>
+                <button string="Generar Reporte" name="print_report" type="object" class="btn-primary"/>
+            </footer>
+        </form>
+        </field>
+    </record>
+    </data>
+</odoo>

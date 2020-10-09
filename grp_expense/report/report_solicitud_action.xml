@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="reporte_solicitud_paperformat" model="report.paperformat">
+            <field name="name">Reporte Solicitud de Pago</field>
+            <field name="format">Letter</field>
+            <field name="header_spacing">35</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">55</field>
+            <field name="orientation">Portrait</field>
+        </record>
+        
+        <record id="reporte_contrarecibo_paperformat" model="report.paperformat">
+            <field name="name">Reporte Contrarecibo</field>
+            <field name="format">Letter</field>
+            <field name="header_spacing">35</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">100</field>
+            <field name="orientation">Portrait</field>
+        </record>
+
+        <record id="report_stock_picking_paperformat" model="report.paperformat">
+            <field name="name">Reporte Recepción de Materiales y Servicios</field>
+            <field name="format">Letter</field>
+            <field name="header_spacing">35</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">10</field>
+            <field name="orientation">Portrait</field>
+        </record>
+
+        <record id="report_envio_caja_paperformat" model="report.paperformat">
+            <field name="name">Reporte de Solicitudes en estado de Envío a Caja</field>
+            <field name="format">Letter</field>
+            <field name="header_spacing">35</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">55</field>
+            <field name="orientation">Portrait</field>
+        </record>
+
+        <report
+            id="envio_caja_report"
+            string="Reporte de Solicitudes en estado de Envío a Caja"
+            model="expense.reportes.solicitud"
+            report_type="qweb-pdf"
+            file="grp_espense.report_sol_envio_caja"
+            name="grp_expense.report_sol_envio_caja"
+            menu="False"
+        />
+        <record id="envio_caja_report" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="report_envio_caja_paperformat"/>
+        </record>
+
+        <report
+            id="stock_picking_report"
+            string="Recepción de Materiales y Servicios"
+            model="stock.picking"
+            report_type="qweb-pdf"
+            file="grp_espense.report_stock_picking"
+            name="grp_expense.report_stock_picking"
+            menu="True"
+        />
+        <record id="stock_picking_report" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="report_stock_picking_paperformat"/>
+        </record>
+
+        <report
+            id="solicitud_report"
+            string="Solicitud de Pago"
+            model="expense.payment"
+            report_type="qweb-pdf"
+            file="grp_espense.report_solicitud_pago"
+            name="grp_expense.report_solicitud_pago"
+            menu="False"
+        />
+        <record id="solicitud_report" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="reporte_solicitud_paperformat"/>
+        </record>
+        <report
+            id="recibo_report"
+            string="Recibo"
+            model="expense.payment"
+            report_type="qweb-pdf"
+            file="grp_espense.report_recibo"
+            name="grp_expense.report_recibo"
+            menu="False"
+        />
+        <report
+            id="recibo_contrareport"
+            string="Contrarecibo"
+            model="expense.payment"
+            report_type="qweb-pdf"
+            file="grp_espense.report_contrarecibo"
+            name="grp_expense.report_contrarecibo"
+            menu="False"
+        />
+        <record id="recibo_contrareport" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="reporte_contrarecibo_paperformat"/>
+        </record>
+
+        <report
+            id="carta_report"
+            string="Carta Aceptación"
+            model="expense.payment"
+            report_type="qweb-pdf"
+            file="grp_espense.report_carta_aceptacion"
+            name="grp_expense.report_carta_aceptacion"
+            menu="False"
+        />
+
+        <report
+            id="observaciones_report"
+            string="Reporte de Devolución"
+            model="expense.payment"
+            report_type="qweb-pdf"
+            file="grp_espense.report_observaciones"
+            name="grp_expense.report_observaciones"
+            menu="False"
+        />
+        <record id="observaciones_report" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="reporte_solicitud_paperformat"/>
+        </record>
+        
+        <record id="reporte_rf_cg_pd_ff_paperformat" model="report.paperformat">
+            <field name="name">Reporte RF CG PD FF</field>
+            <field name="format">Letter</field>
+            <field name="orientation">Landscape</field>
+            <field name="header_spacing">27</field>
+            <field name="margin_top">40</field>
+            <field name="margin_left">5</field>
+        </record>
+        <report
+            id="action_report_rf_cg_pd_ff"
+            string="Reporte"
+            model="expense.payment"
+            report_type="qweb-pdf"
+            file="grp_espense.report_rf_cg_pd_ff"
+            name="grp_expense.report_rf_cg_pd_ff"
+        />
+        <record id="action_report_rf_cg_pd_ff" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="reporte_rf_cg_pd_ff_paperformat"/>
+        </record>
+    </data>
+</openerp>

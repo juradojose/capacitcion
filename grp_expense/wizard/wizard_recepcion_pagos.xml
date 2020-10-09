@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_recepcion_pagos" model="ir.ui.view">
+        <field name="name">expense.recepcion.pagos</field>
+        <field name="model">expense.pagos.recepcion</field>
+        <field name="arch" type="xml">
+
+            <form string="Pago Masivo">
+                <group string="Solicitudes de pago">
+                    <field name="solicitud_pago_ids" nolabel="1" delete="0" edit="0" create="0">
+                        <tree>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="partner_alternate_id"/>
+                            <field name="bank_id"/>
+                            <!--<field name="partner_bank"/>-->
+                            <field name="bank_account"/>
+                            <field name="clabe"/>
+                            <field name="account_payment_id"/>                           
+                            <field name="justification_id"/>
+                            <field name="source_finantial_id"/>					
+                            <field name="code_justificacion" invisible="1"/>
+                            <field name="total" sum="Total" string="Total"/> 
+                            <field name="state" string="Estado"/>
+                        </tree>
+                        <form>
+                            <span>Los datos no se pueden mostrar desde esta vista</span>
+                        </form>
+                    </field>
+                </group>
+                <!--<group class="oe_subtotal_footer oe_right">
+                    <div class="oe_subtotal_footer_separator oe_inline">
+                        <label for="total"/>
+                    </div>
+                    <field name="total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </group>-->
+
+                <footer>
+                    <button string="Recibir" name="action_masivo" type="object" class="btn-primary" confirm="¿Está seguro que desea continuar?"/>
+                    <button string="Programado" name="action_programar_solicitudes" type="object" class="btn-primary" confirm="¿Está seguro que desea continuar?"/> 
+                    <button string="Congelar" name="masivo_congelar" type="object" class="btn-primary" confirm="¿Está seguro que desea continuar?"/> 
+                    <button string="Cancelar" class="btn-default" special="cancel"/>                 
+                </footer>
+           </form>
+        </field>
+    </record>
+</odoo>

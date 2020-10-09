@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--<record id="report_cheques_paperformat" model="report.paperformat">
+            <field name="name">Cheques Caja General</field>
+            <field name="format">custom</field>
+            <field name="page_height">215</field>
+            <field name="page_width">229</field>
+            <field name="header_spacing">0</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">13</field>
+            <field name="margin_right">13</field>
+            <field name="orientation">Landscape</field>
+        </record>-->
+        
+        <report
+            id="cheque_general_report"
+            string="Reporte Cheque General"
+            model="expense.impresion.cheques"
+            report_type="qweb-pdf"
+            file="grp_espense.report_cheque_general"
+            name="grp_expense.report_cheque_general"
+            menu="False"
+        />
+
+        <!--BBVA -->
+        <report
+            id="cheque_bbva_report"
+            string="Reporte Cheque BBVA"
+            model="expense.impresion.cheques"
+            report_type="qweb-pdf"
+            file="grp_espense.report_cheque_bbva"
+            name="grp_expense.report_cheque_bbva"
+            menu="False"
+        />
+
+         <!--BANAMEX -->
+        <report
+            id="cheque_banamex_report"
+            string="Reporte Cheque Banamex"
+            model="expense.impresion.cheques"
+            report_type="qweb-pdf"
+            file="grp_espense.report_cheque_bbva"
+            name="grp_expense.report_cheque_bbva"
+            menu="False"
+        />
+
+        <!--<record id="cheque_general_report" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="report_cheques_paperformat"/>
+        </record>-->
+</data>
+</openerp>

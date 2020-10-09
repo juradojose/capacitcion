@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="xmls_to_invoices_assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/grp_expense/static/src/css/style.css"/>
+            <script type="text/javascript" src="/grp_expense/static/src/js/attach_xmls.js"></script>
+        </xpath>
+    </template>
+</odoo>

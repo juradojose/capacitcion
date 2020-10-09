@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<data>
+
+    <!--scotiabank-->
+    <template id="report_cheque_general">
+        <t t-foreach="docs" t-as="o">
+            <div class="page">
+                
+                <div style="top:23px;left:700px;font-size:20px;position: absolute;">                       
+                    <span t-field="o.fecha" t-field-options='{"format": "dd"}'/><span></span><![CDATA[ &nbsp;]]><![CDATA[ &nbsp;]]>
+                    <span t-field="o.fecha" t-field-options='{"format": "MM"}'/><span></span><![CDATA[ &nbsp;]]><![CDATA[ &nbsp;]]>
+                    <span t-field="o.fecha" t-field-options='{"format": "yyyy"}'/> 
+                </div>
+                 <div style="top: 130px;left:5px;font-size:20px;position: absolute;">                        
+                    <span t-foreach="o.solicitud_pago_ids" t-as="l"><span t-field="l.partner_id.name" style="white-space:nowrap;"/></span>
+                </div>
+                <div style="top: 130px;left:900px;font-size:20px;position: absolute;">                        
+                    <span t-field="o.total" t-options='{"widget": "float", "precision": 2}'/>
+                </div>
+                <div style="top: 195px;left:5px;font-size:20px;position: absolute;">
+                     <span  style="white-space:nowrap;">==<span t-field="o.total_letra" style="white-space:nowrap;"/>==</span>
+                </div>
+                <div style="top: 260px;left:250px;font-size:20px;position: absolute;">
+                    <span t-field="o.leyenda_cheque" style="white-space:nowrap;"/>
+                </div>
+                <div>
+                    <table style="top:530px;left:1px;width:640; font-size:16px;position: absolute;">
+                        <tr style="border:none;">
+                            <td style="top:0px;left:1px;width:639; font-size:16px;position: absolute;">
+                                <span t-foreach="o.solicitud_pago_ids" t-as="l"><span t-field="l.application_concept" style="white-space:nowrap;"/></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="top: 530px;left:663px;font-size:16px;position: absolute;">
+                    <span>No. Cheque: </span><span t-field="o.cheque_actual"/>
+                </div>
+                <div style="top: 550px;left:698px;font-size:16px;position: absolute;">
+                    <span>Cuenta: </span><span t-field="o.cuenta.acc_number"/><br/>
+                </div>
+                <div style="top: 570px;left:676px;font-size:16px;position: absolute;">
+                    <span>No. Poliza: </span>
+                </div>
+                <div style="top:590px;left:708px;font-size:16px;position: absolute;">                      
+                    <span>Fecha: </span><span t-field="o.fecha" t-field-options='{"format": "dd"}'/><span>/</span>
+                    <span t-field="o.fecha" t-field-options='{"format": "MM"}'/><span>/</span>
+                    <span t-field="o.fecha" t-field-options='{"format": "yyyy"}'/> 
+                </div>
+                </div>           
+        </t>
+       
+    </template>
+
+<!--bbva-->
+    <template id="report_cheque_bbva">
+        <t t-foreach="docs" t-as="o">
+            <div class="page">
+                
+                <div style="top:20px;left:660px;font-size:20px;position: absolute;">                       
+                    <span t-field="o.fecha" t-field-options='{"format": "dd"}'/><span></span><![CDATA[ &nbsp;]]><![CDATA[ &nbsp;]]><![CDATA[ &nbsp;]]>
+                    <span t-field="o.fecha" t-field-options='{"format": "MM"}'/><span></span><![CDATA[ &nbsp;]]><![CDATA[ &nbsp;]]><![CDATA[ &nbsp;]]>
+                    <span t-field="o.fecha" t-field-options='{"format": "yyyy"}'/> 
+                </div>
+                 <div style="top: 130px;left:5px;font-size:20px;position: absolute;">                        
+                    <span t-foreach="o.solicitud_pago_ids" t-as="l"><span t-field="l.partner_id.name" style="white-space:nowrap;"/></span>
+                </div>
+                <div style="top: 130px;left:900px;font-size:20px;position: absolute;">                        
+                    <span t-field="o.total" t-options='{"widget": "float", "precision": 2}'/>
+                </div>
+                <div style="top: 195px;left:5px;font-size:20px;position: absolute;">
+                     <span  style="white-space:nowrap;">==<span t-field="o.total_letra" style="white-space:nowrap;"/>==</span>
+                </div>
+                <div style="top: 260px;left:250px;font-size:28px;position: absolute;">
+                    <span t-field="o.leyenda_cheque" style="white-space:nowrap;"/>
+                </div>
+                <div>
+                    <table style="top:530px;left:1px;width:640; font-size:16px;position: absolute;">
+                        <tr style="border:none;">
+                            <td style="top:0px;left:1px;width:639; font-size:16px;position: absolute;">
+                                <span t-foreach="o.solicitud_pago_ids" t-as="l"><span t-field="l.application_concept" style="white-space:nowrap;"/></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="top: 530px;left:668px;font-size:16px;position: absolute;">
+                    <span>No. Cheque: </span><span t-field="o.cheque_actual"/><br/>
+                </div>
+                <div style="top: 550px;left:703px;font-size:16px;position: absolute;">
+                    <span>Cuenta: </span><span t-field="o.cuenta.acc_number"/>
+                </div>
+                <div style="top: 570px;left:681px;font-size:16px;position: absolute;">
+                    <span>No. Poliza: </span>
+                    <!--span t-field="o.poliza"/-->
+                </div>
+                <div style="top:590px;left:713px;font-size:16px;position: absolute;">                       
+                    <span>Fecha: </span><span t-field="o.fecha" t-field-options='{"format": "dd"}'/><span>/</span>
+                    <span t-field="o.fecha" t-field-options='{"format": "MM"}'/><span>/</span>
+                    <span t-field="o.fecha" t-field-options='{"format": "yyyy"}'/> 
+                </div>
+                </div>           
+        </t>
+       
+    </template>
+<!--banamex-->
+    <template id="report_cheque_banamex">
+        <t t-foreach="docs" t-as="o">
+            <div class="page">
+                
+                <div style="top:20px;left:660px;font-size:20px;position: absolute;">                       
+                    <span t-field="o.fecha" t-field-options='{"format": "dd"}'/><span></span><![CDATA[ &nbsp;]]><![CDATA[ &nbsp;]]><![CDATA[ &nbsp;]]>
+                    <span t-field="o.fecha" t-field-options='{"format": "MM"}'/><span></span><![CDATA[ &nbsp;]]><![CDATA[ &nbsp;]]><![CDATA[ &nbsp;]]>
+                    <span t-field="o.fecha" t-field-options='{"format": "yyyy"}'/> 
+                </div>
+                 <div style="top: 130px;left:5px;font-size:20px;position: absolute;">                        
+                    <span t-foreach="o.solicitud_pago_ids" t-as="l"><span t-field="l.partner_id.name" style="white-space:nowrap;"/></span>
+                </div>
+                <div style="top: 130px;left:900px;font-size:20px;position: absolute;">                        
+                    <span t-field="o.total" t-options='{"widget": "float", "precision": 2}'/>
+                </div>
+                <div style="top: 195px;left:5px;font-size:20px;position: absolute;">
+                     <span  style="white-space:nowrap;">==<span t-field="o.total_letra" style="white-space:nowrap;"/>==</span>
+                </div>
+                <div style="top: 260px;left:250px;font-size:28px;position: absolute;">
+                    <span t-field="o.leyenda_cheque" style="white-space:nowrap;"/>
+                </div>
+                <div>
+                    <table style="top:530px;left:1px;width:640; font-size:16px;position: absolute;">
+                        <tr style="border:none;">
+                            <td style="top:0px;left:1px;width:639; font-size:16px;position: absolute;">
+                                <span t-foreach="o.solicitud_pago_ids" t-as="l"><span t-field="l.application_concept" style="white-space:nowrap;"/></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="top: 530px;left:645px;font-size:16px;position: absolute;">
+                    <span>No. Cheque: </span><span t-field="o.cheque_actual"/><br/>
+                </div>
+                <div style="top: 550px;left:680px;font-size:16px;position: absolute;">
+                    <span>Cuenta: </span><span t-field="o.cuenta.acc_number"/>
+                </div>
+                <div style="top: 570px;left:658px;font-size:16px;position: absolute;">
+                    <span>No. Poliza: </span>
+                    <!--span t-field="o.poliza"/-->
+                </div>
+                <div style="top:590px;left:690px;font-size:16px;position: absolute;">                       
+                    <span>Fecha: </span><span t-field="o.fecha" t-field-options='{"format": "dd"}'/><span>/</span>
+                    <span t-field="o.fecha" t-field-options='{"format": "MM"}'/><span>/</span>
+                    <span t-field="o.fecha" t-field-options='{"format": "yyyy"}'/> 
+                </div>
+                </div>           
+        </t>
+       
+    </template>
+</data>
+
+</odoo>

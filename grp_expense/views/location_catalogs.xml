@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- VIEWS -->
+    <!-- View tree for zip code -->
+    <record model="ir.ui.view" id="view_zip_code">
+        <field name="name">grp_expense_zip_code_catalog</field>
+        <field name="model">grp.expense.zip.code.catalog</field>
+        <field name="arch" type="xml">
+            <tree string="Zip code">
+                <field name="name" string="Zip code"/>
+            </tree>
+        </field>
+    </record>
+    <!-- View form to add new zip code -->
+    <record model="ir.ui.view" id="view_add_zip_code">
+        <field name="name">grp_expense_add_zip_code_catalog</field>
+        <field name="model">grp.expense.zip.code.catalog</field>
+        <field name="arch" type="xml">
+            <form string="Add zip code">
+                <sheet>
+                    <group>
+                        <field name="key" string="zip code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- View tree for town -->
+    <record model="ir.ui.view" id="view_town">
+        <field name="name">grp_expense_town_catalog</field>
+        <field name="model">grp.expense.town.catalog</field>
+        <field name="arch" type="xml">
+            <tree string="Town">
+                <field name="key" string="Town code"/>
+                <field name="name" string="Town"/>
+            </tree>
+        </field>
+    </record>
+    <!-- View form to add new town -->
+    <record model="ir.ui.view" id="view_add_town">
+        <field name="name">grp_expense_add_town_catalog</field>
+        <field name="model">grp.expense.town.catalog</field>
+        <field name="arch" type="xml">
+            <form string="Add town">
+                <sheet>
+                    <group>
+                        <field name="key" string="Town code"/>
+                        <field name="name" string="Town"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- View tree for suburb -->
+    <record model="ir.ui.view" id="view_suburb">
+        <field name="name">grp_expense_suburb_catalog</field>
+        <field name="model">grp.expense.suburb.catalog</field>
+        <field name="arch" type="xml">
+            <tree string="Suburb">
+                <field name="key" string="Suburb code"/>
+                <field name="name" string="Suburb"/>
+            </tree>
+        </field>
+    </record>
+    <!-- View form to add new suburb -->
+    <record model="ir.ui.view" id="view_add_suburb">
+        <field name="name">grp_expense_add_suburb_catalog</field>
+        <field name="model">grp.expense.suburb.catalog</field>
+        <field name="arch" type="xml">
+            <form string="Add suburb">
+                <sheet>
+                    <group>
+                        <field name="key" string="Suburb code"/>
+                        <field name="name" string="Suburb"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ACTIONS -->
+    <record model="ir.actions.act_window" id="action_postal_code">
+        <field name="name">Zip code catalog</field>
+        <field name="res_model">grp.expense.zip.code.catalog</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5,0,0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_zip_code')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_add_zip_code')})]"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="action_town">
+        <field name="name">Town catalog</field>
+        <field name="res_model">grp.expense.town.catalog</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5,0,0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_town')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_add_town')})]"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="action_suburb">
+        <field name="name">Suburb catalog</field>
+        <field name="res_model">grp.expense.suburb.catalog</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5,0,0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_suburb')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_add_suburb')})]"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- MENUITEMS -->
+    <menuitem name="Location catalogs" id="menu_location_catalogs" parent="menu_settings" groups="group_director_expense"/>
+    <menuitem name="Zip code" id="menu_zip_code" parent="menu_location_catalogs" action="action_postal_code" groups="group_director_expense"/>
+    <menuitem name="Town" id="menu_town" parent="menu_location_catalogs" action="action_town" groups="group_director_expense"/>
+    <menuitem name="Suburb" id="menu_suburb" parent="menu_location_catalogs" action="action_suburb" groups="group_director_expense"/>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Change the form view to add a new supplier -->
+    <record id="add_beneficiary_type_ids_supplier_form_inherit" model="ir.ui.view">
+        <field name="name">add.beneficiary.type.ids.supplier.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="compras_municipio.supplier_view_form"/>
+        <field name="sequence" eval="100"/>
+        <field name="arch" type="xml">
+            <!-- Add block for supplier_origin, rfc and stuff -->
+            <xpath expr="//field[@name='road_type_id']" position="after">
+                <field name="beneficiary_type_ids" widget="many2many_tags" attrs="{'invisible': [('supplier', '!=', True)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Search to show only P01 suppliers -->
+    <record id="supplier_p01_filter" model="ir.ui.view">
+        <field name="name">supplier.p01.filter</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <filter name="supplier" position="after">
+                <filter domain="[('supplier', '=', True), ('beneficiary_type_ids.key', '=', 'P01')]" string="Supplier P01" name="supplier_p01"/>
+            </filter>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_purchase_display_supplier_catalog" model="ir.actions.act_window">
+        <field name="name">Suppliers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="context">{'default_customer': 0, 'default_supplier': 1, 'search_default_supplier_p01': 1}</field>
+        <field name="search_view_id" ref="grp_expense.supplier_p01_filter"/>
+        <field name="view_ids"
+            eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('compras_municipio.view_purchase_display_supplier_catalog')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('compras_municipio.supplier_view_form')})]"/>
+    </record>
+
+    <!-- Menuitem  -->
+    <menuitem id="purchase.menu_procurement_management_supplier_name" name="Vendors"
+            parent="purchase.menu_procurement_management"
+            action="action_purchase_display_supplier_catalog" sequence="15"
+            groups="purchase.group_purchase_manager,compras_municipio.group_purchase_comprador,compras_municipio.group_purchase_proveedores,compras_municipio.group_suppliers_chief,compras_municipio.group_suppliers_aux,compras_municipio.group_administrative_validation"/>
+
+</odoo>

@@ -1,0 +1,1460 @@
+<odoo>
+    <data>
+        <record id="view_expense_payment_tree" model="ir.ui.view">
+            <field name="name">view.expense.payment.tree</field>
+            <field name="model">expense.payment</field>
+            <field name="arch" type="xml">
+                <tree default_order="name desc">
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="partner_alternate_id"/>
+                    <field name="justification_id"/>
+                    <field name="source_finantial_id"/>
+		    <field name="depedence_id"/>
+		    <field name="depedence_ueg_id"/>
+                    <field name="event_general"/>
+		   <field name="date_expired"/>
+                    <field name="total"/>
+                    <field name="code_justificacion" invisible="1"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_expense_payment_form" model="ir.ui.view">
+            <field name="name">view.expense.payment.form</field>
+            <field name="model">expense.payment</field>
+            <field name="arch" type="xml">
+                <form string="Solicitud de pago">
+                    <header>
+                        <button class="oe_highlight" name="action_to_authorize" states="draft" string="Por Autorizar" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_dependency_user,grp_expense.group_sp_analyst_user,grp_expense.group_sp_department_manager"/>
+                        <button class="oe_highlight" name="action_first_authorization" states="to_authorize" string="Primera autorización" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_dependency_user,grp_expense.group_sp_analyst_user,grp_expense.group_sp_department_manager"/>
+                        <button class="oe_highlight" name="action_second_authorization" states="first_authorization" string="Segunda autorización" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_dependency_user,grp_expense.group_sp_analyst_user,grp_expense.group_sp_department_manager"/>
+                        <button class="oe_highlight" name="action_received" states="second_authorization,observed" string="Recibida" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_analyst_user,grp_expense.group_sp_department_manager"/>
+                        <button class="oe_highlight" name="action_in_review" states="received" string="En revisión" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_analyst_user,grp_expense.group_sp_department_manager"/>
+                        <button class="oe_highlight" name="action_observed" states="received,in_review,validated,authorized,revised" string="En Observación" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_analyst_user,grp_expense.group_sp_department_manager"/>
+                        <button class="oe_highlight" name="action_revised" states="in_review" string="Revisada" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_analyst_user,grp_expense.group_sp_department_manager"/>
+<!--                    <button class="oe_highlight" name="action_revised2" states="in_review" string="En revisión" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_analyst_user,grp_expense.group_sp_department_manager"/>
+-->                     <button class="oe_highlight" name="action_validated" states="revised" string="Validada" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_department_manager"/>
+                        <button class="oe_highlight" name="action_authorized" states="validated" string="Autorizada" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_department_manager"/>
+                        <button class="oe_highlight" name="action_shipping_box" states="authorized" string="Envío a Caja" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager"/>
+                        <button class="oe_highlight" name="action_rejected" states="first_authorization,received,in_review,in_review2,validated,second_authorization,authorized,revised" string="Cancelada" type="object" confirm="Está seguro que desea continuar?" groups="grp_expense.group_director_expense,grp_expense.group_user_readonly,grp_expense.group_manager,grp_expense.group_user_sp_readonly,grp_expense.group_sp_manager,grp_expense.group_sp_dependency_user,grp_expense.group_sp_analyst_user,grp_expense.group_sp_department_manager"/>
+                        <button class="oe_highlight" name="action_imprimir_solicitud" string="Imprimir" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,to_authorize,first_authorization,second_authorization,received,in_review,in_review2,revised,validated,authorized,shipping_box,rejected,observed"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button attrs="{'invisible':[('encabezado_view', 'in', ('type1','type3'))]}" type="object" name="action_view_comprobaciones" class="oe_stat_button" icon="fa-list-alt" Confirm="¿Esta seguro(a) de realizar una comprobación?" >
+                               <field name="comp_count" widget="statinfo" string="Comprobaciones"/>
+                               <field name="comp_ids" invisible="1"/>
+                           </button>
+                            <button attrs="{'invisible':[('recibo', '=', False)]}" string="Recibo" type="object" name="action_imprimir_recibo" class="oe_stat_button" icon="fa-copy" ></button>
+                            <button attrs="{'invisible':[('code', 'not in', ('02'))]}" string="Contrarecibo" type="object" name="action_imprimir_contrarecibo" class="oe_stat_button" icon="fa-copy" ></button>
+			    <button attrs="{'invisible':[('carta_aceptacion', '=', False)]}" string="Carta de Aceptación" type="object" name="action_imprimir_carta" class="oe_stat_button" icon="fa-copy" ></button>
+                            <button class="oe_stat_button" name="create_lines" string="Validar Documento" icon="fa-arrow-up" type="object" attrs="{'readonly':[('state', 'in', ('rejected'))],'invisible':[('layout_beneficarios', '=', False)]}"/>
+                            <button attrs="{'invisible':[('reporte_devoluciones', '=', False),('state','not in',('rejected','observed'))]}" class="oe_stat_button" name="action_imprimir_observaciones" string="Reporte Devoluciones" icon="fa-copy" type="object" />
+                            <button class="oe_stat_button" name="cargar_detalle_factura" string="Cargar Detalle" icon="fa-arrow-up" type="object" attrs="{'invisible':[('encabezado_view', 'not in', ('type3','type4'))]}"/>
+                        </div>
+                        <h2><field name="name" readonly="1"/></h2>
+                        <separator/>
+                        <group>
+                            <group string="Información General">
+                                <field name="date" attrs="{'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))]}"/>
+                                <field name="ejercicio_id" options="{'no_create': True,'no_edit': True,'no_open': True}" attrs="{'invisible':[('encabezado_view', 'not in', ('type2','type7','type6','type3','type5','type4'))], 'required':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="solicitud" attrs="{'invisible':[('encabezado_view', 'not in', ('type3'))]}"/>
+				<field name="nota_credito" attrs="{'invisible':[('encabezado_view', 'not in', ('type6'))]}"/>
+                                <field name="compromiso" attrs="{'invisible':[('encabezado_view', 'not in', ('type4'))]}"/>
+                                <field name="no_programa" attrs="{'invisible':[('encabezado_view', 'not in', ('type4'))]}"/>
+                                <field name="desc_programa" invisible="1"/>
+                                <field name="importe_sp_FF" attrs="{'invisible':[('encabezado_view', 'not in', ('type3'))],'readonly':[('encabezado_view', 'in', ('type3'))]}"/>
+				<field name="total_comprobado" attrs="{'invisible':[('encabezado_view', 'not in', ('type3'))],'readonly':[('encabezado_view', 'in', ('type3'))]}"/>
+				<field name="total_faltante" string="Saldo" attrs="{'invisible':[('encabezado_view', 'not in', ('type3'))],'readonly':[('encabezado_view', 'in', ('type3'))]}"/>
+                                <field name="code_justificacion" invisible="1"/>
+                                <field name="code_evento" invisible="1"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="picking_id" options="{'no_create': True}" attrs="{'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))],'invisible':['|',('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="po_id" colspan="2" attrs="{'invisible':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="partner_id"  string="Beneficiario" options="{'no_create': True,'no_edit': True,'no_open': True}"  required="1" attrs="{'readonly':['|',('encabezado_view', 'in', ('type3')),('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))],'invisible':['|',('encabezado_view', 'in', ('type1','type6'))]}"/>
+                                <field name="puesto_partner" invisible="1"/>
+                                <field name="bias" attrs="{'invisible':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="number_bias" attrs="{'invisible':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="total_invoice" attrs="{'invisible':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="balance_oc" attrs="{'invisible':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="depedence_id"  options="{'no_create': True,'no_edit': True,'no_open': True}"  attrs="{'readonly':['|',('encabezado_view', 'in', ('type1','type2','type7','type3','type5','type6')),('state', 'in', ('rejected'))]}"/>
+                                <field name="depedence_ueg_id"  options="{'no_create': True,'no_edit': True,'no_open': True}"  attrs="{'readonly':['|',('encabezado_view', 'in', ('type1','type2','type7','type3','type5','type6')),('state', 'in', ('rejected'))]}"/>
+                                <field name="source_finantial_id"  domain="[('nivelfuentefinanciamiento', '=', 3)]" options="{'no_create': True,'no_edit': True,'no_open': True}"  attrs="{'readonly':['|',('encabezado_view', 'not in', ('type7','type6','type5','type4')),('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))]}"/>
+                                <field name="tipo_beneficiario" attrs="{'invisible':[('encabezado_view', 'not in', ('type2','type7','type6','type3','type5','type4'))],'readonly':['|',('encabezado_view', 'in', ('type2','type3')),('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))]}" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+                                <field name="partner_alternate_id"  string="Beneficiario Alterno" required="1" attrs="{'readonly':['|',('encabezado_view', 'in', ('type1','type2','type3')),('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))]}" options="{'no_create': True,'no_edit': True,'no_open': True}" />
+                                <field name="no_pago" attrs="{'invisible':[('encabezado_view', 'not in', ('type4'))]}"/>
+                                <field name="cadena" attrs="{'invisible':[('state', 'not in', ('authorized','shipping_box'))]}" string="Pagar por"/>
+                                <separator string="Factura" colspan="2" attrs="{'invisible':[('encabezado_view', 'not in', ('type3','type4'))]}"/>
+                                <field name="comprobacion_factura" colspan="2" options="{'no_create': True}" attrs="{'invisible':[('encabezado_view', 'not in', ('type3','type4'))],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization'))]}"/>
+                                <field name="avoid_duplicate_check" invisible="1"/>
+                                <field name="total_numero" invisible="1"/>
+                                <field name="total_letra" invisible="1"/>
+                            </group>
+                            <group string="Eventos Contables">
+                                        <field name="justification_id" options="{'no_create': True,'no_edit': True,'no_open': True}" attrs="{'invisible':[('encabezado_view', 'in', ['type2'])]}"/>
+                                        <field name="event_general" readonly="0" attrs="{'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization'))]}" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="details_view" invisible="1"/>
+					<field name="solicitud_pago" invisible="1"/>
+					<field name="recibo" invisible="1"/>
+					<field name="carta_aceptacion" invisible="1"/>
+					<field name="contrarecibo" invisible="1"/>
+					<field name="reporte_devoluciones" invisible="1"/>
+					<field name="layout_beneficarios" invisible="1"/>
+					<field name="informe" invisible="1"/>
+					<field name="fecha_vencimiento" invisible="1"/>
+					<field name="encabezado_view" invisible="1"/>
+                                        <field name="specific_cluster" readonly="1" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="general_grouter"  readonly="1" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="type_affectation_id" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="account_payment_id" invisible="1"/>
+					<field name="code" invisible="1"/>
+                                        <br/>
+                                        <separator string="Datos Generales" colspan="2" />
+					<field name="no_nota_credito" colspan="2" attrs="{'invisible': [('details_view', '!=', 'type5')],'readonly':[('state', 'in', ('rejected'))]}"/>
+                                        <field name="number_doc" colspan="2" attrs="{'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))]}"/>
+                                        <field name="amparo_folio" colspan="2" attrs="{'invisible': [('details_view', '!=', 'type5')],'readonly':[('state', 'in', ('rejected'))]}"/>
+					<field name="application_concept" colspan="2" attrs="{'required':[('encabezado_view', 'not in', ('type1'))],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))]}"/>
+                                        <field name="informes_general" colspan="2" attrs="{'invisible': [('informe', '=', False)],'readonly':[('state', 'in', ('rejected'))]}"/>
+					<field name="date_expired" colspan="2" attrs="{'invisible': [('fecha_vencimiento', '=', False)],'readonly':[('state', 'in', ('rejected'))]}"/>
+                                        <field name="date_payment" colspan="2" invisible="1"/>
+                                        <field name="solicitante" colspan="2" readonly="1" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+                                        <field name="clasificador" colspan="2" attrs="{'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))],'invisible':[('encabezado_view', 'not in', ('type3','type5'))],'required':[('encabezado_view', 'in', ('type3','type5')),('state', 'not in', ('draft','to_authorize','first_authorization','rejected'))]}" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+                                        <field name="code_clasificacion" colspan="2" invisible="1"/>
+                            </group>
+                        </group>
+                        <group/>
+                        <notebook>
+                            <page string="Detalle">
+                                <field name="detail_ids" widget="one2many_list"
+                                    context="{'code_justificacion': code_justificacion}" attrs="{'invisible': [('details_view', '!=', 'type1')],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization','received','in_review','revised'))]}">
+                                    <tree create="true" delete="true" string="Detalle">
+                                        <field name="comprobacion_factura"/>
+                                        <field name="date"
+                                            attrs="{'required': [('code_justificacion', 'not in', ('AF','FF','CG','FR','PD'))]}"/>
+                                        <field name="number_doc" attrs="{'readonly':[('state_invoice', '=', True)]}"/>
+                                        <field name="name"/>
+                                        <field name="evento_especifico" readonly="1"/>
+                                        <field name="code_item"/>
+                                        <field name="product_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+                                        <field name="cantidad_recibida"/>
+					<field name="price_unit"/>
+					<field name="supplier_taxes_id"/>
+					<field name="impuestos" sum="Total"/>
+                                        <field name="code_justificacion" invisible="1"/>
+                                        <field name="partidas_id"
+                                            options="{'no_create': True,'no_edit': True}"
+                                            attrs="{'required': [('code_justificacion', 'not in', ('AF','FF','CG','FR','PD'))]}"
+                                            />
+                                        <field name="estructura_contable_ids"
+                                            options="{'no_create': True,'no_edit': True}"
+                                            attrs="{'required': [('code_justificacion', 'not in', ('AF','FF','CG','FR','PD'))]}"/>
+                                        <field name="total" sum="Total"/>
+                                        <field name="state_invoice"/>
+                                        <field invisible="1" name="payment_id" readonly="1"/>
+                                    </tree>
+                                    <form string="Detalle">
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="invoice" />
+                                                    <field name="date"
+                                                        attrs="{'required': [('code_justificacion', 'not in', ('AF','FF','CG','FR','PD'))]}"/>
+                                                    <field name="number_doc" attrs="{'readonly':[('state_invoice', '=', True)]}"/>
+                                                    <field name="name"/>
+                                                    <field name="evento_especifico" readonly="1"/>
+                                                    <field name="code_item"/>
+                                                    <field name="product_id" options="{'no_create': True,'no_edit': True,'no_open': True}" attrs="{'required': [('details_view_oc', '=', 'type1')]}"/>
+                                                    <field name="cantidad_recibida" attrs="{'required': [('details_view_oc', '=', 'type1')]}"/>
+													<field name="price_unit"/>
+													<field name="supplier_taxes_id" readonly="1"/>
+													<field name="impuestos" readonly="1"/>
+                                                </group>
+                                                <group>
+                                                    <field name="code_justificacion" invisible="1"/>
+						    <field name="details_view_oc" invisible="1"/>
+						    <field name="ejercicio_id" invisible="1"/>
+                                                    <field name="partidas_id"
+                                                        options="{'no_create': True,'no_edit': True}"
+                                                        attrs="{'required': [('details_view_oc', '=', 'type1')]}"
+                                                        />
+                                                    <field name="estructura_contable_ids"
+                                                        options="{'no_create': True,'no_edit': True}"
+                                                        attrs="{'required': [('details_view_oc', '=', 'type1')]}"/>
+                                                    <field name="total"/>
+                                                    <field name="state_invoice"/>
+                                                    <field invisible="1" name="payment_id" readonly="1"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                                <field name="detail_ids_AF" widget="one2many_list" attrs="{'invisible': [('details_view', '!=', 'type2')],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization','received','in_review','revised'))]}"
+                                    context="{'code_justificacion': code_justificacion}">
+                                    <tree create="true" editable="bottom" string="Detalle">
+                                        <field name="date" />
+                                        <field name="number_doc" readonly="0"/>
+                                        <field name="name" readonly="0"/>
+                                        <field name="code_justificacion" invisible="1"/>
+					<field name="ejercicio_id" invisible="1"/>
+                                        <field name="total_af" readonly="0" sum="Total"/>
+                                        <field invisible="1" name="payment_id" readonly="1"/>
+                                    </tree>
+                                </field>
+				<field name="detail_ids_di" widget="one2many_list" attrs="{'invisible': [('details_view', '!=', 'type5')],'readonly':[('state', 'not in', ('draft','to_authorize'))]}"
+                                    context="{'code_justificacion': code_justificacion}">
+                                    <tree create="true" editable="bottom" string="Detalle">
+                                        <field name="date" />
+                                        <field name="number_doc" readonly="0"/>
+                                        <field name="name" readonly="0"/>
+                                        <field name="code_justificacion" invisible="1"/>										
+										<field name="ejercicio_id" invisible="1"/>
+										<field name="cuenta_contable_di" readonly="0" required="1"/>
+                                        <field name="total_af" readonly="0" sum="Total"/>
+                                        <field invisible="1" name="payment_id" readonly="1"/>
+                                    </tree>
+                                </field>
+                                <field name="detail_ids_PD" widget="one2many_list" attrs="{'invisible': [('details_view', '!=', 'type3')],'readonly':[('state', 'not in', ('draft','to_authorize'))]}"
+                                    context="{'code_justificacion': code_justificacion}">
+                                    <tree create="true" string="Detalle">
+                                        <field name="date"
+                                            attrs="{'required': [('code_justificacion', 'in', ('PD'))]}"/>
+                                        <field name="number_doc"  readonly="0"/>
+                                        <field name="name"  readonly="0"/>
+                                        <field name="code_justificacion" invisible="1"/>
+                                        <field name="partidas_id"
+                                            options="{'no_create': True,'no_edit': True}"
+                                            attrs="{'required': [('code_justificacion', 'in', ('PD'))]}"/>
+                                        <field name="estructura_contable_ids"
+                                            options="{'no_create': True,'no_edit': True}"
+                                            attrs="{'required': [('code_justificacion', 'in', ('PD'))]}"/>
+                                        <field name="importe_presupuesto_disponible" invisible="1"/>
+                                        <field name="importe_virtual_disponible"/>
+                                        <field name="evento_especifico" readonly="1"/>
+                                        <field name="total_af" sum="Total"/>
+                                        <field invisible="1" name="payment_id" readonly="1"/>
+                                    </tree>
+                                    <form string="Detalle">
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="date"
+                                                        attrs="{'required': [('code_justificacion', 'in', ('PD'))]}"/>
+                                                    <field name="number_doc"  readonly="0"/>
+                                                    <field name="name"  readonly="0"/>
+                                                    <field name="code_justificacion" invisible="1"/>
+						    <field name="details_view_pd" invisible="1"/>
+						    <field name="ejercicio_id" invisible="1"/>
+                                                    <field name="partidas_id"
+                                                        options="{'no_create': True,'no_edit': True}"
+                                                        attrs="{'required': [('details_view_pd', '=', 'type3')]}"/>
+                                                    <field name="estructura_contable_ids"
+                                                        options="{'no_create': True,'no_edit': True}"
+                                                        attrs="{'required': [('details_view_pd', '=', 'type3')]}"/>
+                                                </group>
+                                                <group>
+                                                    <field name="importe_presupuesto_disponible" invisible="1"/>
+                                                    <field name="importe_virtual_disponible" readonly="1"/>
+                                                    <field name="evento_especifico" readonly="1"/>
+                                                    <field name="total_af" readonly="0"/>
+                                                    <field invisible="1" name="payment_id" readonly="1"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+								<field name="detail_ids_FF" widget="one2many_list"
+                                    context="{'code_justificacion': code_justificacion}" attrs="{'invisible': [('details_view', '!=', 'type4')],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization','received','in_review','revised'))]}">
+									<tree create="true" string="Detalle">
+										<field name="date"
+											attrs="{'required': [('code_justificacion', 'in', ('FF','CG','FR')),('reintegro', '=', False)]}"/>
+										<field name="comprobacion_factura"
+											options="{'no_create': True,'no_edit': True}"/>
+										<field name="number_doc"  attrs="{'readonly':[('state_invoice', '=', True)]}"/>
+										<field name="razon_social"/>
+										<field name="name"  readonly="0"/>
+										<field name="justificacion_gasto"  readonly="0"/>
+										<field name="product_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+										<field name="partidas_id"
+											options="{'no_create': True,'no_edit': True,'no_open': True}"
+											attrs="{'required': [('code_justificacion', 'in', ('FF','CG','FR')),('reintegro', '=', False)]}"
+											/>
+										<field name="estructura_contable_ids"
+											options="{'no_create': True,'no_edit': True}"
+											attrs="{'required': [('code_justificacion', 'in', ('FF','CG','FR')),('reintegro', '=', False)]}"/>
+										<field name="evento_especifico" readonly="1"/>
+										<field name="importe_presupuesto_disponible" invisible="1"/>
+										<field name="importe_virtual_disponible" readonly="1"/>
+										<field name="cuenta_contable" />
+										<field name="cantidad_recibida"/>
+										<field name="unidad_medida_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+										<field name="price_unit"/>
+										<field name="supplier_taxes_id" widget="many2many_tags" readonly="1"/>
+										<field name="impuestos" sum="Total"/>
+										<field name="code_justificacion" invisible="1"/>
+										<field name="recibo"
+											options="{'no_create': True,'no_edit': True}"/>
+										<field name="reintegro" invisible="1"/>
+										<field name="subtotal" string="Subtotal" sum="Total"/>
+										<field name="total" string="Total" sum="Total"/>
+										<field name="state_invoice"/>
+										<field invisible="1" name="payment_id" readonly="1"/>
+									</tree>
+					<form string="Detalle">
+                                        <sheet>
+                                            <group>
+                                                <group attrs="{'readonly': [('reintegro', '=', True)]}">
+                                                    <field name="date" required="1"
+                                                        attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', '=', 'invoice')]}"/>
+                                                    <field name="comprobacion_factura"
+                                                        options="{'no_create': True,'no_edit': True}" attrs="{'readonly': ['|',('recibot', '=', True),('state_invoice', 'in', ('invoice','not_invoice'))]}"/>
+                                                    <field name="number_doc"  attrs="{'readonly':[('state_invoice', '=', True)]}"/>
+                                                    <field name="razon_social" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', '=', 'invoice')]}"/>
+                                                    <field name="product_id" options="{'no_create': True,'no_edit': True,'no_open': True}" attrs="{'readonly': [('reintegro', '=', True)],'required': [('details_view_ff', '=', 'type4')]}"/>
+                                                    <field name="cantidad_recibida" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', '=', 'invoice')],'required': [('details_view_ff', '=', 'type4')]}"/>
+                                                    <field name="price_unit" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', '=', 'invoice')],'required': [('details_view_ff', '=', 'type4')]}"/>
+                                                    <field name="unidad_medida_id" options="{'no_create': True,'no_edit': True,'no_open': True}" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', 'in', ('invoice','not_invoice'))]}"/>
+                                                    <field name="supplier_taxes_id" widget="many2many_tags" readonly="1"/>
+                                                    <field name="impuestos" readonly="1"/>
+                                                    <field name="name"  attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', 'in', ('invoice','not_invoice'))]}"/>
+                                                    <field name="justificacion_gasto" attrs="{'required': [('details_view_ff', '=', 'type4')]}"/>
+                                                </group>
+                                                <group>
+                                                    <field name="code_justificacion" invisible="1"/>
+						    <field name="details_view_ff" invisible="1"/>
+						   <field name="ejercicio_id" invisible="1"/>
+                                                    <field name="partidas_id"
+                                                        options="{'no_create': True,'no_edit': True,'no_open': True}"
+                                                        attrs="{'required': [('details_view_ff', '=', 'type4'),('recibot', '=', False)],'readonly': [('recibot', '=', True)]}"
+                                                        />
+                                                    <field name="estructura_contable_ids"
+                                                        options="{'no_create': True,'no_edit': True,'no_open': True}"
+                                                        attrs="{'required': [('details_view_ff', '=', 'type4'),('recibot', '=', False)],'readonly': [('recibot', '=', True)]}"/>
+                                                    <field name="importe_presupuesto_disponible" invisible="1"/>
+                                                    <field name="importe_virtual_disponible" readonly="1"/>
+                                                    <field name="cuenta_contable" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', 'in', ('invoice','not_invoice'))]}"/>
+                                                    <field name="evento_especifico" readonly="1"/>
+						    <field name="recibot" invisible="1" />
+                                                    <field name="recibo"
+                                                        options="{'no_create': True,'no_edit': True}" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', '=', 'invoice')]}"/>
+                                                    <field name="reintegro" attrs="{'readonly': [('state_invoice', 'in', ('invoice'))]}" invisible="1"/>
+                                                    <field name="state_invoice" readonly="1"/>
+                                                    <field name="subtotal" string="Subtotal" readonly="1"/>
+                                                    <field name="total" string="Total" readonly="1"/>
+                                                    <!--<button name="action_cargar_xml"  string="Cargar XML" type="object" class="oe_stat_button" icon="fa-arrow-circle-up" />-->
+                                                    <field invisible="1" name="payment_id" readonly="1"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+				</field>
+                                <group>
+                                    <field name="suma_total_AF" invisible="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="suma_total_PD" invisible="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+				    <field name="suma_line_FF" invisible="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+				    <field name="impuestos_ff" invisible="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+				    <field name="reintegro" invisible="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+				</group>
+                                <group class="oe_subtotal_footer oe_right" attrs="{'invisible': [('details_view', '!=', 'type4')]}">
+									<field name="importe_sp" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+									<field name="saldo" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+									<div class="oe_subtotal_footer_separator oe_inline">
+										<label for="total_ff"/>
+									</div>
+									<field name="total_ff" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+								</group>
+							</page>
+							<page string="Bitácora" attrs="{'readonly':[('state', 'in', ('rejected'))]}">
+								<field name="binnacle_ids" widget="one2many_list">
+									<tree create="false" delete="false" edit="true" editable="bottom">
+										<field name="date"/>
+										<field name="user_id"/>
+										<field name="state_to" string="Estado"/>
+										<field name="return_id" readonly="1"/>
+										<field name="observations" readonly="1"/>
+										<field invisible="1" name="expense_id" readonly="1"/>
+									</tree>
+								</field>
+							</page>
+
+							<page string="Datos del Viaje" attrs="{'invisible':[('code_clasificacion', 'not in', ('VT'))]}">
+								<group  string="Datos del Viaje">
+									<group>
+										<field name="periodo_inicial" />
+										<field name="periodo_final" />
+										<field name="comisionado_por" />
+										<field name="destino" />
+										<field name="asunto" />
+										<field name="vehiculo" />
+									</group>
+									<group>
+										<field name="marca" />
+										<field name="sub_marca" />
+										<field name="anio" />
+										<field name="no_placas" />
+										<field name="cilindros" />
+										<field name="observaciones" />
+									</group>
+								</group>
+
+							</page>
+							<page string="Datos Migración">
+								<group string="Datos Migración">
+									<field name="previous_counterreceipt" readonly="1"/>
+									<field name="date_previous" readonly="1"/>
+									<field name="expense_type" readonly="1"/>
+									<field name="unit_responsible" readonly="1"/>
+									<field name="state_previous" readonly="1"/>
+								</group>
+							</page>
+							<page string="Documentos">
+								<field name="documents_ids" widget="one2many_list" attrs="{'readonly':[('state', 'in', ('rejected'))]}">
+									<tree create="true" delete="true" edit="true" editable="bottom">
+										<field name="date" required="1" readonly="1"/>
+										<field name="attachment_id" widget="many2many_binary" required="1"/>
+										<field name="user_id" options="{'no_create': True, 'no_open': True}" readonly="1"/>
+										<field invisible="1" name="payment_id" readonly="1"/>
+									</tree>
+								</field>
+							</page>
+							<page string="Datos Bancarios" required="1">
+								<field name="beneficiary_ids" widget="one2many_list" attrs="{'readonly':[('state', 'in', ('rejected'))]}">
+									<tree create="true" delete="true" edit="true" editable="bottom">
+										<field name="beneficiary_id" invisible="1"/>
+										<field name="beneficiary_alternate_id" invisible="1"/>
+										<field name="account_payment_id" options="{'no_create': True, 'no_open': True}" required="1" />
+										<field name="code" invisible="1"/>
+										<field name="partner_bank" attrs="{'required':[('code', 'not in', ('02','NA','REF'))],'readonly':[('code', 'in', ('02','NA','REF'))]}" options="{'no_create': True,'no_edit': True,'no_open': True}" domain="[('state', '=', 'validated')]"/>
+										<field name="bank_id" attrs="{'required':[('code', 'not in', ('02','NA','REF'))]}" readonly="1"/>
+										<field name="bank_account" attrs="{'required':[('code', 'not in', ('02','NA','REF'))]}" readonly="1"/>
+										<field name="clabe" attrs="{'required':[('code', 'not in', ('02','NA','REF'))]}" readonly="1"/>
+										<field invisible="1" name="payment_id" readonly="1"/>
+									</tree>
+								</field>
+							</page>
+						   <page string="Momentos Presup.">
+							<field name="momentos_ids" widget="one2many_list" readonly="1">
+								<tree string="Momentos Presupuestales">
+									<field name="partidas_id" />
+									<field name="departamento_id" />
+									<field name="fuentefinanciamiento_id" />
+									<field name="fuentefinanciamiento_origen_id" />
+									<field name="subtipogasto_id" />
+									<field name="subfunciongasto_id" />
+									<field name="actividad_id" />
+									<field name="destino_id"/>
+									<field name="precomprometido" sum="Total Precomprometido" widget="monetary"/>
+									<field name="comprometido" sum="Total Comprometido" widget="monetary"/>
+									<field name="devengado" sum="Total devengado" widget="monetary"/>
+									<field name="ejercido" sum="Total Ejercido" widget="monetary"/>
+									<field name="pagado" sum="Total pagado" widget="monetary"/>
+									<field name="fechaaplicacion" string="Fecha de aplicación"/>
+									<field name="ejercicio_id"/>
+									<field name="periodo_id" />
+								</tree>
+								<form>
+									<group>
+										<group>
+											<field name="partidas_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="departamento_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="fuentefinanciamiento_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="fuentefinanciamiento_origen_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="subtipogasto_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="subfunciongasto_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="actividad_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="destino_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="precomprometido" sum="Total Precomprometido" widget="monetary"/>
+											<field name="comprometido" sum="Total Comprometido" widget="monetary"/>
+											<field name="devengado" sum="Total devengado" widget="monetary"/>
+											<field name="ejercido" sum="Total Ejercido" widget="monetary"/>
+											<field name="pagado" sum="Total pagado" widget="monetary"/>
+										</group>
+										<group>
+											<field name="fechaaplicacion" string="Fecha de aplicación"/>
+											<field name="ejercicio_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="periodo_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+										</group>
+									</group>
+								</form>
+							</field>
+						</page>
+						<page string="Asientos contables">
+							<field name="move_ids" widget="one2many_list" readonly="1">
+							    <tree>
+								<field name="name"/>
+								<field name="date" string="Fecha de aplicación"/>
+								<field name="amount"/>
+								<field name="state"/>
+							    </tree>
+							</field>
+						</page>
+						   <page string="Layout" attrs="{'readonly':[('state', 'in', ('rejected'))],'invisible':[('layout_beneficarios', '=', False)]}">
+								<field name="apoyos_sociales" widget="one2many_list" attrs="{'readonly':[('state', 'in', ('rejected'))],'invisible':[('layout_beneficarios', '=', False)]}">
+									<tree create="true" delete="true" string="Detalle">
+										<field name="cuenta" />
+										<field name="importe" />
+										<field name="clave" />
+										<field name="nombre" />
+										<field name="referencia" />
+										<field name="concepto" />
+										<field name="num_proyec" />
+										<field name="generacion" />
+										<field invisible="1" name="payment_id" readonly="1"/>
+									</tree>
+									<form>
+										<field name="documento" />
+									</form>
+
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div>
+				</form>
+			</field>
+		</record>
+		<record id="action_expense_payment" model="ir.actions.act_window">
+			<field name="name">Solicitud de Pago</field>
+			<field name="res_model">expense.payment</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,pivot</field>
+		</record>
+
+		<menuitem action="action_expense_payment" id="menu_expense_payment" name="Solicitud de Pago" sequence="1" parent="menu_payment_request"/>
+	<!--Devolución de Ingresos
+	<record model="ir.ui.view" id="nota_credito_devolucion_ingresos">
+        <field name="name">nota.credito.solicitud</field>
+        <field name="model">nota.credito</field>
+        <field name="inherit_id" ref="cajas_municipal.view_notacredito_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_poliza']" position="after">
+				<button name="create_devolucion_ingresos" class="oe_stat_button" icon="fa-copy" type="object" string="Generar Solicitud de Pago"/>
+			</xpath>
+			<xpath expr="//field[@name='factura_egresos']" position="after">
+				<field name="solicitud" readonly="1"/>
+			</xpath>
+        </field>
+    </record>-->
+	<!--Programacion de pagos-->
+	<record id="view_expense_payment_tree_pagos" model="ir.ui.view">
+			<field name="name">view.expense.payment.tree</field>
+			<field name="model">expense.payment</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="date"/>
+					<field name="partner_alternate_id"/>
+					<field name="total"/>
+					<field name="account_payment_id"/>
+					<field name="justification_id"/>
+					<field name="source_finantial_id"/>
+					<field name="code_justificacion" invisible="1"/>
+					<field name="application_concept"/>
+					<field name="compromiso"/>
+					<field name="state" string="Estado"/>
+				</tree>
+			</field>
+		</record>
+	<record id="view_expense_payment_form_pagos" model="ir.ui.view">
+			<field name="name">view.expense.payment.form</field>
+			<field name="model">expense.payment</field>
+			<field name="arch" type="xml">
+				<form string="Solicitud de pago">
+					<header>
+						<button class="oe_highlight" name="action_box" states="shipping_box" string="Recibido" type="object" confirm="Está seguro que desea continuar?"/>
+						<button class="oe_highlight" name="action_scheduled" states="entregado_caja" string="Programado" type="object" confirm="Está seguro que desea continuar?"/>
+						<button class="oe_highlight" name="action_printed" states="frozen" string="Impreso" type="object" confirm="Está seguro que desea continuar?"/>
+						<button class="oe_highlight" name="action_sent" states="printed,create_check" string="Enviado" type="object" confirm="Está seguro que desea continuar?"/>
+						<button class="oe_highlight" name="action_paid" states="sent" string="Pagado" type="object" confirm="Está seguro que desea continuar?"/>
+						<button class="oe_highlight" name="action_sent_support" states="paid" string="Enviado a Soporte del Gasto" type="object" confirm="Está seguro que desea continuar?"/>
+						<button class="oe_highlight" name="action_sent_invoice" states="env_sop" string="Enviado a Contabilidad" type="object" confirm="Está seguro que desea continuar?"/>
+                        <!--<button class="oe_highlight" name="action_frozen" states="scheduled" string="Congelado" type="object" confirm="Está seguro que desea continuar?"/>-->
+						<button class="oe_highlight" name="action_rejected" states="shipment_box,entregado_caja,scheduled" string="Cancelada" type="object" confirm="Está seguro que desea continuar?"/>
+                        <button class="oe_highlight" name="action_observed" states="entregado_caja,scheduled,sent,paid" string="En Observación" type="object" confirm="Está seguro que desea continuar?"/>
+                        <button class="oe_highlight" name="action_imprimir_solicitud" string="Imprimir" type="object"/>
+						<field name="state" widget="statusbar" statusbar_visible="entregado_caja,scheduled,create_check,printed,sent,paid,env_sop,env_cont,observed,frozen,rejected"/>
+					</header>
+					<sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button attrs="{'invisible':[('encabezado_view', 'in', ('type1','type3'))]}" type="object" name="action_view_comprobaciones" class="oe_stat_button" icon="fa-list-alt" Confirm="¿Esta seguro(a) de realizar una comprobación?" >
+                               <field name="comp_count" widget="statinfo" string="Comprobaciones"/>
+                               <field name="comp_ids" invisible="1"/>
+                           </button>
+                            <button attrs="{'invisible':[('recibo', '=', False)]}" string="Recibo" type="object" name="action_imprimir_recibo" class="oe_stat_button" icon="fa-copy" ></button>
+                            <button attrs="{'invisible':[('code', 'not in', ('02'))]}" string="Contrarecibo" type="object" name="action_imprimir_contrarecibo" class="oe_stat_button" icon="fa-copy" ></button>
+			    <button attrs="{'invisible':[('carta_aceptacion', '=', False)]}" string="Carta de Aceptación" type="object" name="action_imprimir_carta" class="oe_stat_button" icon="fa-copy" ></button>
+                            <button class="oe_stat_button" name="create_lines" string="Validar Documento" icon="fa-arrow-up" type="object" attrs="{'readonly':[('state', 'in', ('rejected'))],'invisible':[('layout_beneficarios', '=', False)]}"/>
+                            <button attrs="{'invisible':[('reporte_devoluciones', '=', False),('state','not in',('rejected','observed'))]}" class="oe_stat_button" name="action_imprimir_observaciones" string="Reporte Devoluciones" icon="fa-copy" type="object" />
+                            <button class="oe_stat_button" name="cargar_detalle_factura" string="Cargar Detalle" icon="fa-arrow-up" type="object" attrs="{'invisible':[('encabezado_view', 'not in', ('type3','type4'))]}"/>
+                        </div>
+                        <h2><field name="name" readonly="1"/></h2>
+                        <separator/>
+                        <group>
+                            <group string="Información General">
+                                <field name="date" attrs="{'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))]}"/>
+                                <field name="ejercicio_id" options="{'no_create': True,'no_edit': True,'no_open': True}" attrs="{'invisible':[('encabezado_view', 'not in', ('type2','type7','type6','type3','type5','type4'))], 'required':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="solicitud" attrs="{'invisible':[('encabezado_view', 'not in', ('type3'))]}"/>
+				<field name="nota_credito" attrs="{'invisible':[('encabezado_view', 'not in', ('type6'))]}"/>
+                                <field name="compromiso" attrs="{'invisible':[('encabezado_view', 'not in', ('type4'))]}"/>
+                                <field name="no_programa" attrs="{'invisible':[('encabezado_view', 'not in', ('type4'))]}"/>
+                                <field name="desc_programa" invisible="1"/>
+                                <field name="importe_sp_FF" attrs="{'invisible':[('encabezado_view', 'not in', ('type3'))],'readonly':[('encabezado_view', 'in', ('type3'))]}"/>
+				<field name="total_comprobado" attrs="{'invisible':[('encabezado_view', 'not in', ('type3'))],'readonly':[('encabezado_view', 'in', ('type3'))]}"/>
+				<field name="total_faltante" string="Saldo" attrs="{'invisible':[('encabezado_view', 'not in', ('type3'))],'readonly':[('encabezado_view', 'in', ('type3'))]}"/>
+                                <field name="code_justificacion" invisible="1"/>
+                                <field name="code_evento" invisible="1"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="picking_id" options="{'no_create': True}" attrs="{'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))],'invisible':['|',('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="po_id" colspan="2" attrs="{'invisible':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="partner_id"  string="Beneficiario" options="{'no_create': True,'no_edit': True,'no_open': True}"  required="1" attrs="{'readonly':['|',('encabezado_view', 'in', ('type3')),('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))],'invisible':['|',('encabezado_view', 'in', ('type1','type6'))]}"/>
+                                <field name="puesto_partner" invisible="1"/>
+                                <field name="bias" attrs="{'invisible':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="number_bias" attrs="{'invisible':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="total_invoice" attrs="{'invisible':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="balance_oc" attrs="{'invisible':[('encabezado_view', 'in', ('type2','type7','type6','type3','type5','type4'))]}"/>
+                                <field name="depedence_id"  options="{'no_create': True,'no_edit': True,'no_open': True}"  attrs="{'readonly':['|',('encabezado_view', 'in', ('type1','type2','type7','type3','type5','type6')),('state', 'in', ('rejected'))]}"/>
+                                <field name="depedence_ueg_id"  options="{'no_create': True,'no_edit': True,'no_open': True}"  attrs="{'readonly':['|',('encabezado_view', 'in', ('type1','type2','type7','type3','type5','type6')),('state', 'in', ('rejected'))]}"/>
+                                <field name="source_finantial_id"  domain="[('nivelfuentefinanciamiento', '=', 3)]" options="{'no_create': True,'no_edit': True,'no_open': True}"  attrs="{'readonly':['|',('encabezado_view', 'not in', ('type7','type6','type5','type4')),('state', 'in', ('rejected'))]}"/>
+                                <field name="tipo_beneficiario" attrs="{'invisible':[('encabezado_view', 'not in', ('type2','type7','type6','type3','type5','type4'))],'readonly':['|',('encabezado_view', 'in', ('type2','type3')),('state', 'in', ('rejected'))]}" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+                                <field name="partner_alternate_id"  string="Beneficiario Alterno" required="1" attrs="{'readonly':['|',('encabezado_view', 'in', ('type1','type2','type3')),('state', 'in', ('rejected'))]}" options="{'no_create': True,'no_edit': True,'no_open': True}" />
+                                <field name="no_pago" attrs="{'invisible':[('encabezado_view', 'not in', ('type4'))]}"/>
+                                <field name="cadena" attrs="{'invisible':[('state', 'not in', ('authorized','shipping_box'))]}" string="Pagar por"/>
+                                <separator string="Factura" colspan="2" attrs="{'invisible':[('encabezado_view', 'not in', ('type3','type4'))]}"/>
+                                <field name="comprobacion_factura" colspan="2" options="{'no_create': True}" attrs="{'invisible':[('encabezado_view', 'not in', ('type3','type4'))],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization'))]}"/>
+                                <field name="avoid_duplicate_check" invisible="1"/>
+                            </group>
+                            <group string="Eventos Contables">
+                                        <field name="justification_id" options="{'no_create': True,'no_edit': True,'no_open': True}" attrs="{'invisible':[('encabezado_view', 'in', ['type2'])]}"/>
+                                        <field name="event_general" readonly="0" attrs="{'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization'))]}" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="details_view" invisible="1"/>
+					<field name="solicitud_pago" invisible="1"/>
+					<field name="recibo" invisible="1"/>
+					<field name="carta_aceptacion" invisible="1"/>
+					<field name="contrarecibo" invisible="1"/>
+					<field name="reporte_devoluciones" invisible="1"/>
+					<field name="layout_beneficarios" invisible="1"/>
+					<field name="informe" invisible="1"/>
+					<field name="fecha_vencimiento" invisible="1"/>
+					<field name="encabezado_view" invisible="1"/>
+                                        <field name="specific_cluster" readonly="1" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="general_grouter"  readonly="1" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="type_affectation_id" options="{'no_create': True, 'no_open': True}"/>
+                                        <field name="account_payment_id" invisible="1"/>
+					<field name="code" invisible="1"/>
+                                        <br/>
+                                        <separator string="Datos Generales" colspan="2" />
+					<field name="no_nota_credito" colspan="2" attrs="{'invisible': [('details_view', '!=', 'type5')],'readonly':[('state', 'in', ('rejected'))]}"/>
+                                        <field name="number_doc" colspan="2" attrs="{'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))]}"/>
+                                        <field name="amparo_folio" colspan="2" attrs="{'invisible': [('details_view', '!=', 'type5')],'readonly':[('state', 'in', ('rejected'))]}"/>
+					<field name="application_concept" colspan="2" attrs="{'required':[('encabezado_view', 'not in', ('type1'))],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))]}"/>
+                                        <field name="informes_general" colspan="2" attrs="{'invisible': [('informe', '=', False)],'readonly':[('state', 'in', ('rejected'))]}"/>
+					<field name="date_expired" colspan="2" attrs="{'invisible': [('fecha_vencimiento', '=', False)],'readonly':[('state', 'in', ('rejected'))]}"/>
+                                        <field name="date_payment" colspan="2" invisible="1"/>
+                                        <field name="solicitante" colspan="2" readonly="1" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+                                        <field name="clasificador" colspan="2" attrs="{'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization'))],'invisible':[('encabezado_view', 'not in', ('type3','type5'))],'required':[('encabezado_view', 'in', ('type3','type5')),('state', 'not in', ('draft','to_authorize','first_authorization','rejected'))]}" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+                                        <field name="code_clasificacion" colspan="2" invisible="1"/>
+                            </group>
+                        </group>
+                        <group/>
+                        <notebook>
+                            <page string="Detalle">
+                                <field name="detail_ids" widget="one2many_list"
+                                    context="{'code_justificacion': code_justificacion}" attrs="{'invisible': [('details_view', '!=', 'type1')],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization','received','in_review','revised'))]}">
+                                    <tree create="true" delete="true" string="Detalle">
+                                        <field name="comprobacion_factura"/>
+                                        <field name="date"
+                                            attrs="{'required': [('code_justificacion', 'not in', ('AF','FF','CG','FR','PD'))]}"/>
+                                        <field name="number_doc"/>
+                                        <field name="name"/>
+                                        <field name="evento_especifico" readonly="1"/>
+                                        <field name="code_item"/>
+                                        <field name="product_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+                                        <field name="cantidad_recibida"/>
+					<field name="price_unit"/>
+					<field name="supplier_taxes_id"/>
+					<field name="impuestos" sum="Total"/>
+                                        <field name="code_justificacion" invisible="1"/>
+                                        <field name="partidas_id"
+                                            options="{'no_create': True,'no_edit': True}"
+                                            attrs="{'required': [('code_justificacion', 'not in', ('AF','FF','CG','FR','PD'))]}"
+                                            />
+                                        <field name="estructura_contable_ids"
+                                            options="{'no_create': True,'no_edit': True}"
+                                            attrs="{'required': [('code_justificacion', 'not in', ('AF','FF','CG','FR','PD'))]}"/>
+                                        <field name="total" sum="Total"/>
+                                        <field name="state_invoice"/>
+                                        <field invisible="1" name="payment_id" readonly="1"/>
+                                    </tree>
+                                    <form string="Detalle">
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="invoice" />
+                                                    <field name="date"
+                                                        attrs="{'required': [('code_justificacion', 'not in', ('AF','FF','CG','FR','PD'))]}"/>
+                                                    <field name="number_doc"/>
+                                                    <field name="name"/>
+                                                    <field name="evento_especifico" readonly="1"/>
+                                                    <field name="code_item"/>
+                                                    <field name="product_id" options="{'no_create': True,'no_edit': True,'no_open': True}" attrs="{'required': [('details_view_oc', '=', 'type1')]}"/>
+                                                    <field name="cantidad_recibida" attrs="{'required': [('details_view_oc', '=', 'type1')]}"/>
+						   <field name="price_unit"/>
+						   <field name="supplier_taxes_id" readonly="1"/>
+						  <field name="impuestos" readonly="1"/>
+                                                </group>
+                                                <group>
+                                                    <field name="code_justificacion" invisible="1"/>
+						    <field name="details_view_oc" invisible="1"/>
+						    <field name="ejercicio_id" invisible="1"/>
+                                                    <field name="partidas_id"
+                                                        options="{'no_create': True,'no_edit': True}"
+                                                        attrs="{'required': [('details_view_oc', '=', 'type1')]}"
+                                                        />
+                                                    <field name="estructura_contable_ids"
+                                                        options="{'no_create': True,'no_edit': True}"
+                                                        attrs="{'required': [('details_view_oc', '=', 'type1')]}"/>
+                                                    <field name="total"/>
+                                                    <field name="state_invoice"/>
+                                                    <field invisible="1" name="payment_id" readonly="1"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                                <field name="detail_ids_AF" widget="one2many_list" attrs="{'invisible': [('details_view', '!=', 'type2')],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization','received','in_review','revised'))]}"
+                                    context="{'code_justificacion': code_justificacion}">
+                                    <tree create="true" editable="bottom" string="Detalle">
+                                        <field name="date" />
+                                        <field name="number_doc" readonly="0"/>
+                                        <field name="name" readonly="0"/>
+                                        <field name="code_justificacion" invisible="1"/>
+					<field name="ejercicio_id" invisible="1"/>
+                                        <field name="total_af" readonly="0" sum="Total"/>
+                                        <field invisible="1" name="payment_id" readonly="1"/>
+                                    </tree>
+                                </field>
+				<field name="detail_ids_di" widget="one2many_list" attrs="{'invisible': [('details_view', '!=', 'type5')],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization','received','in_review','revised'))]}"
+                                    context="{'code_justificacion': code_justificacion}">
+                                    <tree create="true" editable="bottom" string="Detalle">
+                                        <field name="date" />
+                                        <field name="number_doc" readonly="0"/>
+                                        <field name="name" readonly="0"/>
+                                        <field name="code_justificacion" invisible="1"/>
+					<field name="ejercicio_id" invisible="1"/>
+					<field name="cuenta_contable_di" readonly="0" required="1"/>
+                                        <field name="total_af" readonly="0" sum="Total"/>
+                                        <field invisible="1" name="payment_id" readonly="1"/>
+                                    </tree>
+                                </field>
+                                <field name="detail_ids_PD" widget="one2many_list" attrs="{'invisible': [('details_view', '!=', 'type3')],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization','received','in_review','revised'))]}"
+                                    context="{'code_justificacion': code_justificacion}">
+                                    <tree create="true" string="Detalle">
+                                        <field name="date"
+                                            attrs="{'required': [('code_justificacion', 'in', ('PD'))]}"/>
+                                        <field name="number_doc"  readonly="0"/>
+                                        <field name="name"  readonly="0"/>
+                                        <field name="code_justificacion" invisible="1"/>
+                                        <field name="partidas_id"
+                                            options="{'no_create': True,'no_edit': True}"
+                                            attrs="{'required': [('code_justificacion', 'in', ('PD'))]}"/>
+                                        <field name="estructura_contable_ids"
+                                            options="{'no_create': True,'no_edit': True}"
+                                            attrs="{'required': [('code_justificacion', 'in', ('PD'))]}"/>
+                                        <field name="importe_presupuesto_disponible" invisible="1"/>
+                                        <field name="importe_virtual_disponible"/>
+                                        <field name="evento_especifico" readonly="1"/>
+                                        <field name="total_af" sum="Total"/>
+                                        <field invisible="1" name="payment_id" readonly="1"/>
+                                    </tree>
+                                    <form string="Detalle">
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="date"
+                                                        attrs="{'required': [('code_justificacion', 'in', ('PD'))]}"/>
+                                                    <field name="number_doc"  readonly="0"/>
+                                                    <field name="name"  readonly="0"/>
+                                                    <field name="code_justificacion" invisible="1"/>
+						    <field name="details_view_pd" invisible="1"/>
+						    <field name="ejercicio_id" invisible="1"/>
+                                                    <field name="partidas_id"
+                                                        options="{'no_create': True,'no_edit': True}"
+                                                        attrs="{'required': [('details_view_pd', '=', 'type3')]}"/>
+                                                    <field name="estructura_contable_ids"
+                                                        options="{'no_create': True,'no_edit': True}"
+                                                        attrs="{'required': [('details_view_pd', '=', 'type3')]}"/>
+                                                </group>
+                                                <group>
+                                                    <field name="importe_presupuesto_disponible" invisible="1"/>
+                                                    <field name="importe_virtual_disponible" readonly="1"/>
+                                                    <field name="evento_especifico" readonly="1"/>
+                                                    <field name="total_af" readonly="0"/>
+                                                    <field invisible="1" name="payment_id" readonly="1"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+								<field name="detail_ids_FF" widget="one2many_list"
+                                    context="{'code_justificacion': code_justificacion}" attrs="{'invisible': [('details_view', '!=', 'type4')],'readonly':[('state', 'not in', ('draft','to_authorize','first_authorization','second_authorization','received','in_review','revised'))]}">
+									<tree create="true" string="Detalle">
+										<field name="date"
+											attrs="{'required': [('code_justificacion', 'in', ('FF','CG','FR')),('reintegro', '=', False)]}"/>
+										<field name="comprobacion_factura"
+											options="{'no_create': True,'no_edit': True}"/>
+										<field name="number_doc"  readonly="0"/>
+										<field name="razon_social"/>
+										<field name="name"  readonly="0"/>
+										<field name="justificacion_gasto"  readonly="0"/>
+										<field name="product_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+										<field name="partidas_id"
+											options="{'no_create': True,'no_edit': True,'no_open': True}"
+											attrs="{'required': [('code_justificacion', 'in', ('FF','CG','FR')),('reintegro', '=', False)]}"
+											/>
+										<field name="estructura_contable_ids"
+											options="{'no_create': True,'no_edit': True}"
+											attrs="{'required': [('code_justificacion', 'in', ('FF','CG','FR')),('reintegro', '=', False)]}"/>
+										<field name="evento_especifico" readonly="1"/>
+										<field name="importe_presupuesto_disponible" invisible="1"/>
+										<field name="importe_virtual_disponible" readonly="1"/>
+										<field name="cuenta_contable" />
+										<field name="cantidad_recibida"/>
+										<field name="unidad_medida_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+										<field name="price_unit"/>
+										<field name="supplier_taxes_id" widget="many2many_tags" readonly="1"/>
+										<field name="impuestos" sum="Total"/>
+										<field name="code_justificacion" invisible="1"/>
+										<field name="recibo"
+											options="{'no_create': True,'no_edit': True}"/>
+										<field name="reintegro" invisible="1"/>
+										<field name="subtotal" string="Subtotal" sum="Total"/>
+										<field name="total" string="Total" sum="Total"/>
+										<field name="state_invoice"/>
+										<field invisible="1" name="payment_id" readonly="1"/>
+									</tree>
+					<form string="Detalle">
+                                        <sheet>
+                                            <group>
+                                                <group attrs="{'readonly': [('reintegro', '=', True)]}">
+                                                    <field name="date" required="1"
+                                                        attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', '=', 'invoice')]}"/>
+                                                    <field name="comprobacion_factura"
+                                                        options="{'no_create': True,'no_edit': True}" attrs="{'readonly': ['|',('recibot', '=', True),('state_invoice', 'in', ('invoice','not_invoice'))]}"/>
+                                                    <field name="number_doc"  attrs="{'readonly': [('recibot', '=', True)]}"/>
+                                                    <field name="razon_social" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', '=', 'invoice')]}"/>
+                                                    <field name="product_id" options="{'no_create': True,'no_edit': True,'no_open': True}" attrs="{'readonly': [('reintegro', '=', True)],'required': [('details_view_ff', '=', 'type4')]}"/>
+                                                    <field name="cantidad_recibida" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', '=', 'invoice')],'required': [('details_view_ff', '=', 'type4')]}"/>
+                                                    <field name="price_unit" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', '=', 'invoice')],'required': [('details_view_ff', '=', 'type4')]}"/>
+                                                    <field name="unidad_medida_id" options="{'no_create': True,'no_edit': True,'no_open': True}" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', 'in', ('invoice','not_invoice'))]}"/>
+                                                    <field name="supplier_taxes_id" widget="many2many_tags" readonly="1"/>
+                                                    <field name="impuestos" readonly="1"/>
+                                                    <field name="name"  attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', 'in', ('invoice','not_invoice'))]}"/>
+                                                    <field name="justificacion_gasto" attrs="{'required': [('details_view_ff', '=', 'type4')]}"/>
+                                                </group>
+                                                <group>
+                                                    <field name="code_justificacion" invisible="1"/>
+						    <field name="details_view_ff" invisible="1"/>
+						   <field name="ejercicio_id" invisible="1"/>
+                                                    <field name="partidas_id"
+                                                        options="{'no_create': True,'no_edit': True,'no_open': True}"
+                                                        attrs="{'required': [('details_view_ff', '=', 'type4'),('recibot', '=', False)],'readonly': [('recibot', '=', True)]}"
+                                                        />
+                                                    <field name="estructura_contable_ids"
+                                                        options="{'no_create': True,'no_edit': True,'no_open': True}"
+                                                        attrs="{'required': [('details_view_ff', '=', 'type4'),('recibot', '=', False)],'readonly': [('recibot', '=', True)]}"/>
+                                                    <field name="importe_presupuesto_disponible" invisible="1"/>
+                                                    <field name="importe_virtual_disponible" readonly="1"/>
+                                                    <field name="cuenta_contable" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', 'in', ('invoice','not_invoice'))]}"/>
+                                                    <field name="evento_especifico" readonly="1"/>
+						    <field name="recibot" invisible="1" />
+                                                    <field name="recibo"
+                                                        options="{'no_create': True,'no_edit': True}" attrs="{'readonly': ['|',('reintegro', '=', True),('state_invoice', '=', 'invoice')]}"/>
+                                                    <field name="reintegro" attrs="{'readonly': [('state_invoice', 'in', ('invoice'))]}" invisible="1"/>
+                                                    <field name="state_invoice" readonly="1"/>
+                                                    <field name="subtotal" string="Subtotal" readonly="1"/>
+                                                    <field name="total" string="Total" readonly="1"/>
+                                                    <!--<button name="action_cargar_xml"  string="Cargar XML" type="object" class="oe_stat_button" icon="fa-arrow-circle-up" />-->
+                                                    <field invisible="1" name="payment_id" readonly="1"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+				</field>
+                                <group>
+                                    <field name="suma_total_AF" invisible="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="suma_total_PD" invisible="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+				    <field name="suma_line_FF" invisible="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+				    <field name="impuestos_ff" invisible="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+				    <field name="reintegro" invisible="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+				</group>
+                                <group class="oe_subtotal_footer oe_right" attrs="{'invisible': [('details_view', '!=', 'type4')]}">
+									<field name="importe_sp" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+									<field name="saldo" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+									<div class="oe_subtotal_footer_separator oe_inline">
+										<label for="total_ff"/>
+									</div>
+									<field name="total_ff" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+								</group>
+							</page>
+							<page string="Bitácora" attrs="{'readonly':[('state', 'in', ('rejected'))]}">
+								<field name="binnacle_ids" widget="one2many_list">
+									<tree create="false" delete="false" edit="true" editable="bottom">
+										<field name="date"/>
+										<field name="user_id"/>
+										<field name="state_to" string="Estado"/>
+										<field name="return_id" readonly="1"/>
+										<field name="observations" readonly="1"/>
+										<field invisible="1" name="expense_id" readonly="1"/>
+									</tree>
+								</field>
+							</page>
+
+							<page string="Datos del Viaje" attrs="{'invisible':[('code_clasificacion', 'not in', ('VT'))]}">
+								<group  string="Datos del Viaje">
+									<group>
+										<field name="periodo_inicial" />
+										<field name="periodo_final" />
+										<field name="comisionado_por" />
+										<field name="destino" />
+										<field name="asunto" />
+										<field name="vehiculo" />
+									</group>
+									<group>
+										<field name="marca" />
+										<field name="sub_marca" />
+										<field name="anio" />
+										<field name="no_placas" />
+										<field name="cilindros" />
+										<field name="observaciones" />
+									</group>
+								</group>
+
+							</page>
+							<page string="Datos Migración">
+								<group string="Datos Migración">
+									<field name="previous_counterreceipt" readonly="1"/>
+									<field name="date_previous" readonly="1"/>
+									<field name="expense_type" readonly="1"/>
+									<field name="unit_responsible" readonly="1"/>
+									<field name="state_previous" readonly="1"/>
+								</group>
+							</page>
+							<page string="Documentos">
+								<field name="documents_ids" widget="one2many_list" attrs="{'readonly':[('state', 'in', ('rejected'))]}">
+									<tree create="true" delete="true" edit="true" editable="bottom">
+										<field name="date" required="1" readonly="1"/>
+										<field name="attachment_id" widget="many2many_binary" required="1"/>
+										<field name="user_id" options="{'no_create': True, 'no_open': True}" readonly="1"/>
+										<field invisible="1" name="payment_id" readonly="1"/>
+									</tree>
+								</field>
+							</page>
+							<page string="Datos Bancarios" required="1">
+								<field name="beneficiary_ids" widget="one2many_list" attrs="{'readonly':[('state', 'in', ('rejected'))]}">
+									<tree create="true" delete="true" edit="true" editable="bottom">
+										<field name="beneficiary_id" invisible="1"/>
+										<field name="beneficiary_alternate_id" invisible="1"/>
+										<field name="account_payment_id" options="{'no_create': True, 'no_open': True}" required="1" />
+										<field name="code" invisible="1"/>
+										<field name="partner_bank" attrs="{'required':[('code', 'not in', ('02','NA','REF'))],'readonly':[('code', 'in', ('02','NA','REF'))]}" options="{'no_create': True,'no_edit': True,'no_open': True}" domain="[('state', '=', 'validated')]"/>
+										<field name="bank_id" attrs="{'required':[('code', 'not in', ('02','NA','REF'))]}" readonly="1"/>
+										<field name="bank_account" attrs="{'required':[('code', 'not in', ('02','NA','REF'))]}" readonly="1"/>
+										<field name="clabe" attrs="{'required':[('code', 'not in', ('02','NA','REF'))]}" readonly="1"/>
+										<field invisible="1" name="payment_id" readonly="1"/>
+									</tree>
+								</field>
+							</page>
+						   <page string="Momentos Presup.">
+							<field name="momentos_ids" widget="one2many_list" readonly="1">
+								<tree string="Momentos Presupuestales">
+									<field name="partidas_id" />
+									<field name="departamento_id" />
+									<field name="fuentefinanciamiento_id" />
+									<field name="fuentefinanciamiento_origen_id" />
+									<field name="subtipogasto_id" />
+									<field name="subfunciongasto_id" />
+									<field name="actividad_id" />
+									<field name="destino_id"/>
+									<field name="precomprometido" sum="Total Precomprometido" widget="monetary"/>
+									<field name="comprometido" sum="Total Comprometido" widget="monetary"/>
+									<field name="devengado" sum="Total devengado" widget="monetary"/>
+									<field name="ejercido" sum="Total Ejercido" widget="monetary"/>
+									<field name="pagado" sum="Total pagado" widget="monetary"/>
+									<field name="fechaaplicacion" string="Fecha de aplicación"/>
+									<field name="ejercicio_id"/>
+									<field name="periodo_id" />
+								</tree>
+								<form>
+									<group>
+										<group>
+											<field name="partidas_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="departamento_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="fuentefinanciamiento_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="fuentefinanciamiento_origen_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="subtipogasto_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="subfunciongasto_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="actividad_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="destino_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="precomprometido" sum="Total Precomprometido" widget="monetary"/>
+											<field name="comprometido" sum="Total Comprometido" widget="monetary"/>
+											<field name="devengado" sum="Total devengado" widget="monetary"/>
+											<field name="ejercido" sum="Total Ejercido" widget="monetary"/>
+											<field name="pagado" sum="Total pagado" widget="monetary"/>
+										</group>
+										<group>
+											<field name="fechaaplicacion" string="Fecha de aplicación"/>
+											<field name="ejercicio_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+											<field name="periodo_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>
+										</group>
+									</group>
+								</form>
+							</field>
+						</page>
+						<page string="Asientos contables">
+							<field name="move_ids" widget="one2many_list" readonly="1">
+							    <tree>
+								<field name="name"/>
+								<field name="date" string="Fecha de aplicación"/>
+								<field name="amount"/>
+								<field name="state"/>
+							    </tree>
+							</field>
+						</page>
+						   <page string="Layout" attrs="{'readonly':[('state', 'in', ('rejected'))],'invisible':[('layout_beneficarios', '=', False)]}">
+								<field name="apoyos_sociales" widget="one2many_list" attrs="{'readonly':[('state', 'in', ('rejected'))],'invisible':[('layout_beneficarios', '=', False)]}">
+									<tree create="true" delete="true" string="Detalle">
+										<field name="cuenta" />
+										<field name="importe" />
+										<field name="clave" />
+										<field name="nombre" />
+										<field name="referencia" />
+										<field name="concepto" />
+										<field name="num_proyec" />
+										<field name="generacion" />
+										<field invisible="1" name="payment_id" readonly="1"/>
+									</tree>
+									<form>
+										<field name="documento" />
+									</form>
+
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+    <!--Pivot view Programación Pagos Masivos-->
+    <record id="pivot_pagos_masivos" model="ir.ui.view">
+        <field name="name">pagos.masivos.pivot</field>
+        <field name="model">expense.payment</field>
+        <field name="arch" type="xml">
+            <pivot string="Solicitudes de Pago">
+                <field name="event_general" type="row"/>
+                <field name="total_pivot" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+	<record model="ir.actions.act_window" id="action_pagos_solicitud">
+        <field name="name">Programación de Pagos</field>
+        <field name="res_model">expense.payment</field>
+        <field name="domain">[('state','!=','draft')]</field>
+        <field name="view_ids" eval="[(5,0,0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_expense_payment_tree_pagos')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_expense_payment_form_pagos')})]"/>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+    <menuitem name="Pagos" id="menu_pagosSP" parent="finanzas.tesoreria_conciliaciones" action="action_pagos_solicitud"/>
+    <menuitem name="Programación de Pagos" id="menu_programacion_pagos_SP" parent="menu_pagosSP" action="action_pagos_solicitud"/>
+    <!--Pagos Masivos-->
+    <record id="tree_pagos_masivos" model="ir.ui.view">
+      <field name="name">pagos.masivos.tree</field>
+      <field name="model">expense.pagos.masivos</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name ="name"/>
+         <field name="referencia" />
+         <field name="bank_id" />
+         <field name="forma_pago"/>
+         <field name="payment_date"/>
+         <field name ="date"/>
+         <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="form_pagos_masivos" model="ir.ui.view">
+      <field name="name">pagos.masivos.form</field>
+      <field name="model">expense.pagos.masivos</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button class="oe_highlight" name="" states="draft" string="Pagar Solicitudes" type="object"/>
+            <field name="state" widget="statusbar" readonly="1" />
+           </header>
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button type="object"  name="generate_transfer_file"
+                    class="oe_stat_button"
+                    icon="fa-arrow-down" string="Archivo Transferencia">
+                </button>
+            </div>
+
+                 <div class="pull-left">
+                    <label for="name" class="oe_edit_only oe_inline"/>
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="referencia" />
+                        <field name="bank_id"/>
+                        <field name="bank_account"/>
+                        <field name="forma_pago"/>
+                        <field name="payment_date"/>
+                        <field name="date"/>
+                        <field name="total"/>
+                    </group>
+                    <group>
+                    </group>
+                </group>
+                <group>
+                    <field name="solicitud_pago_ids">
+                        <tree create="true" delete="true" edit="true" editable="bottom">
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="partner_alternate_id"/>
+                            <field name="bank_id"/>
+                            <!--<field name="partner_bank"/>-->
+                            <field name="bank_account"/>
+                            <field name="clabe"/>
+                            <field name="application_concept"/>
+                            <field name="event_general"/>
+                            <field name="total"/>
+                            <field name="code_justificacion" invisible="1"/>
+                            <field name="state" string="Estado"/>
+                        </tree>
+                    </field>
+                </group>
+          </sheet>
+          <div class="oe_chatter">
+              <field name="message_follower_ids" widget="mail_followers"/>
+              <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <!--Configuración chequeras-->
+    <record id="tree_conf_chequeras" model="ir.ui.view">
+      <field name="name">conf.chequeras.tree</field>
+      <field name="model">expense.conf.chequeras</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name ="fecha_alta"/>
+         <field name="banco" />
+         <field name="cuenta" />
+         <field name ="name"/>
+         <field name="tipo_cheque"/>
+         <!--<field name="avisar_cheques"/>-->
+         <field name="imp_cheque_aut"/>
+         <field name="imp_ley_no_neg"/>
+         <field name="imp_ley_cheq"/>
+         <field name="imprimir_nonegociable"/>
+         <field name="imprimir_leyendacheque"/>
+         <field name="encargado_chequera"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="form_conf_chequeras" model="ir.ui.view">
+        <field name="name">conf.chequeras.form</field>
+        <field name="model">expense.conf.chequeras</field>
+        <field name="arch" type="xml">
+        <form>
+        <header>
+            <button class="oe_highlight" name="action_autorizar_cheque" string="Autorizar" type="object" confirm="¿Está seguro que desea cambiar el estado?" attrs="{'invisible':[('state','!=','draft')]}"/>
+            <button class="oe_highlight" name="action_actual_cheque" string="Actual" type="object" confirm="¿Está seguro que desea cambiar el estado?" attrs="{'invisible':[('state','!=','authorized')]}"/>
+            <field name="state" widget="statusbar" readonly="1"/>
+        </header>
+        <sheet>
+            <group col="4">
+                <field name ="fecha_alta"/>
+                <field name="imp_cheque_aut"/>
+                <field name="banco" />
+                <field name="imp_ley_no_neg" attrs="{'readonly':[('imp_ley_cheq','==', True)],'required':[('imp_ley_cheq','==', False)]}"/>
+                <field name="cuenta"/>
+                <field name="imp_ley_cheq" attrs="{'readonly':[('imp_ley_no_neg','==', True)],'required':[('imp_ley_no_neg','==', False)]}"/>
+                <field name ="name"/>
+                <field name="imprimir_nonegociable" attrs="{'invisible':[('imp_ley_no_neg','!=', True)],'required':[('imp_ley_no_neg','!=', False)]}"/>
+                <field name="tipo_cheque"/>
+                <field name="imprimir_leyendacheque" attrs="{'invisible':[('imp_ley_cheq','!=', True)],'required':[('imp_ley_cheq','!=', False)]}"/>
+                <!--<field name="avisar_cheques"/>-->
+                <field name="encargado_chequera"/>
+                <field name="validate_print" invisible="1"/>
+            </group>
+            <notebook>
+            <page string="Historico">
+            <group string="Cheques">
+            <field name="cheques_ids" widget="one2many_list" create="true" delete="true" edit="true" editable="bottom" nolabel="1">
+                <tree>
+                    <field name="nc"/>
+                    <field name="fecha_alta"/>
+                    <field name="num_cheque_inicial"/>
+                    <field name="num_cheque_final"/>
+                    <field name="numero_actual"/>
+                    <field name="total_cheques"/>
+                    <field name="cheques_disponibles"/>
+                    <field name="estado_chequera"/>
+                    <button class="oe_highlight" name="action_estado_chequera" string="Hecho" type="object" attrs="{'invisible':[('estado_chequera','!=','actual')]}" confirm="¿Está seguro de cambiar el estado?"/>
+                </tree>
+            </field>
+            </group>
+            </page>
+            </notebook>
+        </sheet>
+        </form>
+        </field>
+    </record>
+
+    <!--Imprimir Cheques-->
+    <record id="tree_imp_cheques" model="ir.ui.view">
+      <field name="name">imp.cheques.tree</field>
+      <field name="model">expense.impresion.cheques</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name ="nombre_chequera"/>
+         <field name="cuenta" readonly="1"/>
+         <field name="tipo_cheque" />
+         <field name="cheque_actual"/>
+         <field name ="fecha"/>
+         <field name="total"/>
+         <field name="total_letra"/>
+         <field name="leyenda_cheque"/>
+         <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="form_imp_cheques" model="ir.ui.view">
+        <field name="name">imp.cheques.form</field>
+        <field name="model">expense.impresion.cheques</field>
+        <field name="arch" type="xml">
+        <form>
+        <header>
+            <button class="oe_highlight" name="action_validar_cheque" string="Validar" type="object" confirm="¿Está seguro que desea cambiar el estado?" attrs="{'invisible':[('state','!=','draft')]}"/>
+	    <button class="oe_highlight" name="action_imprimir_cheque" string="Imprimir" type="object" />
+            <field name="state" widget="statusbar" readonly="1"/>
+        </header>
+        <sheet>
+        <!--<div class="pull-left">
+                    <label for="name" class="oe_edit_only oe_inline"/>
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                </div>-->
+            <group col="4">
+                <field name ="nombre_chequera"/>
+                <field name="tipo_cheque"/>
+                <field name="cuenta" readonly="1"/>
+                <field name="cheque_actual"/>
+                <field name ="fecha"/>
+                <field name="total"/>
+                <field name="total_letra"/>
+                <field name="leyenda_cheque"/>
+                <field name="banco" invisible="1"/>
+                <field name="prueba" invisible="1"/>
+            </group>
+            <group>
+                    <field name="solicitud_pago_ids" create="true" delete="true" edit="true" editable="bottom">
+                        <tree>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="partner_alternate_id"/>
+                            <field name="bank_id"/>
+                            <!--<field name="partner_bank"/>-->
+                            <field name="bank_account"/>
+                            <field name="clabe"/>
+                            <field name="application_concept"/>
+                            <field name="event_general"/>
+                            <field name="total"/>
+                            <field name="code_justificacion" invisible="1"/>
+                            <field name="state" string="Estado"/>
+                        </tree>
+                    </field>
+                </group>
+        </sheet>
+        </form>
+        </field>
+    </record>
+
+    <!--Transferencia entre Cuentas-->
+    <record id="tree_trasp_cuentas" model="ir.ui.view">
+      <field name="name">trasp.cuentas.tree</field>
+      <field name="model">expense.transferencia.cuentas</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name ="name"/>
+         <field name="fecha_generacion" />
+         <field name="tipo_pago"/>
+         <field name ="evento_general"/>
+         <field name="cuenta_origen"/>
+         <field name="cuenta_destino"/>
+         <field name="referencia"/>
+         <field name="currency_id"/>
+         <field name="total"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="form_trasp_cuentas" model="ir.ui.view">
+        <field name="name">trasp.cuentas.form</field>
+        <field name="model">expense.transferencia.cuentas</field>
+        <field name="arch" type="xml">
+        <form>
+        <header>
+            <button class="oe_highlight" name="authorize_transfer" string="Autorizar" type="object" confirm="¿Está seguro que desea cambiar el estado?" attrs="{'invisible':[('state','!=','draft')]}"/>
+            <field name="state" widget="statusbar" readonly="1"/>
+        </header>
+        <sheet>
+            <div class="oe_title">
+                <h1>
+                    <field name="name" readonly="1"/>
+                </h1>
+            </div>
+            <group col="4">
+                <field name="tipo_pago"/>
+                <field name="fecha_generacion" />
+                <field name ="evento_general"/>
+                <field name="cuenta_origen"/>
+                <field name="cuenta_destino"/>
+                <field name="referencia"/>
+                <field name="currency_id"/>
+                <field name="total"/>
+            </group>
+        </sheet>
+        </form>
+        </field>
+    </record>
+
+
+    <record id="action_pagos_masivos" model="ir.actions.act_window">
+        <field name="name">Pagos Masivos</field>
+        <field name="res_model">expense.pagos.masivos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Pagos Masivos" id="pagos_masivos_menu"
+      parent ="menu_pagosSP" action="action_pagos_masivos"/>
+
+    <record id="action_conf_chequeras" model="ir.actions.act_window">
+        <field name="name">Chequeras</field>
+        <field name="res_model">expense.conf.chequeras</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Configuraciones" id="menu_configTesor" parent="finanzas.tesoreria_conciliaciones" action="action_conf_chequeras"/>
+    <menuitem name="Chequeras" id="menu_conf_chequeras" parent="menu_configTesor" action="action_conf_chequeras"/>
+
+    <record id="action_imp_cheques" model="ir.actions.act_window">
+        <field name="name">Imprimir Cheques</field>
+        <field name="res_model">expense.impresion.cheques</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Cheques" id="menu_chequesTesor" parent="finanzas.tesoreria_conciliaciones" action="action_imp_cheques"/>
+    <menuitem name="Imprimir Cheques" id="menu_imp_cheques" parent="menu_chequesTesor" action="action_imp_cheques"/>
+
+    <record id="action_traspaso_cuentas" model="ir.actions.act_window">
+        <field name="name">Traspasos</field>
+        <field name="res_model">expense.transferencia.cuentas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--FORMATOS DE CHEQUES -->
+    <record id="report_paperformat_check_tree" model="ir.ui.view">
+      <field name="name">report.paperformat.check.tree</field>
+      <field name="model">report.paperformat</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name ="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="report_paperformat_check_form" model="ir.ui.view">
+        <field name="name">report.paperformat.check.form</field>
+        <field name="model">report.paperformat</field>
+        <field name="arch" type="xml">
+            <form>
+               <group>
+                    <field name="name"/>
+                    <field name="ischeck" invisible="1"/>
+                    <field name="format" invisible="1"/>
+                    <field name="page_height" attrs="{'invisible': [('format','!=','custom')]}"/>
+                    <field name="page_width" attrs="{'invisible': [('format','!=','custom')]}"/>
+                    <field name="orientation"/>
+                    <field name="margin_top"/>
+                    <field name="margin_bottom"/>
+                    <field name="margin_left"/>
+                    <field name="margin_right"/>
+                    <field name="header_line"/>
+                    <field name="header_spacing"/>
+                    <field name="dpi"/>
+                    <field name="report_ids" widget="many2many_tags" options="{'not_delete': True}"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="report_paperformat_check_action_all" model="ir.actions.act_window">
+        <field name="name">Formatos de cheques</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">report.paperformat</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="report_paperformat_check_tree"/>
+        <field name="context">{'default_ischeck':True, 'default_format': 'custom'}</field>
+        <field name="domain">[('ischeck','=',True)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Da de alta un nuevo formato de papel.
+            </p>
+        </field>
+    </record>    
+    
+    <record id="action_report_paperformat_check_tree" model="ir.actions.act_window.view">
+        <field eval="1" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="report_paperformat_check_tree"/>
+        <field name="act_window_id" ref="report_paperformat_check_action_all"/>
+    </record>
+
+    <record id="action_report_paperformat_check_form" model="ir.actions.act_window.view">
+        <field eval="2" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="report_paperformat_check_form"/>
+        <field name="act_window_id" ref="report_paperformat_check_action_all"/>
+    </record>
+
+    <menuitem name="Formatos de cheques" id="menu_formart_cheques" parent="menu_configTesor" action="report_paperformat_check_action_all"/>
+
+    <menuitem name="Traspasos" id="menu_traspTesor" parent="finanzas.tesoreria_conciliaciones" action="action_traspaso_cuentas"/>
+    <menuitem name="Traspaso entre Cuentas" id="menu_traspasos" parent="menu_traspTesor" action="action_traspaso_cuentas"/>
+    </data>
+</odoo>

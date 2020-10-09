@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- VIEWS -->
+    <!-- Dummy views because these were not declared on the requirements-->
+    <!-- Payment solitud -->
+    <!-- View for reports -->
+    <!-- View for ADG -->
+    <!-- ACTIONS -->
+    <!-- Action for payment request -->
+    <!-- Action for reports -->
+    <record model="ir.actions.act_window" id="action_reports">
+        <field name="name">Reports</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Action for ADG -->
+    <record model="ir.actions.act_window" id="action_ADG">
+        <field name="name">ADG</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- MENUITEMS -->
+    <!-- Top menu item -->
+    <menuitem name="Expense support" id="menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Payment request" sequence="1" id="menu_payment_request" parent="menu_root"/>
+    <menuitem name="Reports" id="menu_reports" sequence="20" parent="menu_root" action="action_reports"/>
+    <!--<menuitem name="ADG" id="menu_ADG" parent="menu_root" sequence="30" action="action_ADG"/>-->
+    <menuitem name="Settings" id="menu_settings" sequence="40" parent="menu_root" groups="group_sp_department_manager,group_director_expense,group_user_readonly,group_manager,group_user_sp_readonly,group_sp_manager"/>
+    <menuitem name="Control" id="menu_control" sequence="30" parent="menu_root"/>
+</odoo>

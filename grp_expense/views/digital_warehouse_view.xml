@@ -1,0 +1,98 @@
+<odoo>
+  <data>
+    <record id="purchase_import_xml_grp_tree" model="ir.ui.view">
+      <field name="name">purchase.import.xml.grp.tree</field>
+      <field name="model">purchase.import.xml</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="date"/>
+          <field name="serie"/>
+          <field name="folio"/>
+          <field name="rfc_emisor"/>
+          <field name="razon_social"/>
+          <field name="importe"/>
+          <field name="descripcion"/>
+          <field name="sp_relacionada"/>
+        </tree>
+      </field>
+    </record>
+    <record id="action_purchase_import_xml" model="ir.actions.act_window">
+      <field name="name">Facturas XML</field>
+      <field name="res_model">purchase.import.xml</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+    </record>
+    <menuitem id="menu_main_import_xml" name="Almacén Digital" parent="menu_root" sequence="10"/>
+    <menuitem action="action_invoice_tree_expense" id="menu_purchase_import_xml" name="Facturas XML" parent="menu_main_import_xml"/>
+    <record id="purchase_no_validate_xml_tree" model="ir.ui.view">
+      <field name="name">purchase.no.validate.xml.tree</field>
+      <field name="model">purchase.no.validate.xml</field>
+      <field name="arch" type="xml">
+        <tree create="false">
+          <field name="id"/>
+          <field name="date"/>
+          <field name="note"/>
+        </tree>
+      </field>
+    </record>
+    <record id="purchase_no_validate_xml_line_form" model="ir.ui.view">
+      <field name="name">purchase.no.validate.xml.line.form</field>
+      <field name="model">purchase.no.validate.xml.line</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="date"/>
+          <field name="number_invoice"/>
+          <field name="razon_social"/>
+          <field name="importe"/>
+          <field name="descripcion"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+    <record id="action_purchase_no_validate_import_xml" model="ir.actions.act_window">
+      <field name="name">Declinación Facturas</field>
+      <field name="res_model">purchase.no.validate.xml.line</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree</field>
+    </record>
+    <!-- <menuitem action="action_purchase_no_validate_import_xml" id="menu_purchase_no_validate_import_xml" name="Declinación Facturas" parent="menu_main_import_xml"/> -->
+  </data>
+  <record id="view_res_partner_sp" model="ir.ui.view">
+    <field name="">view.res.partner.sp</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <field name="supplier" position="after">
+        <field name="expense_support" invisible="1"/>
+      </field>
+    </field>
+  </record>
+    <record id="view_partner_tree_beneficiaries" model="ir.ui.view">
+        <field name="name">res.partner.tree.beneficiaries</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Beneficiaries">
+                <field name="id" string="Código actual"/>
+                <field name="previous_code"/>
+                <field name="vat"/>
+                <field name="display_name" string="Name"/>
+                <field name="company_type"/>
+                <field name="category_id"/>
+                <field name="beneficiary_type_ids"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+  <record id="action_partner_sp_form" model="ir.actions.act_window">
+    <field name="name">Beneficiaries</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.partner</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_ids" eval="[(5, 0, 0),
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('grp_expense.view_partner_tree_beneficiaries')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('grp_expense.view_beneficiary_form')})]"/>
+    <field name="context">{'default_expense_support': True}</field>
+  </record>
+  <menuitem action="action_partner_sp_form" id="menu_partner_sp" name="Beneficiaries" parent="menu_control"/>
+</odoo>

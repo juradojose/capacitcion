@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="view_state_payment_masivo_form" model="ir.ui.view">
+            <field name="name">Payment Status</field>
+            <field name="model">wizard.states.payment.masivo</field>
+            <field name="arch" type="xml">
+                <form string="Desea ejecutar la acción?">
+                    <group>
+                        <group>
+                            <field name="note"/>
+                            <field invisible="1" name="payment_id"/>
+                            <field invisible="1" name="binnacle_id"/>
+                        </group>
+                        <group>
+                            <!--<field name="asignado" readonly="0" string="Asignar a" options="{'no_create': True,'no_edit': True,'no_open': True}"/>-->
+                             <field name="user_id" invisible="1"/>
+                            <!--<field name="return_id" options="{'no_create': True,'no_edit': True,'no_open': True}"/>-->
+                        </group>
+                    </group>
+                    <footer>
+                        <button class="btn-primary" name="action_save_data" string="Aceptar" type="object"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

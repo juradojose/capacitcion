@@ -1,0 +1,3146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#    * grp_expense
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-10 22:51+0000\n"
+"PO-Revision-Date: 2020-06-10 22:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_sp_relacionada
+msgid " SP Relacionada"
+msgstr " SP Relacionada"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_retention
+msgid "% Retencion"
+msgstr "% Retencion"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "(edit)"
+msgstr "(editar)"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:298
+#, python-format
+msgid ", </span> Customer RFC: <span level=\"2\">"
+msgstr ", </span> RFC del Cliente: <span level=\"2\">"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:302
+#, python-format
+msgid ", </span> Invoice Total: <span level=\"2\">"
+msgstr ", </span> Total de la Factura: <span level=\"2\">"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:294
+#, python-format
+msgid ", </span> Supplier invoice number: <span level=\"2\">"
+msgstr ", </span> Número de factura del proveedor: <span level=\"2\">"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:275
+#, python-format
+msgid ", </span> Your Company RFC: <span level=\"2\">"
+msgstr ", </span> RFC de su compañía: <span level=\"2\">"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_carta_aceptacion
+msgid ".<br/><br/>\n"
+"  \n"
+"                     Manifiesto a Usted que en apego al artículo 48 fracción I, de la Ley de Responsabilidades Políticas y Administrativas del Estado de Jalisco, así como al contenido que dicta el artículo 4 del Código de Ética y Conducta de los Servidores Públicos del Municipio de Guadalajara; autorizo al Municipio para que en caso de no comprobar y/o reintegrar la cantidad que se me ha entregado en el plazo que establece el Manual de Control y Manejo de Fondos Resolventes y Gastos por Comprobar, se considere el importe recibido como adelanto de mi nómina y de mi salario o finiquito se descuente.\n"
+"                      \n"
+"                     <br/><br/>Así mismo, con independencia de lo anteriormente descrito, estoy conforme en que el Municipio realice las acciones judiciales, civiles, mercantiles o penales correspondientes, a efecto de que en caso de incumplimiento de mi parte, obtenga la recuperación del monto recibido."
+msgstr ".<br/><br/>\n"
+"  \n"
+"                     Manifiesto a Usted que en apego al artículo 48 fracción I, de la Ley de Responsabilidades Políticas y Administrativas del Estado de Jalisco, así como al contenido que dicta el artículo 4 del Código de Ética y Conducta de los Servidores Públicos del Municipio de Guadalajara; autorizo al Municipio para que en caso de no comprobar y/o reintegrar la cantidad que se me ha entregado en el plazo que establece el Manual de Control y Manejo de Fondos Resolventes y Gastos por Comprobar, se considere el importe recibido como adelanto de mi nómina y de mi salario o finiquito se descuente.\n"
+"                      \n"
+"                     <br/><br/>Así mismo, con independencia de lo anteriormente descrito, estoy conforme en que el Municipio realice las acciones judiciales, civiles, mercantiles o penales correspondientes, a efecto de que en caso de incumplimiento de mi parte, obtenga la recuperación del monto recibido."
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_carta_aceptacion
+#: model:ir.ui.view,arch_db:grp_expense.report_recibo
+msgid "00/100 MN)"
+msgstr "00/100 MN)"
+
+#. module: grp_expense
+#: selection:expense.payment,no_pago:0
+msgid "10"
+msgstr "10"
+
+#. module: grp_expense
+#: selection:expense.payment,no_pago:0
+msgid "11"
+msgstr "11"
+
+#. module: grp_expense
+#: selection:expense.payment,no_pago:0
+msgid "12"
+msgstr "12"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:278
+#, python-format
+msgid "</span> was not found or is disabled.</div>"
+msgstr "</span> no fue encontrada o está deshabilitada.</div>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<br/>\n"
+"                            <strong>CARGO: </strong>"
+msgstr "<br/>\n"
+"                            <strong>CARGO: </strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<br/>\n"
+"                         <strong>RFC</strong>"
+msgstr "<br/>\n"
+"                         <strong>RFC</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<br/>\n"
+"                        <strong>Beneficiario Alterno: </strong>"
+msgstr "<br/>\n"
+"                        <strong>Beneficiario Alterno: </strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<br/>\n"
+"                        <strong>Nombre del Banco: </strong>"
+msgstr "<br/>\n"
+"                        <strong>Nombre del Banco: </strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_carta_aceptacion
+msgid "<br/>\n"
+"                       <strong><span style=\"font-size:20px;\">Dirección Egresos</span></strong><br/>\n"
+"                       <span style=\"font-size:18px;\">Carta de Aceptación de Descuento</span><br/>"
+msgstr "<br/>\n"
+"                       <strong><span style=\"font-size:20px;\">Dirección Egresos</span></strong><br/>\n"
+"                       <span style=\"font-size:18px;\">Carta de Aceptación de Descuento</span><br/>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_recibo
+msgid "<br/>\n"
+"                       <strong><span style=\"font-size:20px;\">Dirección Egresos</span></strong><br/>\n"
+"                       <span style=\"font-size:20px;\">RECIBO</span><br/>"
+msgstr "<br/>\n"
+"                       <strong><span style=\"font-size:20px;\">Dirección Egresos</span></strong><br/>\n"
+"                       <span style=\"font-size:20px;\">RECIBO</span><br/>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<br/>\n"
+"                       <strong><span style=\"font-size:20px;\">Dirección Egresos</span></strong><br/>\n"
+"                       <span style=\"font-size:20px;\">Reporte de Observaciones</span><br/>"
+msgstr "<br/>\n"
+"                       <strong><span style=\"font-size:20px;\">Dirección Egresos</span></strong><br/>\n"
+"                       <span style=\"font-size:20px;\">Reporte de Observaciones</span><br/>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_carta_aceptacion
+msgid "<br/>\n"
+"                   <span>Tesorera Municipal</span><br/>\n"
+"                   <span>Presente.</span>"
+msgstr "<br/>\n"
+"                   <span>Tesorera Municipal</span><br/>\n"
+"                   <span>Presente.</span>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<br/><br/>\n"
+"                          <span>_____________________________________</span><br/>\n"
+"                         <span>        Recibe         </span><br/>\n"
+"                         <span>     Nombre/Puesto      </span>"
+msgstr "<br/><br/>\n"
+"                          <span>_____________________________________</span><br/>\n"
+"                         <span>        Recibe         </span><br/>\n"
+"                         <span>     Nombre/Puesto      </span>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<br/><br/>\n"
+"                   <span>_____________________________________</span><br/>\n"
+"                   <span>       Expide           </span><br/>"
+msgstr "<br/><br/>\n"
+"                   <span>_____________________________________</span><br/>\n"
+"                   <span>       Expide           </span><br/>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:250
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:252
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:255
+#, python-format
+msgid "<button class=\"drag-alert-button\" tag=\"remove\">Remove XML</button>"
+msgstr "<button class=\"drag-alert-button\" tag=\"remove\">Remover XML</button>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:253
+#, python-format
+msgid "<button class=\"drag-alert-button\" tag=\"supplier\">Create Supplier</button>"
+msgstr "<button class=\"drag-alert-button\" tag=\"supplier\">Crear Proveedor</button>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:256
+#, python-format
+msgid "<button class=\"drag-alert-button\" tag=\"tryagain\">Try again</button>"
+msgstr "<button class=\"drag-alert-button\" tag=\"tryagain\">Intentar de nuevo</button>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:281
+#, python-format
+msgid "<div><span level=\"1\">Some taxes</span> do not exist for purchases: <span level=\"2\">"
+msgstr "<div><span level=\"1\">Algunos impuestos</span> no existen para compras: <span level=\"2\">"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:278
+#, python-format
+msgid "<div><span level=\"1\">The XML Currency</span> <span level=\"2\">"
+msgstr "<div><span level=\"1\">La Moneda del XML</span> <span level=\"2\">"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:297
+#, python-format
+msgid "<div><span level=\"1\">The XML Emitter RFC</span> does not match with <span level=\"1\">Customer RFC</span>: "
+msgstr "<div><span level=\"1\">El RFC del Emisor del XML</span> no coincide con <span level=\"1\">el RFC del Cliente</span>: "
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:293
+#, python-format
+msgid "<div><span level=\"1\">The XML Folio</span> does not match with <span level=\"1\">Supplier Invoice Number</span>: "
+msgstr "<div><span level=\"1\">El Folio del XML</span> no coincide con <span level=\"1\">el Número de Factura del Proveedor</span>: "
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:274
+#, python-format
+msgid "<div><span level=\"1\">The XML Receptor RFC</span> does not match with <span level=\"1\">your Company RFC</span>: "
+msgstr "<div><span level=\"1\">El RFC del Receptor del XML</span> no coincide con <span level=\"1\">el RFC de su Compañía</span>: "
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:271
+#, python-format
+msgid "<div><span level=\"1\">The XML Supplier</span> was not found: <span level=\"2\">"
+msgstr "<div><span level=\"1\">El Proveedor del XML</span> no fue encontrado: <span level=\"2\">"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:305
+#, python-format
+msgid "<div><span level=\"1\">The XML UUID</span> belong to other invoice. <span level=\"1\">Partner: </span>"
+msgstr "<div><span level=\"1\">El UUID del XML</span> pertenece a otra factura. <span level=\"1\">Beneficiario: </span>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:301
+#, python-format
+msgid "<div><span level=\"1\">The XML amount total</span> does not match with <span level=\"1\">Invoice total</span>: "
+msgstr "<div><span level=\"1\">La cantidad del XML</span> no coincide con <span level=\"1\">el total de la factura</span>: "
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:287
+#, python-format
+msgid "<div><span level=\"1\">The XML state</span> is CANCELED in the SAT system.</div>"
+msgstr "<div><span level=\"1\">El estado del XML</span> esta CANCELADO en el sistema del SAT.</div>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:308
+#, python-format
+msgid "<div><span level=\"1\">The invoice reference</span> belong to other invoice of same partner. <span level=\"1\">Partner: </span>"
+msgstr "<div><span level=\"1\">La referencia de la factura</span> pertenece a otra factura del mismo beneficiario. <span level=\"1\">Beneficiario: </span>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:284
+#, python-format
+msgid "<div><span level=\"1\">UUID</span> not found in the XML.</div>"
+msgstr "<div><span level=\"1\">UUID</span> no encontrado en el XML.</div>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:290
+#, python-format
+msgid "<div><span level=\"1\">Unable to generate invoices with discounts from an XML with version 3.2.</span>You can create the invoice manually and then attach the xml.</div>"
+msgstr "<div><span level=\"1\">Incapaz de generar facturas de un XML con versión 3.2.</span> Puede crear la factura manualmente y después adjuntar el XML.</div>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:311
+#, python-format
+msgid "<div><strong>Info!</strong> XML data could not be read correctly.</div>"
+msgstr "<div><strong>Info!</strong> Los datos del XML no se pueden leer correctamente.</div>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<span colspan=\"2\" style=\"text-align:right; font-weight: bold;\">MONTO NETO A PAGAR: </span>"
+msgstr "<span colspan=\"2\" style=\"text-align:right; font-weight: bold;\">MONTO NETO A PAGAR: </span>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<span colspan=\"2\" style=\"text-align:right; font-weight: bold;\">Total Devolución: </span>"
+msgstr "<span colspan=\"2\" style=\"text-align:right; font-weight: bold;\">Total Devolución: </span>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:305
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:308
+#, python-format
+msgid "<span level=\"1\"> Reference: </span>"
+msgstr "<span level=\"1\"> Referencia: </span>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<span style=\"font-size:20px;\">Folio</span><br/>"
+msgstr "<span style=\"font-size:20px;\">Folio</span><br/>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<span style=\"font-size:20px;\">Solicitud de Pago</span><br/>"
+msgstr "<span style=\"font-size:20px;\">Solicitud de Pago</span><br/>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_recibo
+msgid "<span> la Cantidad de </span>"
+msgstr "<span> la Cantidad de </span>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_programacion_pagos
+msgid "<span>Los datos no se pueden mostrar desde esta vista</span>"
+msgstr "<span>Los datos no se pueden mostrar desde esta vista</span>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<span>Sin cuenta de Cargo Especifica</span>"
+msgstr "<span>Sin cuenta de Cargo Especifica</span>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:227
+#, python-format
+msgid "<span>Wrong File: <span class=\"index-alert\"></span>"
+msgstr "<span>Archivo Incorrecto: <span class=\"index-alert\"></span>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_recibo
+msgid "<span>por concepto de </span>"
+msgstr "<span>por concepto de </span>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_carta_aceptacion
+msgid "<span>por concepto de gastos por comprobar para la compra de </span>"
+msgstr "<span>por concepto de gastos por comprobar para la compra de </span>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>APLICACIÓN</strong>"
+msgstr "<strong>APLICACIÓN</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>AUTORIZO</strong>"
+msgstr "<strong>AUTORIZO</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>BENEFICIARIO (Para depósito en Cuenta Bancaria Beneficiario)</strong>"
+msgstr "<strong>BENEFICIARIO (Para depósito en Cuenta Bancaria Beneficiario)</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>Beneficiario Solicitud: </strong>"
+msgstr "<strong>Beneficiario Solicitud: </strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>Beneficiario:</strong>"
+msgstr "<strong>Beneficiario:</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_recibo
+msgid "<strong>Bueno por:</strong>"
+msgstr "<strong>Bueno por:</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>CLAVE</strong>"
+msgstr "<strong>CLAVE</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>CONTROL INTERNO DE LA DIRECCIÓN DE EGRESOS</strong>"
+msgstr "<strong>CONTROL INTERNO DE LA DIRECCIÓN DE EGRESOS</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>CUENTA BANCARIA DE CARGO</strong>"
+msgstr "<strong>CUENTA BANCARIA DE CARGO</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>Concepto Detalle</strong>"
+msgstr "<strong>Concepto Detalle</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>Concepto</strong><br/>"
+msgstr "<strong>Concepto</strong><br/>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>DECRIPCIÓN</strong>"
+msgstr "<strong>DESCRIPCIÓN</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>DEPENDENCIA / UNIDAD RESPONSABLE</strong>"
+msgstr "<strong>DEPENDENCIA / UNIDAD RESPONSABLE</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+#: model:ir.ui.view,arch_db:grp_expense.report_recibo
+msgid "<strong>Dependencia:</strong>"
+msgstr "<strong>Dependencia:</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>Devolución</strong>"
+msgstr "<strong>Devolución</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>EVENTO GENERICO</strong>"
+msgstr "<strong>EVENTO GENERICO</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>FECHA EXPEDICIÓN</strong>"
+msgstr "<strong>FECHA EXPEDICIÓN</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>FECHA PROB. PAGO</strong>"
+msgstr "<strong>FECHA PROB. PAGO</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>Fecha Emisión:</strong>"
+msgstr "<strong>Fecha Emisión:</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>Fecha Observaciones:</strong>"
+msgstr "<strong>Fecha Observaciones:</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>Importe de Solicitud:</strong>"
+msgstr "<strong>Importe de Solicitud:</strong>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:160
+#, python-format
+msgid "<strong>Info!</strong> Some files are already loaded.<br>"
+msgstr "<strong>Info!</strong> Algunos archivos ya están cargados.<br>"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:155
+#, python-format
+msgid "<strong>Info!</strong> You only can upload XML files.<br>"
+msgstr "<strong>Info!</strong> Solo puede cargar archivos XML.<br>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>JUSTIFICACIÓN</strong>"
+msgstr "<strong>JUSTIFICACIÓN</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>Motivo de Observación:</strong>"
+msgstr "<strong>Motivo de Observación:</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>NO</strong>"
+msgstr "<strong>NO</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>NOMBRE: </strong>"
+msgstr "<strong>NOMBRE: </strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_recibo
+msgid "<strong>No Solicitud de Pago:</strong>"
+msgstr "<strong>No Solicitud de Pago:</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>No. Solicitud de Pago:</strong>"
+msgstr "<strong>No. Solicitud de Pago:</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>Número Documento</strong>"
+msgstr "<strong>Número Documento</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>Número de cuenta: </strong>"
+msgstr "<strong>Número de cuenta: </strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>REFERENCIA</strong>"
+msgstr "<strong>REFERENCIA</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>REVISO</strong>"
+msgstr "<strong>REVISO</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>Responsable:</strong>"
+msgstr "<strong>Responsable:</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>SOLICITANTE</strong>"
+msgstr "<strong>SOLICITANTE</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_carta_aceptacion
+msgid "<strong>Solicitante</strong><br/><br/>"
+msgstr "<strong>Solicitante</strong><br/><br/>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>Sucursal: </strong>"
+msgstr "<strong>Sucursal: </strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "<strong>Total Doc. Devueltos:</strong>"
+msgstr "<strong>Total Doc. Devueltos:</strong>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "<strong>VALIDO</strong>"
+msgstr "<strong>VALIDO</strong>"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_ADG
+msgid "ADG"
+msgstr "ADG"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_account_number
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_account_number
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Account number"
+msgstr "Número de cuenta"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/beneficiary.py:76
+#, python-format
+msgid "Account number must have 10 characters"
+msgstr "El número de cuenta debe tener sólo 10 números"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/beneficiary.py:82
+#, python-format
+msgid "Account number must have only numbers"
+msgstr "El número de cuenta sólo debe tener números"
+
+#. module: grp_expense
+#: code:addons/grp_expense/wizard/load_xml.py:282
+#, python-format
+msgid "Account to set in the lines not found.<br/>"
+msgstr "Cuenta para configurar las lineas no encontradas.<br/>"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_state_payment_form
+msgid "Aceptar"
+msgstr "Aceptar"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores_active
+#: selection:res.partner,beneficiary_status:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_type_register
+msgid "Add beneficiary type"
+msgstr "Agregar tipo de beneficiario"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Add new beneficiary"
+msgstr "Agregar nuevo beneficiario"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_add_suburb
+msgid "Add suburb"
+msgstr "Agregar colonía"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_add_town
+msgid "Add town"
+msgstr "Agregar municipio"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_add_zip_code
+msgid "Add zip code"
+msgstr "Agregar C.P"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Additional notes..."
+msgstr "Notas adicionales..."
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Address"
+msgstr "Dirección"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_specific_cluster
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_specific_cluster
+msgid "Agrupador Especifico"
+msgstr "Agrupador Especifico"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_general_grouter
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_general_grouter
+msgid "Agrupador Genérico"
+msgstr "Agrupador Genérico"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.menu_main_import_xml
+msgid "Almacén Digital"
+msgstr "Almacén Digital"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_account_invoice_line_amount_tax
+msgid "Amount Tax"
+msgstr "$ Impuesto"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_payment_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_apoyos_sociales
+msgid "Apoyos"
+msgstr "Apoyos"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.form_pagos_masivos
+msgid "Archivo Transferencia"
+msgstr "Archivo Transferencia"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_asignado
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_asignado
+msgid "Asignado"
+msgstr "Asignado"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_user_id
+msgid "Asignado a"
+msgstr "Asignado a"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_state_payment_form
+msgid "Asignar a"
+msgstr "Asignar a"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.wizard_update_rubro_line_form
+msgid "Assign"
+msgstr "Asignar"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_asunto
+msgid "Asunto (s)"
+msgstr "Asunto (s)"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.attach_xmls_wizard_form_view
+msgid "Attach Supplier XML's"
+msgstr "Adjuntar XML's de Proveedor"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_atn_supplier
+msgid "At’n del proveedor"
+msgstr "At’n del proveedor"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Auto-detect"
+msgstr "Auto-detección"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Autorizada"
+msgstr "Autorizada"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_anio
+msgid "Año"
+msgstr "Año"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_banco
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_bank_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_bank_id
+#: model:ir.ui.view,arch_db:grp_expense.view_programacion_pagos
+msgid "Banco"
+msgstr "Banco"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Bank"
+msgstr "Banco"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_bank_account_beneficiary
+msgid "Bank Account"
+msgstr "Cuenta bancaria"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Bank account(s)"
+msgstr "Cuenta(s) bancaria(s)"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_bank_branch
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_bank_branch
+msgid "Bank branch"
+msgstr "Sucursal de banco"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_bank_id_28340
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_bank_id
+msgid "Bank id"
+msgstr "Id banco"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_partner_sp_form
+#: model:ir.ui.menu,name:grp_expense.menu_partner_sp
+#: model:ir.ui.view,arch_db:grp_expense.view_partner_tree_beneficiaries
+msgid "Beneficiaries"
+msgstr "Beneficiarios"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_beneficiary_alternate_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_partner_alternate_id
+msgid "Beneficiario"
+msgstr "Beneficiario"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_beneficiary
+#: model:ir.ui.menu,name:grp_expense.menu_beneficiary
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_filter
+msgid "Beneficiary"
+msgstr "Beneficiarios"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.menu_expense_support_beneficiary
+msgid "Beneficiary register"
+msgstr "Registro de beneficiario"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_beneficiary_type
+#: model:ir.ui.menu,name:grp_expense.menu_expense_support_beneficiary_type
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_type
+msgid "Beneficiary type"
+msgstr "Tipo de beneficiario"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_beneficiary_type_id
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_beneficiary_type_id
+msgid "Beneficiary type id"
+msgstr "Id tipo de beneficiario"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_beneficiary_type_ids
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_beneficiary_type_ids
+msgid "Beneficiary type ids"
+msgstr "Tipo de Beneficiario"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Between streets"
+msgstr "Entre calles"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Bill"
+msgstr "Factura"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_tree_expense
+msgid "Bill Date"
+msgstr "Fecha factura"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_line_supplier_tree_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Bill lines"
+msgstr "Líneas de factura"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_invoice_tree_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Bills"
+msgstr "Facturas"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_binnacle_id
+msgid "Bitacora"
+msgstr "Bitacora"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_binnacle_ids
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_binnacle_ids
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+#: model:ir.ui.view,arch_db:grp_expense.view_stock_picking_expense_form
+msgid "Bitácora"
+msgstr "Bitácora"
+
+#. module: grp_expense
+#: selection:expense.pagos.masivos,state:0
+#: selection:expense.payment,state:0
+msgid "Borrador"
+msgstr "Borrador"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Branch"
+msgstr "Sucursal"
+
+#. module: grp_expense
+#: selection:stock.picking,atn_supplier:0
+msgid "Bueno"
+msgstr "Bueno"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_clabe
+msgid "CLABE"
+msgstr "CLABE"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "CURP"
+msgstr "CURP"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_cadena
+msgid "Cadena"
+msgstr "Cadena"
+
+#. module: grp_expense
+#: selection:expense.payment,cadena:0
+#: selection:expense.payment.beneficiary,type_service:0
+msgid "Cadenas Productivas"
+msgstr "Cadenas Productivas"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/xml/attach_xmls_template.xml:10
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_config_settings
+#: model:ir.ui.view,arch_db:grp_expense.wizard_update_rubro_line_form
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Cancelada"
+msgstr "Cancelada"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_programacion_pagos
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_cantidad_recibida
+msgid "Cantidad"
+msgstr "Cantidad"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_beneficiarios_apoyos_sociales
+msgid "Carga de layout con información de beneficiarios para apoyos sociales"
+msgstr "Carga de layout con información de beneficiarios para apoyos sociales"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_documento
+msgid "Cargar"
+msgstr "Cargar"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_invoice_document_supplier
+#: model:ir.ui.menu,name:grp_expense.menu_atach_xmls_wizard
+msgid "Cargar Factura"
+msgstr "Cargar Factura"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_wizard_load_xml
+msgid "Cargar XML"
+msgstr "Cargar XML"
+
+#. module: grp_expense
+#: model:ir.actions.report.xml,name:grp_expense.carta_report
+msgid "Carta Aceptación"
+msgstr "Carta Aceptación"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Carta de Aceptación"
+msgstr "Carta de Aceptación"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.clasificadores_menu
+msgid "Catálogo Clasificadores"
+msgstr "Catálogo Clasificadores"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_cilindros
+msgid "Cilindros"
+msgstr "Cilindros"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "City"
+msgstr "Ciudad"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_clabe
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_clabe
+msgid "Clabe"
+msgstr "Clabe"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/beneficiary.py:63
+#, python-format
+msgid "Clabe must have 18 characters"
+msgstr "La clabe debe tener 18 caracteres"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/beneficiary.py:69
+#, python-format
+msgid "Clabe must have only numbers"
+msgstr "La clabe debe tener sólo números"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_clasificador
+msgid "Clasificación"
+msgstr "Clasificación"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_clasificadores
+#: model:ir.ui.view,arch_db:grp_expense.form_catalogo_clasificadores
+msgid "Clasificadores"
+msgstr "Clasificadores"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_clave
+msgid "Clave"
+msgstr "Clave"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_invoice_line_update_rubro_estructura_id
+#: model:ir.ui.view,arch_db:grp_expense.invoice_line_supplier_tree_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Clave Presupuestal"
+msgstr "Clave Presupuestal"
+
+#. module: grp_expense
+#: model:ir.model.fields,help:grp_expense.field_invoice_line_update_rubro_estructura_id
+msgid "Clave Presupuestal to assign on the invoice lines"
+msgstr "Clave Presupuestal a asignar en las líneas"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,help:grp_expense.action_invoice_tree_expense
+msgid "Click to record a new vendor bill."
+msgstr "Haga clic aquí para registrar una nueva factura de proveedor."
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.attach_xmls_wizard_form_view
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Cod. Articulo"
+msgstr "Cod. Articulo"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_code_justificacion
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_code_justificacion
+msgid "Codigo justificación"
+msgstr "Codigo justificación"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_comisionado_por
+msgid "Comisionado por"
+msgstr "Comisionado por"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Company"
+msgstr "Compañía"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_comp_count
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_comp_ids
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Comprobaciones"
+msgstr "Comprobaciones"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_compromiso
+msgid "Compromiso Presupuestario"
+msgstr "Compromiso Presupuestario"
+
+#. module: grp_expense
+#: selection:expense.payment.detail,state_invoice:0
+msgid "Con factura"
+msgstr "Con factura"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_concepto
+msgid "Concepto de Pago"
+msgstr "Concepto de Pago"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_application_concept
+msgid "Concepto de Solicitud"
+msgstr "Concepto de Solicitud"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:398
+#, python-format
+msgid "Congratulations"
+msgstr "Felicidades"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Contact / Address"
+msgstr "Contacto/dirección"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Contact Name"
+msgstr "Nombre del contacto"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Contacts & Addresses"
+msgstr "Contactos y direcciones"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_res_partner
+msgid "Contribuyentes"
+msgstr "Contribuyentes"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.menu_control
+msgid "Control"
+msgstr "Catálogos"
+
+#. module: grp_expense
+#: model:ir.model.fields,help:grp_expense.field_expense_payment_detail_price_unit
+msgid "Cost of the product template used for standard stock valuation in accounting and used as a base price on purchase orders. Expressed in the default unit of measure of the product."
+msgstr "Coste para la plantilla de producto usada para la valoración de existencias estándar en contabilidad, y utilizada como precio de referencia en órdenes de compra. Se expresa en la unidad de medida por defecto del producto."
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Country"
+msgstr "País"
+
+#. module: grp_expense
+#: model:res.partner.category,name:grp_expense.tag_expenses
+msgid "Creado por Gastos"
+msgstr "Creado por Gastos"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_programacion_pagos
+msgid "Crear pago masivo"
+msgstr "Crear pago masivo"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Create company"
+msgstr "Crear compañía"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_base_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_beneficiary_type_catalog_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_returns_concept_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_suburb_catalog_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_town_catalog_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_zip_code_catalog_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_load_xml_create_uid
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_base_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_beneficiary_type_catalog_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_returns_concept_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_suburb_catalog_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_town_catalog_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_zip_code_catalog_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_load_xml_create_date
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_cuenta
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_partner_bank
+msgid "Cuenta"
+msgstr "Cuenta"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_bank_account
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_bank_account
+msgid "Cuenta Bancaria"
+msgstr "Cuenta Bancaria"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_cuenta_contable
+msgid "Cuenta contable"
+msgstr "Cuenta contable"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary
+msgid "Curp"
+msgstr "Curp"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/beneficiary.py:50
+#, python-format
+msgid "Curp must have 18 characters"
+msgstr "La curp debe tener 18 caracteres"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/beneficiary.py:56
+#, python-format
+msgid "Curp must have only letters and numbers"
+msgstr "La curp debe tener sólo números y letras"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_currency_id
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_code_item
+msgid "Cód. Producto"
+msgstr "Cód. Producto"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "DEBE/MONTO"
+msgstr "DEBE/MONTO"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_ids
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_ids_FF
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Datos Bancarios"
+msgstr "Datos Bancarios"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Datos Generales"
+msgstr "Datos Generales"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Datos Migración"
+msgstr "Datos Migración"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Datos del Viaje"
+msgstr "Datos del Viaje"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_purchase_no_validate_import_xml
+#: model:ir.ui.menu,name:grp_expense.menu_purchase_no_validate_import_xml
+msgid "Declinación Facturas"
+msgstr "Declinación Facturas"
+
+#. module: grp_expense
+#: model:ir.model.fields,help:grp_expense.field_expense_payment_detail_unidad_medida_id
+msgid "Default Unit of Measure used for all stock operation."
+msgstr "Unidad de medida por defecto utilizada para todas las operaciones de stock."
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_dependence_ur_id
+msgid "Departamento (UEG"
+msgstr "Departamento (UEG"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_depedence_ueg_id
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_department_id
+msgid "Departamento (UEG)"
+msgstr "Departamento (UEG)"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_depedence_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_dependence_id
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_dependence_id
+msgid "Dependencia"
+msgstr "Dependencia"
+
+#. module: grp_expense
+#: selection:expense.pagos.masivos,state:0
+msgid "Descargado"
+msgstr "Descargado"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_name
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_descripcion
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_descripcion
+msgid "Descripción"
+msgstr "Descripción"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_desc_programa
+msgid "Descripción Programa"
+msgstr "Descripción Programa"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_returns_concept_name
+msgid "Description"
+msgstr "Descripción"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "e.g. BE0477472701"
+msgstr "Por ejemplo, AAA010101AAA"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_state_payment_form
+msgid "Desea ejecutar la acción?"
+msgstr "Desea ejecutar la acción?"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_destino
+msgid "Destino (s)"
+msgstr "Destino (s)"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_detalle
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_ids
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_ids_AD
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_ids_AF
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_ids_FF
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_ids_SP
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_no_validate_id
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_no_validate_ids
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Detalle"
+msgstr "Detalle"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_base_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_beneficiary_type_catalog_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_returns_concept_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_suburb_catalog_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_town_catalog_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_zip_code_catalog_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_load_xml_display_name
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_ids
+msgid "Docuemntos"
+msgstr "Documentos"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Documentos"
+msgstr "Documentos"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: grp_expense
+#: selection:res.partner.bank,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Draft Bill"
+msgstr "Factura borrador"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Draft Refund"
+msgstr "Borrador de factura rectificativa"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/xml/attach_xmls_template.xml:4
+#, python-format
+msgid "Drag and Drop your files here"
+msgstr "Arrastrar y soltar tus archivos aquí"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_load_xml_dragndrop
+msgid "Dragndrop"
+msgstr "Dragndrop"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_ejercicio_id
+msgid "Ejercicio Fiscal"
+msgstr "Ejercicio Fiscal"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "En Observación"
+msgstr "En Observación"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_carta_aceptacion
+msgid "En relación a la cantidad solicitada por"
+msgstr "En relación a la cantidad solicitada por"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "En revisión"
+msgstr "En revisión"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Envío a Caja"
+msgstr "Envío a Caja"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:262
+#, python-format
+msgid "Error checking XML data."
+msgstr "Error revisando datos del XML."
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:262
+#, python-format
+msgid "Error creating invoice."
+msgstr "Error creando factura."
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:262
+#, python-format
+msgid "Error creating supplier."
+msgstr "Error creando proveedor."
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_state
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_state
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores_status
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_state_invoice
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_state
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_state
+#: model:ir.ui.view,arch_db:grp_expense.form_pagos_masivos
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_tree_pagos
+#: model:ir.ui.view,arch_db:grp_expense.view_programacion_pagos
+msgid "Estado"
+msgstr "Estado"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_state_previous
+msgid "Estatus anterior"
+msgstr "Estatus anterior"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.form_pagos_masivos
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Está seguro que desea continuar?"
+msgstr "Está seguro que desea continuar?"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_event_general
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_event_general
+msgid "Evento General"
+msgstr "Evento General"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_evento_especifico
+msgid "Evento específico"
+msgstr "Evento específico"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Eventos Contables"
+msgstr "Eventos Contables"
+
+#. module: grp_expense
+#: selection:stock.picking,atn_supplier:0
+msgid "Excelente"
+msgstr "Excelente"
+
+#. module: grp_expense
+#: model:ir.module.category,name:grp_expense.module_category_grp_expense
+#: model:res.groups,name:grp_expense.group_sp_manager
+msgid "Expense Support"
+msgstr "Soporte del gasto"
+
+#. module: grp_expense
+#: model:res.groups,name:grp_expense.group_director_expense
+msgid "Expense director"
+msgstr "Director De Gastos"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.menu_root
+msgid "Expense support"
+msgstr "Soporte del gasto"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_comprobacion_factura
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_invoice
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_digital_invoice
+msgid "Factura"
+msgstr "Factura"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_purchase_import_xml
+#: model:ir.ui.menu,name:grp_expense.menu_purchase_import_xml
+msgid "Facturas XML"
+msgstr "Facturas XML"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Fax:"
+msgstr "Fax:"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_date
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_date
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_date
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_date
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_load_xml_date
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_date_order
+msgid "Fecha OC"
+msgstr "Fecha OC"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_date_payment
+msgid "Fecha Prob Pago"
+msgstr "Fecha Prob Pago"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_date_previous
+msgid "Fecha de CR"
+msgstr "Fecha de CR"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_date_check
+msgid "Fecha de Cheque"
+msgstr "Fecha de Cheque"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_date_before
+msgid "Fecha de Contrarecibo"
+msgstr "Fecha de Contrarecibo"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_date_invoice
+msgid "Fecha de Factura"
+msgstr "Fecha de Factura"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_stock_picking_expense_form
+msgid "Fecha de Recibo"
+msgstr "Fecha de Recibo"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores_date
+msgid "Fecha de Registro"
+msgstr "Fecha de Registro"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_date_requisition
+msgid "Fecha de Requisición"
+msgstr "Fecha de Requisición"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_date_expired
+msgid "Fecha de Vencimiento"
+msgstr "Fecha de Vencimiento"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Fecha de aplicación"
+msgstr "Fecha de aplicación"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_date
+msgid "Fecha de emisión"
+msgstr "Fecha de emisión"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_date
+msgid "Fecha/Hora"
+msgstr "Fecha/Hora"
+
+#. module: grp_expense
+#: model:ir.model.fields,help:grp_expense.field_wizard_load_xml_dragndrop
+msgid "Field to upload files"
+msgstr "Campo para subir sus documentos"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_name
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_folio
+msgid "Folio"
+msgstr "Folio"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_account_payment_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_account_payment_id
+msgid "Forma de Pago"
+msgstr "Forma de Pago"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_code
+msgid "Forma de pago code"
+msgstr "Forma de pago code"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_expense_id
+msgid "Gastos"
+msgstr "Gastos"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_generacion
+msgid "Generacion"
+msgstr "Generacion"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "HABER"
+msgstr "HABER"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_house_number
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_house_number
+msgid "House number"
+msgstr "Número de casa"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_id
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_id
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_id
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_id
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_base_id
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_beneficiary_type_catalog_id
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_returns_concept_id
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_suburb_catalog_id
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_town_catalog_id
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_zip_code_catalog_id
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_id
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_id
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_id
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_load_xml_id
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_id
+#: model:ir.ui.view,arch_db:grp_expense.view_returns_concept_form
+#: model:ir.ui.view,arch_db:grp_expense.view_returns_concept_tree
+msgid "ID"
+msgstr "ID"
+
+#. module: grp_expense
+#: model:ir.model.fields,help:grp_expense.field_res_partner_bank_state
+msgid "If the values are correct, could be validated to could be used on expenses."
+msgstr "Si los valores son correctos, puede ser validado para utilizarse en gastos."
+
+#. module: grp_expense
+#: model:ir.model.fields,help:grp_expense.field_grp_expense_config_settings_allow_create_expense_suppliers
+msgid "If this field is False, not allow create suppliers from import process."
+msgstr "Si este campo es Falso, no va a permitir crear proveedores con el proceso de importación."
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_importe
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_total
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_total
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_importe
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_importe
+#: model:ir.ui.view,arch_db:grp_expense.report_observaciones
+msgid "Importe"
+msgstr "Importe"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_importe_sp
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_importe_sp_FF
+msgid "Importe SP"
+msgstr "Importe SP"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Imprimir"
+msgstr "Imprimir"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_supplier_taxes_id
+msgid "Impuesto/Retención"
+msgstr "Impuesto/Retención"
+
+#. module: grp_expense
+#: selection:res.partner,beneficiary_status:0
+msgid "Inactive"
+msgstr "Inactive"
+
+#. module: grp_expense
+#: model:ir.model.fields,help:grp_expense.field_res_partner_beneficiary_type_ids
+#: model:ir.model.fields,help:grp_expense.field_res_users_beneficiary_type_ids
+msgid "Indicate the beneficiary types for this record."
+msgstr "Indique los tipos de beneficiario para este registro."
+
+#. module: grp_expense
+#: code:addons/grp_expense/wizard/load_xml.py:216
+#, python-format
+msgid "Info"
+msgstr "Info"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Información General"
+msgstr "Información General"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Internal Notes"
+msgstr "Notas internas"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Internal note..."
+msgstr "Nota Interna..."
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Linea de factura"
+
+#. module: grp_expense
+#: selection:purchase.import.xml,state:0
+#: selection:purchase.no.validate.xml.line,state:0
+msgid "Inválido"
+msgstr "Inválido"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_is_beneficiary
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_is_beneficiary
+msgid "Is beneficiary"
+msgstr "Es beneficiario"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_justification_id
+msgid "Justificación Presupuestal"
+msgstr "Justificación Presupuestal"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_budget_justification
+msgid "Justificación presupuestal"
+msgstr "Justificación presupuestal"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_account_invoice_line_justification_expense
+msgid "Justification Expense"
+msgstr "Justificación del Gasto"
+
+#. module: grp_expense
+#: model:ir.model.fields,help:grp_expense.field_stock_picking_date_invoice
+msgid "Keep empty to use the current date"
+msgstr "Dejar vacío para utilizar la fecha actual"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_base_key
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_beneficiary_type_catalog_key
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_suburb_catalog_key
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_town_catalog_key
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_zip_code_catalog_key
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_key
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_key
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_type
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_type_register
+msgid "Key"
+msgstr "Clave"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_base___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_beneficiary_type_catalog___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_returns_concept___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_suburb_catalog___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_town_catalog___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_zip_code_catalog___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_load_xml___last_update
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_base_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_beneficiary_type_catalog_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_returns_concept_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_suburb_catalog_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_town_catalog_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_zip_code_catalog_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_load_xml_write_uid
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_base_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_beneficiary_type_catalog_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_returns_concept_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_suburb_catalog_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_town_catalog_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_zip_code_catalog_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_load_xml_write_date
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Layout"
+msgstr "Layout"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_invoice_line
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.menu_location_catalogs
+msgid "Location catalogs"
+msgstr "Catálogos de locación"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_capture_line
+msgid "Línea de Captura"
+msgstr "Línea de Captura"
+
+#. module: grp_expense
+#: selection:stock.picking,atn_supplier:0
+msgid "Malo"
+msgstr "Malo"
+
+#. module: grp_expense
+#: model:res.groups,name:grp_expense.group_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_marca
+msgid "Marca"
+msgstr "Marca"
+
+#. module: grp_expense
+#: selection:stock.picking,type_receipt:0
+msgid "Material"
+msgstr "Material"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Misc"
+msgstr "Misc."
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Mobile"
+msgstr "Teléfono móvil"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Mobile:"
+msgstr "Móvil:"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Momentos Presup."
+msgstr "Momentos Presup."
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_momentos_ids
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Momentos Presupuestales"
+msgstr "Momentos Presupuestales"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_picking_id
+msgid "Movimiento"
+msgstr "Movimiento"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_base_name
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_beneficiary_type_catalog_name
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_suburb_catalog_name
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_town_catalog_name
+#: model:ir.model.fields,field_description:grp_expense.field_grp_expense_zip_code_catalog_name
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_tree
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_type
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_type_register
+#: model:ir.ui.view,arch_db:grp_expense.view_partner_tree_beneficiaries
+msgid "Name"
+msgstr "Nombre"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_previous_counterreceipt
+msgid "No. CR anterior"
+msgstr "No. CR anterior"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_check_number
+msgid "No. Cheque"
+msgstr "No. Cheque"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_number_doc
+msgid "No. Doc."
+msgstr "No. Doc."
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_number_doc
+msgid "No. Oficio"
+msgstr "No. Oficio"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_no_programa
+msgid "No. Programa"
+msgstr "No. Programa"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_name
+msgid "No. Solicitud"
+msgstr "No. Solicitud"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_number_check
+msgid "No. de Cheque"
+msgstr "No. de Cheque"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_number_receipt_before
+msgid "No. de Contrarecibo"
+msgstr "No. de Contrarecibo"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_no_pago
+msgid "No. de Pago"
+msgstr "No. de Pago"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_number_bias
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_number_bias
+msgid "No. de Parcialidad de OC"
+msgstr "No. de Parcialidad de OC"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_number_before
+msgid "No. de Recibo Anterior"
+msgstr "No. de Recibo Anterior"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_no_placas
+msgid "No. placas"
+msgstr "No. placas"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_nombre
+#: model:ir.model.fields,field_description:grp_expense.field_catalogo_clasificadores_name
+msgid "Nombre"
+msgstr "Nombre"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_attachment_id
+msgid "Nombre del documento"
+msgstr "Nombre del documento"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_num
+msgid "Num"
+msgstr "Num"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_type
+msgid "Number"
+msgstr "Número"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_account_invoice_invoice_line_number
+msgid "Number of Lines"
+msgstr "Número de líneas"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_number_invoice
+msgid "Número de Factura"
+msgstr "Número de Factura"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_num_proyec
+msgid "Número de Proyecto"
+msgstr "Número de Proyecto"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_po_id
+msgid "OC"
+msgstr "OC"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_obs_atn
+msgid "Obs. Atención"
+msgstr "Obs. Atención"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_observations
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_observations
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_note
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_note
+msgid "Observaciones"
+msgstr "Observaciones"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+msgid "Observada"
+msgstr "Observada"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_source_finantial_id
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_origin_source
+msgid "Origen (de los recursos)"
+msgstr "Origen (de los recursos)"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Other Info"
+msgstr "Otra Información"
+
+#. module: grp_expense
+#: selection:expense.pagos.masivos,state:0
+msgid "Pagado"
+msgstr "Pagado"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.form_pagos_masivos
+msgid "Pagar Solicitudes"
+msgstr "Pagar Solicitudes"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Pagar por"
+msgstr "Pagar por"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_programacion_pagos
+msgid "Pago Masivo"
+msgstr "Pago Masivo"
+
+#. module: grp_expense
+#: selection:expense.payment.beneficiary,type_service:0
+msgid "Pago de Servicio"
+msgstr "Pago de Servicio"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_payment_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_payment_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_payment_id
+#: model:ir.ui.menu,name:grp_expense.menu_pagosSP
+msgid "Pagos"
+msgstr "Pagos"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/payment.py:863
+#: model:ir.actions.act_window,name:grp_expense.action_pagos_masivos
+#: model:ir.actions.server,name:grp_expense.action_generate_pagos_masivos
+#: model:ir.ui.menu,name:grp_expense.pagos_masivos_menu
+#, python-format
+msgid "Pagos Masivos"
+msgstr "Pagos Masivos"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_bias
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_bias
+msgid "Parcialidad"
+msgstr "Parcialidad"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_invoice_line_update_rubro_partida_id
+msgid "Partida"
+msgstr "Partida"
+
+#. module: grp_expense
+#: model:ir.model.fields,help:grp_expense.field_invoice_line_update_rubro_partida_id
+msgid "Partida to assign on the invoice lines"
+msgstr "Partida a asignar en las líneas de factura"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_partidas_id
+msgid "Partida-Rubro"
+msgstr "Partida-Rubro"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Payment method"
+msgstr "Método de pago"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_payment_method_id
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_payment_method_id
+msgid "Payment method id"
+msgstr "Id método de pago"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.menu_payment_request
+msgid "Payment request"
+msgstr "Solicitud de pago"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_periodo
+msgid "Periodo de viaje"
+msgstr "Periodo de viaje"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Phone:"
+msgstr "Teléfono:"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Por Autorizar"
+msgstr "Por Autorizar"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_price_unit
+msgid "Precio unitario"
+msgstr "Precio unitario"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_presupuesto_id
+msgid "Presupuesto"
+msgstr "Presupuesto"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_importe_virtual_disponible
+msgid "Presupuesto Disponible"
+msgstr "Presupuesto Disponible"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_importe_presupuesto_disponible
+msgid "Presupuesto disponible"
+msgstr "Presupuesto disponible"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Primera autorización"
+msgstr "Primera autorización"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_product_id
+msgid "Producto/Servicio"
+msgstr "Producto/Servicio"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_pagos_solicitud
+#: model:ir.ui.menu,name:grp_expense.menu_programacion_pagos_SP
+msgid "Programación de Pagos"
+msgstr "Programación de Pagos"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_stock_picking_expense_form
+#: model:ir.ui.view,arch_db:grp_expense.view_stock_picking_expense_tree
+msgid "Proveedor"
+msgstr "Proveedor"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_partner_sp_form
+msgid "Proveedores"
+msgstr "Proveedores"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_solicitud_pago
+msgid "Página:"
+msgstr "Página:"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_rfc_emisor
+msgid "RFC Emisor"
+msgstr "RFC Emisor"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_rfc_receptor
+msgid "RFC Receptor"
+msgstr "RFC Receptor"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_razon_social
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_razon_social
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_no_validate_xml_line_razon_social
+msgid "Razón Social"
+msgstr "Razón Social"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_recepcion_check
+msgid "Recepción de Cheque"
+msgstr "Recepción de Cheque"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Recibida"
+msgstr "Recibida"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_recibo
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Recibo"
+msgstr "Recibo"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_stock_picking_grp
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_picking_id
+#: model:ir.ui.menu,name:grp_expense.menu_main_stock_picking_grp
+msgid "Recibo de Materiales y Servicios"
+msgstr "Recibo de Materiales y Servicios"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,help:grp_expense.action_stock_picking_grp
+msgid "Recibo de Materiales y Servicios."
+msgstr "Recibo de Materiales y Servicios."
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.stock_picking_grp_search_view
+msgid "Recibos"
+msgstr "Recibos"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_recibo
+msgid "Recibí"
+msgstr "Recibí"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.report_recibo
+msgid "Recibí de la Tesorería de"
+msgstr "Recibí de la Tesorería de"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_beneficiarios_apoyos_sociales_referencia
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_referencia
+msgid "Referencia"
+msgstr "Referencia"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Refund"
+msgstr "Factura rectificativa"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_view_returns_concept
+#: model:ir.ui.menu,name:grp_expense.menu_returns_concept
+#: model:ir.ui.view,arch_db:grp_expense.view_returns_concept_form
+#: model:ir.ui.view,arch_db:grp_expense.view_returns_concept_tree
+msgid "Refund type"
+msgstr "Tipo de devolución"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_returns_concept_tree
+msgid "Registered date"
+msgstr "Fecha de registro"
+
+#. module: grp_expense
+#: selection:stock.picking,atn_supplier:0
+msgid "Regular"
+msgstr "Regular"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_reintegro
+msgid "Reintegro"
+msgstr "Reintegro"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_reintegro
+msgid "Reintengro"
+msgstr "Reintengro"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Reporte Observaciones"
+msgstr "Reporte Observaciones"
+
+#. module: grp_expense
+#: model:ir.actions.report.xml,name:grp_expense.observaciones_report
+msgid "Reporte de Observaciones"
+msgstr "Reporte de Observaciones"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_reports
+#: model:ir.ui.menu,name:grp_expense.menu_reports
+msgid "Reports"
+msgstr "Informes"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_requisition_id
+msgid "Requisición"
+msgstr "Requisición"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_beneficiary_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_partner_id
+msgid "Responsable"
+msgstr "Responsable"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Retry"
+msgstr "Reintentar"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Revisada"
+msgstr "Revisada"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_saldo
+msgid "Saldo"
+msgstr "Saldo"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_balance_oc
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_balance_oc
+msgid "Saldo de OC"
+msgstr "Saldo de OC"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Sale"
+msgstr "Venta"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/xml/attach_xmls_template.xml:8
+#, python-format
+msgid "Save"
+msgstr "Guardar"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_filter
+msgid "Search Beneficiary"
+msgstr "Buscar beneficiario"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Segunda autorización"
+msgstr "Segunda autorización"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_purchase_import_xml_serie
+msgid "Serie"
+msgstr "Serie"
+
+#. module: grp_expense
+#: selection:stock.picking,type_receipt:0
+msgid "Servicio"
+msgstr "Servicio"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Set to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.menu_settings
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/xml/attach_xmls_template.xml:9
+#, python-format
+msgid "Show invoices"
+msgstr "Mostrar Facturas"
+
+#. module: grp_expense
+#: selection:expense.payment.detail,state_invoice:0
+msgid "Sin Factura"
+msgstr "Sin Factura"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_social_reazon
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_social_reazon
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Social reazon"
+msgstr "Razón social"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_account_momentospresupuestales_expense_payment_id
+msgid "Solcitud de pago"
+msgstr "Solicitud de pago"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_solicitante
+msgid "Solicitante"
+msgstr "Solicitante"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_solicitud
+msgid "Solicitud"
+msgstr "Solicitud"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_expense_payment
+#: model:ir.actions.report.xml,name:grp_expense.recibo_report
+#: model:ir.actions.report.xml,name:grp_expense.solicitud_report
+#: model:ir.ui.menu,name:grp_expense.menu_expense_payment
+msgid "Solicitud de Pago"
+msgstr "Solicitud de Pago"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Solicitud de pago"
+msgstr "Solicitud de pago"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_solicitud_pago_ids
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_solicitud_pago_ids
+msgid "Solicitud pago ids"
+msgstr "Solicitud pago ids"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_programacion_pagos
+msgid "Solicitudes de pago"
+msgstr "Solicitudes de pago"
+
+#. module: grp_expense
+#: code:addons/grp_expense/wizard/load_xml.py:254
+#, python-format
+msgid "Some products are not found in the system, and the account that is used like default is not configured in the journal, please set default account in the journal %s to create the invoice."
+msgstr "Algunos productos no fueron encontrados en el sistema, y la cuenta que es usada como default no esta configurada en el diario. Por favor configure la cuenta por default en el diario  %s para crear la factura."
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_expense_support
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_expense_support
+msgid "Soporte del Gasto"
+msgstr "Soporte del Gasto"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_state
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_state
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_bank_state
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "State"
+msgstr "Estado"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_beneficiary_status
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_beneficiary_status
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Status"
+msgstr "Estado"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "Street"
+msgstr "Calle"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Street 2..."
+msgstr "Calle 2..."
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Street..."
+msgstr "Calle..."
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_sub_marca
+msgid "Submarca"
+msgstr "Submarca"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.menu_suburb
+#: model:ir.ui.view,arch_db:grp_expense.view_add_suburb
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+#: model:ir.ui.view,arch_db:grp_expense.view_suburb
+msgid "Suburb"
+msgstr "Colonía"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_suburb
+msgid "Suburb catalog"
+msgstr "Catálogo de colonía"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_add_suburb
+#: model:ir.ui.view,arch_db:grp_expense.view_suburb
+msgid "Suburb code"
+msgstr "Código colonía"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_suburb_id
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_suburb_id
+msgid "Suburb id"
+msgstr "Id colonía"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Suma Importes"
+msgstr "Suma Importes"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:113
+#, python-format
+msgid "Supplier Invoices"
+msgstr "Facturas de proveedor"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.supplier_p01_filter
+msgid "Supplier P01"
+msgstr "Proveedor tipo de beneficiario P01"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_purchase_display_supplier_catalog
+msgid "Suppliers"
+msgstr "Proveedores"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "Tags..."
+msgstr "Etiquetas..."
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:396
+#, python-format
+msgid "The XML is attached correctly"
+msgstr "XML adjunto correctamente"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/beneficiary.py:92
+#, python-format
+msgid "The mobile should contain only numbers"
+msgstr "The mobile should contain only numbers"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/beneficiary.py:89
+#, python-format
+msgid "The phone should contain only numbers"
+msgstr "The phone should contain only numbers"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/account_invoice.py:20
+#, python-format
+msgid "The product, partida and structure are required in all the lines"
+msgstr "El producto, la partida y la estructura son requeridos en todas las líneas"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:170
+#, python-format
+msgid "There are files uploading"
+msgstr "Hay archivos cargando"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:97
+#, python-format
+msgid "There is no files selected"
+msgstr "No hay archivos seleccionados"
+
+#. module: grp_expense
+#: model:ir.model.fields,help:grp_expense.field_expense_payment_no_programa
+msgid "This is the unique identifier for the budget commitment"
+msgstr "Este es el identificador único para el compromiso presupuestario"
+
+#. module: grp_expense
+#: code:addons/grp_expense/wizard/load_xml.py:213
+#, python-format
+msgid "This partner was created when invoice %s%s was added from a XML file. Please verify that the datas of partner are correct."
+msgstr "Este proveedor fue creado cuando la factura %s%s fue creada desde un archivo de XML. Por favor verifique que la información del Proveedor sea correcta."
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_beneficiary_type_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_tipo_beneficiario
+msgid "Tipo Beneficiario"
+msgstr "Tipo Beneficiario"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_return_id
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_return_id
+msgid "Tipo de Devolución"
+msgstr "Tipo de Devolución"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_expense_type
+msgid "Tipo de Gasto"
+msgstr "Tipo de Gasto"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_type_receipt
+msgid "Tipo de Recepción"
+msgstr "Tipo de Recepción"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_type_receipt_migration
+msgid "Tipo de Recibo"
+msgstr "Tipo de Recibo"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_beneficiary_type_service
+msgid "Tipo de Servicio"
+msgstr "Tipo de Servicio"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_type_affectation_id
+msgid "Tipo de afectación"
+msgstr "Tipo de afectación"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/account_invoice.py:24
+#, python-format
+msgid "To validate an invoice, this must be valid in the SAT"
+msgstr "Para validar una factura, esta debe estar válida en el SAT"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_account_invoice_line_price_total
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_total
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_total
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_suma_line_FF
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_suma_total_AD
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_suma_total_AF
+msgid "Total"
+msgstr "Total"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Total Comprometido"
+msgstr "Total Comprometido"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Total Ejercido"
+msgstr "Total Ejercido"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_total_invoice
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_total_invoice
+msgid "Total de Factura"
+msgstr "Total de Factura"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Total devengado"
+msgstr "Total devengado"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Total pagado"
+msgstr "Total pagado"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.menu_town
+#: model:ir.ui.view,arch_db:grp_expense.view_add_town
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+#: model:ir.ui.view,arch_db:grp_expense.view_town
+msgid "Town"
+msgstr "Municipio"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_town
+msgid "Town catalog"
+msgstr "Catálogo de municipio"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_add_town
+#: model:ir.ui.view,arch_db:grp_expense.view_town
+msgid "Town code"
+msgstr "Código de municipio"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_res_partner_town_id
+#: model:ir.model.fields,field_description:grp_expense.field_res_users_town_id
+msgid "Town id"
+msgstr "Id municipio"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_payment_id
+msgid "Tramite"
+msgstr "Tramite"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_stock_picking
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_detail_unidad_medida_id
+msgid "UM"
+msgstr "UM"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_unit_responsible
+#: model:ir.model.fields,field_description:grp_expense.field_stock_picking_unit_responsable
+msgid "Unidad Responsable (UR)"
+msgstr "Unidad Responsable (UR)"
+
+#. module: grp_expense
+#: model:res.groups,name:grp_expense.group_user_sp_readonly
+msgid "User Expense Support"
+msgstr "User Expense Support"
+
+#. module: grp_expense
+#: model:ir.module.category,description:grp_expense.module_category_grp_expense
+msgid "User access level for this module"
+msgstr "Niveles de acceso de usuario"
+
+#. module: grp_expense
+#: model:res.groups,name:grp_expense.group_user_readonly
+msgid "User readonly"
+msgstr "Usuario sólo lectura"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_payment_user_id
+#: model:ir.model.fields,field_description:grp_expense.field_binnacle_state_picking_user_id
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_documents_user_id
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_load_xml_user_id
+#: model:ir.model.fields,field_description:grp_expense.field_wizard_states_payment_user_id
+msgid "Usuario"
+msgstr "Usuario"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_account_invoice_partner_vat
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "VAT"
+msgstr "RFC"
+
+#. module: grp_expense
+#: selection:expense.payment,state:0
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Validada"
+msgstr "Validada"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_expense_payment_form
+msgid "Validar Documento"
+msgstr "Validar Documento"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+#: model:ir.ui.view,arch_db:grp_expense.view_bank_account_beneficiary
+msgid "Validate"
+msgstr "Validar"
+
+#. module: grp_expense
+#: selection:res.partner.bank,state:0
+msgid "Validated"
+msgstr "Validado"
+
+#. module: grp_expense
+#: model:ir.model.fields,field_description:grp_expense.field_expense_payment_vehiculo
+msgid "Vehículo"
+msgstr "Vehículo"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_tree_expense
+msgid "Vendor"
+msgstr "Beneficiario"
+
+#. module: grp_expense
+#: selection:purchase.import.xml,state:0
+#: selection:purchase.no.validate.xml.line,state:0
+msgid "Válido"
+msgstr "Válido"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:298
+#, python-format
+msgid "XML Emitter RFC: <span level=\"2\">"
+msgstr "RFC del Emisor del XML: <span level=\"2\">"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:294
+#, python-format
+msgid "XML Folio: <span level=\"2\">"
+msgstr "Folio XML: <span level=\"2\">"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:275
+#, python-format
+msgid "XML Receptor RFC: <span level=\"2\">"
+msgstr "RFC del Receptor del XML: <span level=\"2\">"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:302
+#, python-format
+msgid "XML amount total: <span level=\"2\">"
+msgstr "Cantidad total del XML: <span level=\"2\">"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,help:grp_expense.action_invoice_tree_expense
+msgid "You can control the invoice from your vendor according to\n"
+"            what you purchased or received."
+msgstr "You can control the invoice from your vendor according to\n"
+"            what you purchased or received."
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:99
+#, python-format
+msgid "You cannot attach more than one xml to an invoice"
+msgstr "No puede adjuntar mas de un XML a una factura"
+
+#. module: grp_expense
+#: code:addons/grp_expense/models/account_invoice.py:63
+#, python-format
+msgid "You cannot delete an invoice line"
+msgstr "No es posible eliminar una línea de factura"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "You have"
+msgstr "Tiene"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/js/attach_xmls.js:394
+#, python-format
+msgid "Your invoices were created correctly"
+msgstr "Sus facturas fueron creadas correctamente"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "ZIP"
+msgstr "C.P."
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_register
+msgid "ZIP code"
+msgstr "C.P"
+
+#. module: grp_expense
+#: model:ir.ui.menu,name:grp_expense.menu_zip_code
+#: model:ir.ui.view,arch_db:grp_expense.view_zip_code
+msgid "Zip code"
+msgstr "C.P"
+
+#. module: grp_expense
+#: model:ir.actions.act_window,name:grp_expense.action_postal_code
+msgid "Zip code catalog"
+msgstr "Catálogo de C.P"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_account_momentospresupuestales
+msgid "account.momentospresupuestales"
+msgstr "account.momentospresupuestales"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_binnacle_state_payment
+msgid "binnacle.state.payment"
+msgstr "binnacle.state.payment"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_binnacle_state_picking
+msgid "binnacle.state.picking"
+msgstr "binnacle.state.picking"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_catalogo_clasificadores
+msgid "catalogo.clasificadores"
+msgstr "catalogo.clasificadores"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.attach_xmls_wizard_form_view
+msgid "description"
+msgstr "description"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "e.g. Mr."
+msgstr "p.e., Mr."
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "e.g. Sales Director"
+msgstr "p.e. Director de Ventas"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "e.g. www.odoo.com"
+msgstr "Por ejemplo, www.odoo.com"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_expense_pagos
+msgid "expense.pagos"
+msgstr "expense.pagos"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_expense_pagos_masivos
+msgid "expense.pagos.masivos"
+msgstr "expense.pagos.masivos"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_expense_payment
+msgid "expense.payment"
+msgstr "expense.payment"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_expense_payment_beneficiary
+msgid "expense.payment.beneficiary"
+msgstr "expense.payment.beneficiary"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_expense_payment_detail
+msgid "expense.payment.detail"
+msgstr "expense.payment.detail"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_expense_payment_documents
+msgid "expense.payment.documents"
+msgstr "expense.payment.documents"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "for this supplier. You can allocate them to mark this bill as paid."
+msgstr "para este proveedor. Puede asignarlos para marcar esta factura como pagada."
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_grp_expense_base
+msgid "grp.expense.base"
+msgstr "grp.expense.base"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_grp_expense_beneficiary_type_catalog
+msgid "grp.expense.beneficiary.type.catalog"
+msgstr "grp.expense.beneficiary.type.catalog"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_grp_expense_config_settings
+msgid "grp.expense.config.settings"
+msgstr "grp.expense.config.settings"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_grp_expense_returns_concept
+msgid "grp.expense.returns.concept"
+msgstr "grp.expense.returns.concept"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_grp_expense_suburb_catalog
+msgid "grp.expense.suburb.catalog"
+msgstr "grp.expense.suburb.catalog"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_grp_expense_town_catalog
+msgid "grp.expense.town.catalog"
+msgstr "grp.expense.town.catalog"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_grp_expense_zip_code_catalog
+msgid "grp.expense.zip.code.catalog"
+msgstr "grp.expense.zip.code.catalog"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_beneficiary_form
+msgid "internal note..."
+msgstr "Nota interna..."
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/xml/attach_xmls_template.xml:4
+#, python-format
+msgid "or Click to upload the files"
+msgstr "o Click para subir los archivos"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.invoice_supplier_expense_form
+msgid "outstanding debits"
+msgstr "débitos pendientes"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_purchase_import_xml
+msgid "purchase.import.xml"
+msgstr "purchase.import.xml"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_purchase_no_validate_xml
+msgid "purchase.no.validate.xml"
+msgstr "purchase.no.validate.xml"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_purchase_no_validate_xml_line
+msgid "purchase.no.validate.xml.line"
+msgstr "purchase.no.validate.xml.line"
+
+#. module: grp_expense
+#: model:ir.model,name:grp_expense.model_wizard_states_payment
+msgid "wizard.states.payment"
+msgstr "wizard.states.payment"
+
+#. module: grp_expense
+#: model:ir.ui.view,arch_db:grp_expense.view_add_zip_code
+msgid "zip code"
+msgstr "Código postal"
+
+#. module: grp_expense
+#: model:res.groups,name:grp_expense.group_sp_analyst_user
+msgid "Analyst"
+msgstr "Analista"
+
+#. module: grp_expense
+#: model:res.groups,name:grp_expense.group_sp_dependency_user
+msgid "Dependency User"
+msgstr "Usuario de Dependencia"
+
+#. module: grp_expense
+#: model:res.groups,name:grp_expense.group_sp_department_manager
+msgid "Department Manager"
+msgstr "Jefe de Departamento"
+
+#. module: grp_expense
+#. openerp-web
+#: code:addons/grp_expense/static/src/xml/qweb.xml:6
+#: model:ir.actions.server,name:grp_expense.action_protect_check
+#, python-format
+msgid "Protect Checks"
+msgstr "Proteger Cheques"
+
+#: model:ir.model.fields,field_description:grp_expense.field_expense_pagos_masivos_payment_date
+msgid "Payment Date"
+msgstr "Fecha de Pago"
+
+
+#. module: product
+#: code:addons/product/models/product_template.py:43
+#, python-format
+msgid "Service"
+msgstr "Consumible"
+
+#. module: product
+#: model:ir.ui.view,arch_db:product.product_template_search_view
+msgid "Services"
+msgstr "Consumible"
+
+#. module: product
+#: selection:product.template,type:0
+msgid "Service"
+msgstr "Consumible"
+
+#. module: product
+#: code:addons/product/models/product_template.py:43
+#, python-format
+msgid "Consumable"
+msgstr "Servicio"
+
+#. module: product
+#: model:ir.ui.view,arch_db:product.product_template_search_view
+msgid "Consumable"
+msgstr "Servicio"
+
+#. module: product
+#: selection:product.template,type:0
+msgid "Consumable"
+msgstr "Servicio"

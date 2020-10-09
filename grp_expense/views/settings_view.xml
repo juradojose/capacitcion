@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- VIEWS -->
+    <record id="tree_clasificadores" model="ir.ui.view">
+      <field name="name">catalogo.clasificadores.tree</field>
+      <field name="model">catalogo.clasificadores</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="status"/>
+          <field name="date"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="form_catalogo_clasificadores" model="ir.ui.view">
+      <field name="name">catalogo.clasificadores.form</field>
+      <field name="model">catalogo.clasificadores</field>
+      <field name="arch" type="xml">
+        <form string= "Clasificadores">
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+              <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                <field name="active" widget="boolean_button" options='{"terminology": "active"}'/>
+              </button>
+            </div>
+            <group>
+              <group>
+                  <field name="codigo"/>
+                  <field name="name" on_change="onchange_case(name)"/>
+                  <field name="date" invisible="1"/>
+              </group>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+              <field name="message_follower_ids" widget="mail_followers"/>
+              <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_clasificadores" model="ir.actions.act_window">
+        <field name="name">Clasificadores</field>
+        <field name="res_model">catalogo.clasificadores</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Catálogo Clasificadores" id="clasificadores_menu"
+      parent ="menu_settings" action="action_clasificadores" sequence="100" groups="group_director_expense,group_user_readonly,group_manager,group_user_sp_readonly,group_sp_manager,grp_expense.group_sp_department_manager"/>
+    <!-- View for beneficiary register  -->
+    <record id="view_beneficiary" model="ir.ui.view">
+        <field name="name">grp.expense.beneficiary.view</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Beneficiary">
+                <field name="id" string="Number"/>
+                <field name="vat" string="VAT"/>
+                <field name="curp" string="Curp"/>
+                <field name="name" string="Name"/>
+                <field name="bank_id" string="Bank"/>
+                <field name="account_number" string="Account number"/>
+                <field name="status" string="Status"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Search to only show beneficiaries -->
+    <!-- <record id="view_beneficiary_filter" model="ir.ui.view">
+        <field name="name">beneficiary.display</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <search string="Search Beneficiary">
+                <filter domain="[('is_beneficiary','=',True)]" string="Beneficiary"/>
+            </search>
+        </field>
+    </record> -->
+    <!-- Form to add new beneficiary -->
+    <record id="view_beneficiary_register" model="ir.ui.view">
+        <field name="name">add.new.beneficiary</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Add new beneficiary">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-archive" name="toggle_active" type="object">
+                            <field name="active" options="{&quot;terminology&quot;: &quot;archive&quot;}" widget="boolean_button"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="is_beneficiary"/>
+                            <field name="id" readonly="1" string="Number"/>
+                            <field attrs="{'required': [('is_beneficiary','=',True)]}" name="date"/>
+                            <field name="beneficiary_type_id" string="Beneficiary type"/>
+                            <field name="vat" string="VAT"/>
+                            <field name="curp" string="CURP"/>
+                            <field name="social_reazon" string="Social reazon"/>
+                            <field name="name" string="Name"/>
+                            <field name="country_id" string="Country"/>
+                            <field name="state_id" string="State"/>
+                            <field name="town_id" string="Town"/>
+                            <field name="zip_id" string="ZIP code"/>
+                            <field name="suburb_id" string="Suburb"/>
+                            <field name="street" string="Street"/>
+                            <field name="house_number" string="Number"/>
+                            <field name="between_streets" string="Between streets"/>
+                            <field name="beneficiary_status" string="Status"/>
+                        </group>
+                        <group>
+                            <field attrs="{'required': [('is_beneficiary','=',True)]}" name="payment_method_id" readonly="0" string="Payment method"/>
+                            <field attrs="{'required': [('is_beneficiary','=',True)]}" name="bank_id" string="Bank"/>
+                            <field name="bank_branch" string="Branch"/>
+                            <field attrs="{'required': [('is_beneficiary','=',True)]}" name="account_number" string="Account number"/>
+                            <field name="clabe"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group/>
+                        <group>
+                            <field name="phone" string="Phone" widget="phone"/>
+                            <field name="mobile" string="Mobile" widget="phone"/>
+                            <field name="email" widget="email"/>
+                        </group>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Documents">
+                            <group>
+                                <field name="files_ids" widget="many2many_binary"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <!-- View tree type of beneficiary -->
+    <record id="view_beneficiary_type" model="ir.ui.view">
+        <field name="name">grp.expense.beneficiary.type.catalog</field>
+        <field name="model">grp.expense.beneficiary.type.catalog</field>
+        <field name="arch" type="xml">
+            <tree string="Beneficiary type">
+                <field name="id" string="Number"/>
+                <field name="key" string="Key"/>
+                <field name="name" string="Name"/>
+            </tree>
+        </field>
+    </record>
+    <!-- View form type of beneficiary register -->
+    <record id="view_beneficiary_type_register" model="ir.ui.view">
+        <field name="name">grp.expense.beneficiary.type.catalog</field>
+        <field name="model">grp.expense.beneficiary.type.catalog</field>
+        <field name="arch" type="xml">
+            <form string="Add beneficiary type">
+                <sheet>
+                    <group>
+                        <field name="key" string="Key"/>
+                        <field name="name" string="Name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ACTIONS -->
+    <!-- Action beneficiaries -->
+    <record id="action_beneficiary" model="ir.actions.act_window">
+        <field name="name">Beneficiary</field>
+        <field name="res_model">res.partner</field>
+        <!-- <field name="search_view_id" ref="view_beneficiary_filter"/> -->
+        <field eval="{'default_is_beneficiary': True}" name="context"/>
+        <field eval="[(5,0,0),                 (0, 0, {'view_mode': 'tree', 'view_id': ref('view_beneficiary')}),                 (0, 0, {'view_mode': 'form', 'view_id': ref('view_beneficiary_register')})]" name="view_ids"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Action beneficiary type -->
+    <record id="action_beneficiary_type" model="ir.actions.act_window">
+        <field name="name">Beneficiary type</field>
+        <field name="res_model">grp.expense.beneficiary.type.catalog</field>
+        <field eval="[(5,0,0),                 (0, 0, {'view_mode': 'tree', 'view_id': ref('view_beneficiary_type')}),                 (0, 0, {'view_mode': 'form', 'view_id': ref('view_beneficiary_type_register')})]" name="view_ids"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- MENUITEMS -->
+    <menuitem action="action_beneficiary" id="menu_beneficiary" name="Beneficiary" parent="menu_settings" groups="group_director_expense,group_user_readonly,group_manager,group_user_sp_readonly,group_sp_manager"/>
+   <!-- <menuitem action="action_beneficiary" id="menu_expense_support_beneficiary" name="Beneficiary register" parent="menu_beneficiary"/>-->
+    <menuitem action="action_beneficiary_type" id="menu_expense_support_beneficiary_type" name="Beneficiary type" parent="menu_beneficiary"/>
+
+</odoo>

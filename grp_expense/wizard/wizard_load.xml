@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="attach_xmls_wizard_form_view">
+        <field name="name">attach_xmls_wizard_form</field>
+        <field name="model">wizard.load.xml</field>
+        <field name="arch" type="xml">
+            <form string="description">
+                <group>
+                    <field name="user_id" readonly="1"/>
+                    <field name="date" readonly="1"/>
+                </group>
+                <div style="margin:0px;padding:0px;">
+                    <field nolabel="1" name="dragndrop" widget="action_invoice_document_supplier" string="Attach Supplier XML's"/>
+                </div>
+                <sheet>
+                </sheet>
+                <footer>
+                    <button string="Close" class="oe_link btn-cancel-close-xmls" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_invoice_document_supplier" model="ir.actions.act_window">
+        <field name="name">Importar XML</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name='res_model'>wizard.load.xml</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="attach_xmls_wizard_form_view"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem action="action_invoice_document_supplier" id="menu_atach_xmls_wizard" parent="grp_expense.menu_main_import_xml" sequence="10"/>
+</odoo>
+

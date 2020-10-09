@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="wizard_update_rubro_line_form">
+        <field name="name">wizard.update.rubro.line</field>
+        <field name="model">invoice.line.update.rubro</field>
+        <field name="arch" type="xml">
+            <form string="Partida">
+                <sheet>
+                    <group>
+                        <field name="ejercicio_id" options="{'no_create': True}" invisible="1"/>
+                        <field name="solicitante_id" options="{'no_create': True}" invisible="1"/>
+                        <field name="partner_id" options="{'no_create': True}" invisible="1"/>
+                        <field name="depedence_ueg_id" options="{'no_create': True}" invisible="1"/>
+                        <field name="partida_id" options="{'no_create': True}" domain="[('anio', '=', ejercicio_id),('tipopartida', '=', 'E')]"/>
+                        <field name="estructura_id" options="{'no_create': True}"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Assign" name="assign_partida" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <act_window name="Actualizar Partida"
+        res_model="invoice.line.update.rubro"
+        src_model="account.invoice.line"
+        view_mode="form"
+        target="new"
+        key2="client_action_multi"
+        id="action_wizard_update_rubro_line"/>
+</odoo>
+
